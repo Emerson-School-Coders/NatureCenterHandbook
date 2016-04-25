@@ -8,6 +8,7 @@ div.nav {
   overflow: hidden;
   height: 50px;
   background-color: green;
+  margin: 0px;
 }
 p {
   color: #066418;
