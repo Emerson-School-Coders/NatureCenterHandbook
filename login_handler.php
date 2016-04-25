@@ -1,8 +1,8 @@
 <?php
-/*$conn = new mysqli("localhost", "root");
+$conn = new mysqli("localhost", "root");
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
-}*/
+}
 ?>
 <html>
   <head>
@@ -10,6 +10,5 @@ if ($conn->connect_error) {
   </head>
   <body>
     Please wait...
-    <?php echo $_POST['password']; ?>
   </body>
 </html>
