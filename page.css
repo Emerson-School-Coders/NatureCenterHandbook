@@ -7,3 +7,6 @@ p {
   color: #066418;
   font-family: "Lucida Grande";
 }
+iframe {
+  display: block;
+}
