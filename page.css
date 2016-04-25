@@ -3,6 +3,9 @@ h1 {
   color: #089525;
   font-family: Verdana;
 }
+div.nav {
+  line-height: 0;
+}
 p {
   color: #066418;
   font-family: "Lucida Grande";
