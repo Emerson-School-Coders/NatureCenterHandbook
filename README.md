@@ -1,3 +1,0 @@
-# NatureCenterHandbook
-MINE!
-
