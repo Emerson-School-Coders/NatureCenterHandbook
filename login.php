@@ -1,3 +1,8 @@
+<?php
+echo $_SERVER['SERVER_NAME'];
+echo "<br>";
+echo $_SERVER['HTTP_HOST'];
+?>
 <html>
 <head>
   <title>The Emerson School Nature Center Official Handbook - Login</title>
