@@ -10,5 +10,6 @@ if ($conn->connect_error) {
   </head>
   <body>
     Please wait...
+    <?php echo $_POST['password']; ?>
   </body>
 </html>
