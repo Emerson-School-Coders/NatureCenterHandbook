@@ -5,6 +5,8 @@ h1 {
 }
 div.nav {
   line-height: 0;
+  overflow: hidden;
+  height: 50px;
 }
 p {
   color: #066418;
