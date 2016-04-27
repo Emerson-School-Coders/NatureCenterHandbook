@@ -10,7 +10,7 @@
       //echo "<p>You are not Tim! Go away! You may not control the users!</p><!--";
     } ?>
     <form action="useraction.php" method="POST">
-      <h3>Add new user</h3><br>
+      <h3>Add new user</h3>
       <input type="hidden" name="action" value="adduser">
       <p>
       New password: <input type="text" name="password"><br>
