@@ -7,7 +7,7 @@
     <iframe src="navigator.html"></iframe>
     <h1>User Control Panel - Tim only!</h1>
     <?php if (!isset($_COOKIE['tim'])) {
-      echo "<p>You are not Tim! Go away! You may not control the users!</p><!--";
+      //echo "<p>You are not Tim! Go away! You may not control the users!</p><!--";
     } ?>
     <form action="useraction.php" method="POST">
       <h3>Add new user</h3><br>
@@ -21,7 +21,7 @@
       </p>
     </form>
     <?php if (!isset($_COOKIE['tim'])) {
-      echo "-->";
+      //echo "-->";
     } ?>
   </body>
 </html>
