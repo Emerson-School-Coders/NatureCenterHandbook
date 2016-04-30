@@ -1,3 +1,6 @@
+<?php
+
+?>
 <html>
   <head>
     <title>Emerson School Nature Center Handbook - Tim's Control Panel</title>
@@ -18,6 +21,14 @@
       Can edit pages: <input type="checkbox" name="canedit" value="true"><br>
       Can delete pages: <input type="checkbox" name="candelete" value="true"><br>
       <input type="submit" value="Add User">
+      </p>
+    </form>
+    <form action="<?php if (isset("modpass")) {$modpass=true; echo "useraction.php";} else {$modpass=false; echo htmlspecialchars($_SERVER["PHP_SELF"]);}?>" method="POST">
+      <h3>Modify user permissions</h3>
+      <?php if ($modpass) {echo '<input type="hidden" name="action" value="moduser">';}?>
+      <p>
+        <?php if (!$modpass) {echo 'Password: <input type="text" name="password"><br><input type="submit" value="Continue"><!-- ';}?>
+        
       </p>
     </form>
     <?php if (!isset($_COOKIE['tim'])) {
