@@ -22,9 +22,9 @@ else {$tim = false;}
       <input type="hidden" name="action" value="adduser">
       <p>
       New password: <input type="text" name="password"><br>
-      Can add pages: <input type="checkbox" name="canadd" value="true"><br>
-      Can edit pages: <input type="checkbox" name="canedit" value="true"><br>
-      Can delete pages: <input type="checkbox" name="candelete" value="true"><br>
+      Can add pages: <input type="checkbox" name="canadd" value="1"><br>
+      Can edit pages: <input type="checkbox" name="canedit" value="1"><br>
+      Can delete pages: <input type="checkbox" name="candelete" value="1"><br>
       <input type="submit" value="Add User">
       </p>
     </form>
