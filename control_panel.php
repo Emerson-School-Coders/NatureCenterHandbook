@@ -35,7 +35,7 @@ else {$tim = false;}
       <h3>Modify User Permissions</h3>
       <p>
         <?php if (!$modpass) {echo 'ID: <input type="text" name="password"><br><input type="hidden" name="modpass" value="true"><input type="submit" value="Continue"><!-- ';} ?>
-        <input type="hidden" name="destination" value="<?php echo $_SERVER['REQUEST_URL']; ?>">
+        <input type="hidden" name="destination" value=<?php echo '"' . $_SERVER['REQUEST_URL'] . '"'; ?>>
         <input type="hidden" name="action" value="moduser">
         ID: <?php echo $passid; ?><br>
         <input type="hidden" name="id" value="<?php echo $passid; ?>">
