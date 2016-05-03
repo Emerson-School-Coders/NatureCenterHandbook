@@ -3,6 +3,8 @@ include("sql.inc");
 $password = $_POST("password");
 $passid = $db->querySingle("SELECT id FROM passwords WHERE password = " . $password);
 if ($_SERVER["QUERY_STRING"] != "") setcookie("modpass");
+if (isset($_COOKIE['tim'])) {$tim = true;}
+else {$tim = false;}
 ?>
 <html>
   <head>
@@ -12,7 +14,7 @@ if ($_SERVER["QUERY_STRING"] != "") setcookie("modpass");
   <body>
     <iframe src="navigator.html"></iframe>
     <h1>User Control Panel - Tim only!</h1>
-    <?php if (!isset($_COOKIE['tim'])) {
+    <?php if ($tim)) {
       echo "<p>You are not Tim! Go away! You may not control the users!</p>";
     } ?>
     <form action="useraction.php" method="POST">
@@ -26,7 +28,7 @@ if ($_SERVER["QUERY_STRING"] != "") setcookie("modpass");
       <input type="submit" value="Add User">
       </p>
     </form>
-    <form action="<?php if (isset("modpass")) {$modpass=true; echo "useraction.php";} else {$modpass=false; echo htmlspecialchars($_SERVER["PHP_SELF"]);}?>" method="POST">
+    <form action="<?php if (isset($_COOKIE["modpass"])) {$modpass=true; echo "useraction.php";} else {$modpass=false; echo htmlspecialchars($_SERVER["PHP_SELF"]);}?>" method="POST">
       <h3>Modify user permissions</h3>
       <?php if ($modpass) {echo '<input type="hidden" name="action" value="moduser">';}?>
       <p>
@@ -38,7 +40,7 @@ if ($_SERVER["QUERY_STRING"] != "") setcookie("modpass");
         <?php if (!$modpass) {echo "-->";} ?>
       </p>
     </form>
-    <?php if (!isset($_COOKIE['tim'])) {
+    <?php if ($tim) {
       //echo "-->";
     } ?>
   </body>
