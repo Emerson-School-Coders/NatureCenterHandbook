@@ -23,7 +23,7 @@ foreach ($result->FetchArray() as $onepass) {
   $i++;
 }
 if ($passfound == false || $final_i == 0) die("You have entered an invalid password. Please go back and try again.");
-$user = $db->querySingle('SELECT * FROM passwords WHERE id='.$final_i, true);
+$user = $db->querySingle('SELECT canadd, canedit, candelete, istim FROM passwords WHERE id='.$final_i, true);
 $perms = 0;
 if ($user['canadd'] == 1) $perms = 1;
 if ($user['canedit'] == 1) $perms = $perms + 2;
