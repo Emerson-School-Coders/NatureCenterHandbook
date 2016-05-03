@@ -44,7 +44,7 @@ else {$tim = false;}
         Can edit pages: <input type="checkbox" name="canedit" value="1" <?php if ($modpass) {if ($db->querySingle("SELECT canedit FROM passwords WHERE id = " . $passid) == "1") {echo "checked";}}?>><br>
         Can delete pages: <input type="checkbox" name="candelete" value="1" <?php if ($modpass) {if ($db->querySingle("SELECT candelete FROM passwords WHERE id = " . $passid) == "1") {echo "checked";}}?>><br>
         <input type="submit" value="Edit User">
-        <?php if (!$modpass) {echo "-->";} ?>
+        <?php if (!$modpass && $tim) {echo "-->";} ?>
       </p>
     </form>
     <form action="useraction.php" method="POST">
