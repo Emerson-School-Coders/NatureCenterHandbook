@@ -14,7 +14,7 @@ if ($_SERVER['QUERY_STRING'] == "logout") {
 $result = $db->query('SELECT password FROM passwords');
 $passfound = false;
 $final_i = 0;
-$i = 1;
+$i = 0;
 foreach ($result->FetchArray() as $onepass) {
   if ($_POST['password'] == $onepass) {
     $passfound = true;
