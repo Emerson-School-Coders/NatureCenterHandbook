@@ -33,9 +33,11 @@ else {$tim = false;}
     </form>
     <form action="<?php if ($modpass) {echo "useraction.php";} else {echo htmlspecialchars($_SERVER["PHP_SELF"]);}?>" method="POST">
       <h3>Modify User Permissions</h3>
-      <?php if ($modpass) {echo '<input type="hidden" name="action" value="moduser"><input type="hidden" name="id" value="' . $passid . '"><input type="hidden" name="destination" value="<?php echo $_SERVER["REQUEST_URL"]; ?>"/>';}?>
       <p>
         <?php if (!$modpass) {echo 'ID: <input type="text" name="password"><br><input type="hidden" name="modpass" value="true"><input type="submit" value="Continue"><!-- ';}?>
+        <input type="hidden" name="destination" value="<?php echo $_SERVER["REQUEST_URL"]; ?>"/>
+        <input type="hidden" name="action" value="moduser">
+        <input type="hidden" name="id" value="<?php echo $passid; ?>">
         Can add pages: <input type="checkbox" name="canadd" value="true" <?php if ($modpass) {if ($db->querySingle("SELECT canadd FROM passwords WHERE id = " . $passid) == "1") {echo "checked";}}?>><br>
         Can edit pages: <input type="checkbox" name="canedit" value="true" <?php if ($modpass) {if ($db->querySingle("SELECT canedit FROM passwords WHERE id = " . $passid) == "1") {echo "checked";}}?>><br>
         Can delete pages: <input type="checkbox" name="candelete" value="true" <?php if ($modpass) {if ($db->querySingle("SELECT candelete FROM passwords WHERE id = " . $passid) == "1") {echo "checked";}}?>><br>
