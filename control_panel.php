@@ -22,7 +22,7 @@ else {$tim = false;}
     <form action="useraction.php" method="POST">
       <h3>Add New User</h3>
       <input type="hidden" name="action" value="adduser">
-      <input type="hidden" name="destination" value="<?php echo $_SERVER["REQUEST_URL"]; ?>"/>
+      <input type="hidden" name="destination" value="<?php echo $_SERVER['REQUEST_URL']; ?>"/>
       <p>
       New password: <input type="text" name="password"><br>
       Can add pages: <input type="checkbox" name="canadd" value="1"><br>
@@ -35,7 +35,7 @@ else {$tim = false;}
       <h3>Modify User Permissions</h3>
       <p>
         <?php if (!$modpass) {echo 'ID: <input type="text" name="password"><br><input type="hidden" name="modpass" value="true"><input type="submit" value="Continue"><!-- ';} ?>
-        <input type="hidden" name="destination" value="<?php echo $_SERVER["REQUEST_URL"]; ?>">
+        <input type="hidden" name="destination" value="<?php echo $_SERVER['REQUEST_URL']; ?>">
         <input type="hidden" name="action" value="moduser">
         <input type="hidden" name="id" value="<?php echo $passid; ?>">
         Can add pages: <input type="checkbox" name="canadd" value="1" <?php if ($modpass) {if ($db->querySingle("SELECT canadd FROM passwords WHERE id = " . $passid) == "1") {echo "checked";}}?>><br>
@@ -47,7 +47,7 @@ else {$tim = false;}
     </form>
     <form action="useraction.php" method="POST">
       <h3>Delete User</h3>
-      <input type="hidden" name="destination" value="<?php echo $_SERVER["REQUEST_URL"]; ?>"/>
+      <input type="hidden" name="destination" value="<?php echo $_SERVER['REQUEST_URL']; ?>"/>
       <input type="hidden" name="action" value="deluser">
       <p>ID (see below): <input type="text" name="id"><br>
       <input type="submit" value="Delete User"></p>
