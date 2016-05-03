@@ -2,7 +2,8 @@
 include("sql.inc");
 if ($_SERVER['QUERY_STRING'] == "init") {
   $db->exec('DROP TABLE passwords');
-  $db->exec('CREATE TABLE passwords (id INTEGER PRIMARY KEY, password STRING, canadd BOOLEAN, canedit BOOLEAN, candelete BOOLEAN, entyear INT, entgrade INT)');
+  $db->exec('CREATE TABLE passwords (id INTEGER PRIMARY KEY, password STRING, canadd BOOLEAN, canedit BOOLEAN, candelete BOOLEAN, istim BOOLEAN, entyear INT, entgrade INT)');
+  $db->exec('INSERT INTO passwords (id, password, canadd, canedit, candelete, istim) VALUES (NULL, "thisistimw", 1, 1, 1, 1)');
 }
 $result = $db->query('SELECT password FROM passwords');
 $passfound = false;
@@ -21,6 +22,7 @@ $perms = 0;
 if ($user['canadd'] == 1) $perms = 1;
 if ($user['canedit'] == 1) $perms = $perms + 2;
 if ($user['candelete'] == 1) $perms = $perms + 4;
+if ($user['istim'] == 1) setcookie("tim");
 setcookie("userperms", $perms);
 setcookie("userid", $final_i);
 header("Location: index.html"); /* Redirect browser */
