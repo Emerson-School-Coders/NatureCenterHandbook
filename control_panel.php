@@ -55,6 +55,7 @@ else {$tim = false;}
     </form>
     <div id="viewusers">
     <h3>View all users</h3>
+    <p>
     <table>
       <tr><td>ID</td><td>Password</td><td>Can add</td><td>Can edit</td><td>Can delete</td></tr>
     <?php
@@ -70,6 +71,7 @@ else {$tim = false;}
     }
     ?>
     </table>
+    </p>
     </div>
     <?php if ($tim) {
       //echo "-->";
