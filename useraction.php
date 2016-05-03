@@ -7,6 +7,7 @@ if ($_POST["action"] == "adduser") {
   $db->exec("INSERT INTO passwords (id,password,canadd,canedit,candelete) VALUES (NULL,\"" . $_POST["password"] . "\"," . $_POST["canadd"] . "," . $_POST["canedit"] . "," . $_POST["candelete"] . ")");
 }
 else if ($_POST["action"] == "deluser") {
+  if ($db->querySingle("SELECT istim FROM passwords WHERE id=".$_POST['id']) == 1) die("You cannot delete Tim's account!"); 
   $db->exec("DELETE FROM passwords WHERE id = " . $_POST["id"]);
 }
 else if ($_POST["action"] == "moduser") {
