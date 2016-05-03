@@ -1,5 +1,8 @@
 <?php
 include("sql.inc");
+$password = $_POST("password");
+$passid = $db->querySingle("SELECT id FROM passwords WHERE password = " . $password);
+if ($_SERVER["QUERY_STRING"] != "") setcookie("modpass");
 ?>
 <html>
   <head>
@@ -10,7 +13,7 @@ include("sql.inc");
     <iframe src="navigator.html"></iframe>
     <h1>User Control Panel - Tim only!</h1>
     <?php if (!isset($_COOKIE['tim'])) {
-      echo "<p>You are not Tim! Go away! You may not control the users!</p><!--";
+      echo "<p>You are not Tim! Go away! You may not control the users!</p>";
     } ?>
     <form action="useraction.php" method="POST">
       <h3>Add new user</h3>
@@ -27,15 +30,16 @@ include("sql.inc");
       <h3>Modify user permissions</h3>
       <?php if ($modpass) {echo '<input type="hidden" name="action" value="moduser">';}?>
       <p>
-        <?php if (!$modpass) {echo 'Password: <input type="text" name="password"><br><input type="submit" value="Continue"><!-- ';}?>
-        Can add pages: <input type="checkbox" name="canadd" value="true" <?php if ($modpass) {if () {echo "checked";}}?>><br>
-        Can edit pages: <input type="checkbox" name="canedit" value="true"><br>
-        Can delete pages: <input type="checkbox" name="candelete" value="true"><br>
+        <?php if (!$modpass) {echo 'Password: <input type="text" name="password"><br><input type="hidden" name="modpass" value="true"><input type="submit" value="Continue"><!-- ';}?>
+        Can add pages: <input type="checkbox" name="canadd" value="true" <?php if ($modpass) {if ($db->querySingle("SELECT canadd FROM passwords WHERE id = " . $passid) == "1") {echo "checked";}}?>><br>
+        Can edit pages: <input type="checkbox" name="canedit" value="true" <?php if ($modpass) {if ($db->querySingle("SELECT canedit FROM passwords WHERE id = " . $passid) == "1") {echo "checked";}}?>><br>
+        Can delete pages: <input type="checkbox" name="candelete" value="true" <?php if ($modpass) {if ($db->querySingle("SELECT candelete FROM passwords WHERE id = " . $passid) == "1") {echo "checked";}}?>><br>
         <input type="submit" value="Edit User">
+        <?php if (!$modpass) {echo "-->";} ?>
       </p>
     </form>
     <?php if (!isset($_COOKIE['tim'])) {
-      echo "-->";
+      //echo "-->";
     } ?>
   </body>
 </html>
