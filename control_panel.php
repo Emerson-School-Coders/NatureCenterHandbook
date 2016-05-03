@@ -1,6 +1,6 @@
 <?php
 include("sql.inc");
-if (isset($_POST["modpass"]) != "") {
+if (isset($_POST["modpass"])) {
 $passid = $_POST["password"];
 $modpass = true;
 }
