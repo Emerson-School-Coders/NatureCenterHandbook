@@ -57,7 +57,7 @@ else {$tim = false;}
     <h3>View all users</h3>
     <p>
     <table>
-      <tr><td>ID</td><td>Password</td><td>Can add</td><td>Can edit</td><td>Can delete</td></tr>
+      <tr><td width=50>ID</td><td width=250>Password</td><td>Can add</td><td>Can edit</td><td>Can delete</td></tr>
     <?php
     $query = $db->query("SELECT * FROM passwords");
     while ($entry = $query->fetchArray(SQLITE3_ASSOC)) {
