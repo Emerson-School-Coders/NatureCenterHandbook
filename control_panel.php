@@ -17,8 +17,8 @@ else {$tim = false;}
   <body>
     <?php include "navigator.php";?>
     <h1>User Control Panel - Tim only!</h1>
-    <?php if ($tim) {
-      echo "<p>You are not Tim! Go away! You may not control the users!</p>";
+    <?php if (!$tim) {
+      echo "<p>You are not Tim! Go away! You may not control the users!</p><!--";
     } ?>
     <form action="useraction.php" method="POST">
       <h3>Add New User</h3>
@@ -86,8 +86,8 @@ else {$tim = false;}
     </table>
     </p>
     </div>
-    <?php if ($tim) {
-      //echo "-->";
+    <?php if (!$tim) {
+      echo "-->";
     } ?>
   </body>
 </html>
