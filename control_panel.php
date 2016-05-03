@@ -5,6 +5,7 @@ $passid = $_POST["password"];
 $modpass = true;
 }
 else {$modpass = false;}
+echo $modpass;
 if (isset($_COOKIE['tim'])) {$tim = true;}
 else {$tim = false;}
 ?>
