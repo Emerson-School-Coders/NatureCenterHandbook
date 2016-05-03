@@ -31,7 +31,7 @@ else {$tim = false;}
       <input type="submit" value="Add User">
       </p>
     </form>
-    <form action="<?php if (isset($_COOKIE["modpass"])) {$modpass=true; echo "useraction.php";} else {$modpass=false; echo htmlspecialchars($_SERVER["PHP_SELF"]);}?>" method="POST">
+    <form action="<?php if ($modpass) {echo "useraction.php";} else {echo htmlspecialchars($_SERVER["PHP_SELF"]);}?>" method="POST">
       <h3>Modify User Permissions</h3>
       <?php if ($modpass) {echo '<input type="hidden" name="action" value="moduser">';}?>
       <p><?php if ($modpass) {echo "true";} else {echo "false";} ?>
