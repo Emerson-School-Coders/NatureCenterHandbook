@@ -1,7 +1,7 @@
 <?php
 include("sql.inc");
 if ($_SERVER['QUERY_STRING'] == "init") {
-  $db->exec('CREATE TABLE passwords (id INT, password STRING, canadd BOOLEAN, canedit BOOLEAN, candelete BOOLEAN, entyear INT, entgrade INT)');
+  $db->exec('CREATE TABLE passwords (password STRING, canadd BOOLEAN, canedit BOOLEAN, candelete BOOLEAN, entyear INT, entgrade INT)');
 }
 $result = $db->query('SELECT password FROM passwords');
 $passfound = false;
