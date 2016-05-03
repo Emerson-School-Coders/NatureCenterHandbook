@@ -55,14 +55,21 @@ else {$tim = false;}
     </form>
     <div id="viewusers">
     <h3>View all users</h3>
-    <p>0 = no, 1 = yes<br>
+    <table>
+      <tr><td>ID</td><td>Password</td><td>Can add</td><td>Can edit</td><td>Can delete</td></tr>
     <?php
     $query = $db->query("SELECT * FROM passwords");
     while ($entry = $query->fetchArray(SQLITE3_ASSOC)) {
-     echo 'ID: ' . $entry['id'] . '  Password: ' . $entry['password'] . '  Can add: ' . $entry['canadd'] . '  Can edit: ' . $entry['canedit'] . '  Can delete: ' . $entry['candelete'] . '<br>';
+      if ($entry['canadd'] == 1) {$canadd = " checked";}
+      else {$canadd = "";}
+      if ($entry['canedit'] == 1) {$canedit = " checked";}
+      else {$canedit = "";}
+      if ($entry['candelete'] == 1) {$candelete = " checked";}
+      else {$candelete = "";}
+      echo '<tr><td>' . $entry['id'] . '</td><td>' . $entry['password'] . '</td><td><input type="checkbox" disabled' . $canadd . '></td><td><input type="checkbox" disabled' . $canedit . '></td><td><input type="checkbox" disabled' . $candelete . '></td></tr>';
     }
     ?>
-    </p>
+    </table>
     </div>
     <?php if ($tim) {
       //echo "-->";
