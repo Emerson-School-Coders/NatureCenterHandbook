@@ -45,8 +45,8 @@ else {$tim = false;}
     <h3>View all users</h3>
     <p>0 = no, 1 = yes
     <?php
-    $entry = $db->query("SELECT * FROM passwords");
-    while ($entry = sqlite_fetch_array($query, SQLITE_ASSOC)) {
+    $query = $db->query("SELECT * FROM passwords");
+    while ($entry = $query->fetch(SQLITE_ASSOC)) {
      echo 'Password: ' . $entry['password'] . '  Can add: ' . $entry['canadd'] . '  Can edit: ' . $entry['canedit'] . '  Can delete: ' . $entry['candelete'] . '<br>';
     }
     ?>
