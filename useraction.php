@@ -13,7 +13,7 @@ else if ($_POST["action"] == "moduser") {
   if (!isset($_POST["canadd"])) {$_POST["canadd"] = "0";}
   if (!isset($_POST["canedit"])) {$_POST["canedit"] = "0";}
   if (!isset($_POST["candelete"])) {$_POST["candelete"] = "0";}
-  $db->exec("INSERT INTO passwords (id,password,canadd,canedit,candelete) VALUES (" . $_POST["id"] . ",\"" . $db->querySingle("SELECT password FROM passwords WHERE id = " . $_POST["id"]) . "\"," . $_POST["canadd"] . "," . $_POST["canedit"] . "," . $_POST["candelete"] . ")");
+  $db->exec("UPDATE passwords SET canadd=".$_POST["canadd"].", canedit=".$_POST["canedit"].", candelete=".$_POST["candelete"]." WHERE id=".$_POST["id"]);
 }
 if(isset($_REQUEST["destination"])){
       header("Location: {$_SERVER["HTTP_REFERER"]}");
