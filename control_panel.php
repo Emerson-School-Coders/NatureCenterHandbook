@@ -53,6 +53,16 @@ else {$tim = false;}
       <p>ID (see below): <input type="text" name="id"><br>
       <input type="submit" value="Delete User"></p>
     </form>
+    <form action="useraction.php" method="POST">
+      <h3>Change Password</h3>
+      <input type="hidden" name="destination" value="<?php echo $_SERVER['REQUEST_URL']; ?>"/>
+      <input type="hidden" name="action" value="changepass">
+      <p>
+        Old password: <input type="password" name="oldpass"><br>
+        New password: <input type="password" name="newpass"><br>
+        <input type="submit" value="Change Password"
+      </p>
+    </form>
     <div id="viewusers">
     <h3>View all users</h3>
     <p>
