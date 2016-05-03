@@ -41,6 +41,13 @@ else {$tim = false;}
         <?php if (!$modpass) {echo "-->";} ?>
       </p>
     </form>
+    <div id="viewusers">
+    <h3>View all users</h3>
+    <?php
+    $table = $db->query("SELECT * FROM passwords");
+    echo $table;
+    ?>
+    </div>
     <?php if ($tim) {
       //echo "-->";
     } ?>
