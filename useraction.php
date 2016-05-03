@@ -7,3 +7,9 @@ if ($_POST["action"] == "adduser") {
   $db->exec("INSERT INTO passwords (id,password,canadd,canedit,candelete) VALUES (NULL,\"" . $_POST["password"] . "\"," . $_POST["canadd"] . "," . $_POST["canedit"] . "," . $_POST["candelete"] . ")");
 }
 ?>
+<html>
+  <head>
+    <title>Doing user action...</title>
+    <script>history.go(-1);</script>
+  </head>
+</html>
