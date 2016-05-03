@@ -33,7 +33,7 @@ else {$tim = false;}
     </form>
     <form action="<?php if ($modpass) {echo "useraction.php";} else {echo htmlspecialchars($_SERVER["PHP_SELF"]);}?>" method="POST">
       <h3>Modify User Permissions</h3>
-      <?php if ($modpass) {echo '<input type="hidden" name="action" value="moduser">';}?>
+      <?php if ($modpass) {echo '<input type="hidden" name="action" value="moduser"><input type="hidden" name="id" value="' . $passid . '">';}?>
       <p><?php if ($modpass) {echo "true";} else {echo "false";} ?>
         <?php if (!$modpass) {echo 'ID: <input type="text" name="password"><br><input type="hidden" name="modpass" value="true"><input type="submit" value="Continue"><!-- ';}?>
         Can add pages: <input type="checkbox" name="canadd" value="true" <?php if ($modpass) {if ($db->querySingle("SELECT canadd FROM passwords WHERE id = " . $passid) == "1") {echo "checked";}}?>><br>
