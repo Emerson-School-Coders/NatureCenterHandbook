@@ -6,6 +6,9 @@ if ($_POST["action"] == "adduser") {
   if (!isset($_POST["candelete"])) {$_POST["candelete"] = "0";}
   $db->exec("INSERT INTO passwords (id,password,canadd,canedit,candelete) VALUES (NULL,\"" . $_POST["password"] . "\"," . $_POST["canadd"] . "," . $_POST["canedit"] . "," . $_POST["candelete"] . ")");
 }
+else if ($_POST["action"] == "deluser") {
+  $db->exec("DELETE FROM passwords WHERE id = " . $_POST["id"]);
+}
 if(isset($_REQUEST["destination"])){
       header("Location: {$_REQUEST["destination"]}");
   }else if(isset($_SERVER["HTTP_REFERER"])){
