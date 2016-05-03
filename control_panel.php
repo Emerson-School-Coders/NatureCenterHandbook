@@ -37,7 +37,7 @@ else {$tim = false;}
         <?php if (!$modpass) {echo 'ID: <input type="text" name="password"><br><input type="hidden" name="modpass" value="true"><input type="submit" value="Continue"><!-- ';} ?>
         <input type="hidden" name="destination" value="control_panel.php">
         <input type="hidden" name="action" value="moduser">
-        ID: <?php echo $passid . $_SERVER['REQUEST_URL']; ?><br>
+        ID: <?php echo $passid; ?><br>
         <input type="hidden" name="id" value="<?php echo $passid; ?>">
         Can add pages: <input type="checkbox" name="canadd" value="1" <?php if ($modpass) {if ($db->querySingle("SELECT canadd FROM passwords WHERE id = " . $passid) == "1") {echo "checked";}}?>><br>
         Can edit pages: <input type="checkbox" name="canedit" value="1" <?php if ($modpass) {if ($db->querySingle("SELECT canedit FROM passwords WHERE id = " . $passid) == "1") {echo "checked";}}?>><br>
