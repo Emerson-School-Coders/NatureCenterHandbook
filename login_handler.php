@@ -29,7 +29,7 @@ if ($user['canadd'] == 1) $perms = 1;
 if ($user['canedit'] == 1) $perms = $perms + 2;
 if ($user['candelete'] == 1) $perms = $perms + 4;
 $time = time() + 3600;
-if ($user['istim'] == 1) setcookie("istim", "", $time);
+if ($user['istim'] == 1) {setcookie("tim", "", $time);}
 setcookie("userperms", $perms, $time);
 setcookie("userid", $final_i, $time);
 header("Location: index.html"); /* Redirect browser */
