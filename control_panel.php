@@ -1,5 +1,5 @@
 <?php
-
+include("sql.inc");
 ?>
 <html>
   <head>
