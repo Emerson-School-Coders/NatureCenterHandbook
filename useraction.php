@@ -16,9 +16,9 @@ else if ($_POST["action"] == "moduser") {
   $db->exec("INSERT INTO passwords (id,password,canadd,canedit,candelete) VALUES (" . $_POST["id"] . ",\"" . $db->querySingle("SELECT password FROM passwords WHERE id = " . $_POST["id"]) . "\"," . $_POST["canadd"] . "," . $_POST["canedit"] . "," . $_POST["candelete"] . ")");
 }
 if(isset($_REQUEST["destination"])){
-      header("Location: {$_REQUEST["destination"]}");
-  }else if(isset($_SERVER["HTTP_REFERER"])){
       header("Location: {$_SERVER["HTTP_REFERER"]}");
+  }else if(isset($_SERVER["HTTP_REFERER"])) {
+    header("Location: {$_REQUEST["destination"]}");
   }else{
        header("Location: /index.html");
   }
