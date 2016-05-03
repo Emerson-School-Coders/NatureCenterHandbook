@@ -1,5 +1,3 @@
 <?php
-foreach ($_COOKIES as $cookie) {
-  echo $cookie . '\n';
-}
+print_r($_COOKIE);
 ?>
