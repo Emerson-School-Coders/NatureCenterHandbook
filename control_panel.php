@@ -18,7 +18,7 @@ else {$tim = false;}
       echo "<p>You are not Tim! Go away! You may not control the users!</p>";
     } ?>
     <form action="useraction.php" method="POST">
-      <h3>Add new user</h3>
+      <h3>Add New User</h3>
       <input type="hidden" name="action" value="adduser">
       <input type="hidden" name="destination" value="<?php echo $_SERVER["REQUEST_URL"]; ?>"/>
       <p>
@@ -30,7 +30,7 @@ else {$tim = false;}
       </p>
     </form>
     <form action="<?php if (isset($_COOKIE["modpass"])) {$modpass=true; echo "useraction.php";} else {$modpass=false; echo htmlspecialchars($_SERVER["PHP_SELF"]);}?>" method="POST">
-      <h3>Modify user permissions</h3>
+      <h3>Modify User Permissions</h3>
       <?php if ($modpass) {echo '<input type="hidden" name="action" value="moduser">';}?>
       <p>
         <?php if (!$modpass) {echo 'Password: <input type="text" name="password"><br><input type="hidden" name="modpass" value="true"><input type="submit" value="Continue"><!-- ';}?>
@@ -42,6 +42,7 @@ else {$tim = false;}
       </p>
     </form>
     <form action="useraction.php" method="POST">
+      <h3>Delete User</h3>
       <input type="hidden" name="action" value="deluser">
       <p>ID (see below): </p><input type="text" name="id"><br>
       <input type="submit" value="Delete User">
