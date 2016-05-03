@@ -14,7 +14,7 @@ else {$tim = false;}
   <body>
     <iframe src="navigator.html"></iframe>
     <h1>User Control Panel - Tim only!</h1>
-    <?php if ($tim)) {
+    <?php if ($tim) {
       echo "<p>You are not Tim! Go away! You may not control the users!</p>";
     } ?>
     <form action="useraction.php" method="POST">
