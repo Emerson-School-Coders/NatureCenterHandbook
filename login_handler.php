@@ -19,6 +19,7 @@ foreach ($result->FetchArray() as $onepass) {
   if ($_POST['password'] == $onepass) {
     $passfound = true;
     $final_i = $i;
+    break;
   }
   $i++;
 }
