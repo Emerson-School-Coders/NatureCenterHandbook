@@ -28,7 +28,10 @@
       <?php if ($modpass) {echo '<input type="hidden" name="action" value="moduser">';}?>
       <p>
         <?php if (!$modpass) {echo 'Password: <input type="text" name="password"><br><input type="submit" value="Continue"><!-- ';}?>
-        
+        Can add pages: <input type="checkbox" name="canadd" value="true" <?php if ($modpass) {if () {echo "checked";}}?>><br>
+        Can edit pages: <input type="checkbox" name="canedit" value="true"><br>
+        Can delete pages: <input type="checkbox" name="candelete" value="true"><br>
+        <input type="submit" value="Edit User">
       </p>
     </form>
     <?php if (!isset($_COOKIE['tim'])) {
