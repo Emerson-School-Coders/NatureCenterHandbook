@@ -1,6 +1,6 @@
 <?php
 include("sql.inc");
-$password = $_POST("password");
+$password = $_POST["password"];
 $passid = $db->querySingle("SELECT id FROM passwords WHERE password = " . $password);
 if ($_SERVER["QUERY_STRING"] != "") setcookie("modpass");
 if (isset($_COOKIE['tim'])) {$tim = true;}
