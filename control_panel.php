@@ -41,13 +41,18 @@ else {$tim = false;}
         <?php if (!$modpass) {echo "-->";} ?>
       </p>
     </form>
+    <form action="useraction.php" method="POST">
+      <input type="hidden" name="action" value="deluser">
+      <p>ID (see below): </p><input type="text" name="id"><br>
+      <input type="submit" value="Delete User">
+    </form>
     <div id="viewusers">
     <h3>View all users</h3>
-    <p>0 = no, 1 = yes
+    <p>0 = no, 1 = yes<br>
     <?php
     $query = $db->query("SELECT * FROM passwords");
     while ($entry = $query->fetchArray(SQLITE3_ASSOC)) {
-     echo 'Password: ' . $entry['password'] . '  Can add: ' . $entry['canadd'] . '  Can edit: ' . $entry['canedit'] . '  Can delete: ' . $entry['candelete'] . '<br>';
+     echo 'ID: ' . $entry['id'] . '  Password: ' . $entry['password'] . '  Can add: ' . $entry['canadd'] . '  Can edit: ' . $entry['canedit'] . '  Can delete: ' . $entry['candelete'] . '<br>';
     }
     ?>
     </p>
