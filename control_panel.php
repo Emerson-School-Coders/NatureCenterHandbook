@@ -79,7 +79,7 @@ else {$tim = false;}
       if ($entry['candelete'] == 1) {$candelete = " checked";}
       else {$candelete = "";}
       if ($entry['istim'] == 1) $password = "Tim: &middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;";
-      else $password = $entry['id'];
+      else $password = $entry['password'];
       echo '<tr><td>' . $entry['id'] . '</td><td>' . $password . '</td><td><input type="checkbox" disabled' . $canadd . '></td><td><input type="checkbox" disabled' . $canedit . '></td><td><input type="checkbox" disabled' . $candelete . '></td></tr>';
     }
     ?>
