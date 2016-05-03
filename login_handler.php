@@ -1,10 +1,5 @@
 <?php
-class MyDB extends SQLite3 {
-  function __construct() {
-    $this->open('database.db');
-  }
-}
-$db = new MyDB();
+include("sql.inc");
 if ($_SERVER['QUERY_STRING'] == "init") {
   $db->exec('CREATE TABLE passwords (id INT, password STRING, canadd BOOLEAN, canedit BOOLEAN, entyear INT, entgrade INT)');
 }
