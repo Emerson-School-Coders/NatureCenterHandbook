@@ -43,10 +43,14 @@ else {$tim = false;}
     </form>
     <div id="viewusers">
     <h3>View all users</h3>
+    <p>0 = no, 1 = yes
     <?php
-    $table = $db->query("SELECT * FROM passwords");
-    echo $table;
+    $entry = $db->query("SELECT * FROM passwords");
+    while ($entry = sqlite_fetch_array($query, SQLITE_ASSOC)) {
+     echo 'Password: ' . $entry['password'] . '  Can add: ' . $entry['canadd'] . '  Can edit: ' . $entry['canedit'] . '  Can delete: ' . $entry['candelete'] . '<br>';
+    }
     ?>
+    </p>
     </div>
     <?php if ($tim) {
       //echo "-->";
