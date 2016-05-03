@@ -5,6 +5,12 @@ if ($_SERVER['QUERY_STRING'] == "init") {
   $db->exec('CREATE TABLE passwords (id INTEGER PRIMARY KEY, password STRING, canadd BOOLEAN, canedit BOOLEAN, candelete BOOLEAN, istim BOOLEAN, entyear INT, entgrade INT)');
   $db->exec('INSERT INTO passwords (id, password, canadd, canedit, candelete, istim) VALUES (NULL, "thisistimw", 1, 1, 1, 1)');
 }
+if ($_SERVER['QUERY_STRING'] == "logout") {
+  setcookie("userid", "", time() - 3600);
+  setcookie("userperms", "", time() - 3600);
+  if (isset($_COOKIE['tim'])) setcookie("tim", "", time() - 3600);
+  header("Location: index.html");
+}
 $result = $db->query('SELECT password FROM passwords');
 $passfound = false;
 $final_i = 0;
@@ -22,9 +28,10 @@ $perms = 0;
 if ($user['canadd'] == 1) $perms = 1;
 if ($user['canedit'] == 1) $perms = $perms + 2;
 if ($user['candelete'] == 1) $perms = $perms + 4;
-if ($user['istim'] == 1) setcookie("tim");
-setcookie("userperms", $perms);
-setcookie("userid", $final_i);
+$time = time() + 3600;
+if ($user['istim'] == 1) setcookie("tim", "", $time);
+setcookie("userperms", $perms, $time);
+setcookie("userid", $final_i, $time);
 header("Location: index.html"); /* Redirect browser */
 exit();
 ?>
