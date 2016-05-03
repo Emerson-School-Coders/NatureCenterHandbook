@@ -1,5 +1,5 @@
 <?php
-include("sql.inc");
+include_once("sql.inc");
 if (isset($_POST["modpass"]) && !empty($_POST["modpass"]) && !is_null($_POST["modpass"]) && isset($_POST["password"]) && !empty($_POST["password"]) && !is_null($_POST["password"])) {
 if ($db->querySingle("SELECT istim FROM passwords WHERE id=".$_POST['password']) == 1) die("You cannot edit Tim's permissions!");
 $passid = $_POST["password"];
