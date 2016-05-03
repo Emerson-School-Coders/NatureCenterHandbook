@@ -44,8 +44,8 @@ else {$tim = false;}
     <form action="useraction.php" method="POST">
       <h3>Delete User</h3>
       <input type="hidden" name="action" value="deluser">
-      <p>ID (see below): <input type="text" name="id"></p>
-      <input type="submit" value="Delete User">
+      <p>ID (see below): <input type="text" name="id"><br>
+      <input type="submit" value="Delete User"></p>
     </form>
     <div id="viewusers">
     <h3>View all users</h3>
