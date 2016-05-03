@@ -9,6 +9,15 @@ if ($_POST["action"] == "adduser") {
 else if ($_POST["action"] == "deluser") {
   $db->exec("DELETE FROM passwords WHERE id = " . $_POST["id"]);
 }
+else if ($_POST["action"] == "moduser") {
+  if (!isset($_POST["canadd"])) {$_POST["canadd"] = "0";}
+  if (!isset($_POST["canedit"])) {$_POST["canedit"] = "0";}
+  if (!isset($_POST["candelete"])) {$_POST["candelete"] = "0";}
+  $db->exec("INSERT INTO passwords (id,password,canadd,canedit,candelete) VALUES (" . $_POST["id"] . ",\"" . $db->querySingle("SELECT password FROM passwords WHERE id = " . $_POST["id"]) . "\"," . $_POST["canadd"] . "," . $_POST["canedit"] . "," . $_POST["candelete"] . ")");
+}
+else {
+  die("Invalid user action!");
+}
 if(isset($_REQUEST["destination"])){
       header("Location: {$_REQUEST["destination"]}");
   }else if(isset($_SERVER["HTTP_REFERER"])){
