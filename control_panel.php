@@ -46,7 +46,7 @@ else {$tim = false;}
     <p>0 = no, 1 = yes
     <?php
     $query = $db->query("SELECT * FROM passwords");
-    while ($entry = $query->fetch(SQLITE_ASSOC)) {
+    while ($entry = $query->fetchArray(SQLITE3_ASSOC)) {
      echo 'Password: ' . $entry['password'] . '  Can add: ' . $entry['canadd'] . '  Can edit: ' . $entry['canedit'] . '  Can delete: ' . $entry['candelete'] . '<br>';
     }
     ?>
