@@ -20,6 +20,7 @@ else {$tim = false;}
     <form action="useraction.php" method="POST">
       <h3>Add new user</h3>
       <input type="hidden" name="action" value="adduser">
+      <input type="hidden" name="destination" value="<?php echo $_SERVER["REQUEST_URL"]; ?>"/>
       <p>
       New password: <input type="text" name="password"><br>
       Can add pages: <input type="checkbox" name="canadd" value="1"><br>
