@@ -1,8 +1,10 @@
 <?php
 include("sql.inc");
-$password = $_POST["password"];
-$passid = $db->querySingle("SELECT id FROM passwords WHERE password = " . $password);
-if ($_SERVER["QUERY_STRING"] != "") setcookie("modpass");
+if (isset($_POST["modpass"]) != "") {
+$passid = $_POST["password"];
+$modpass = true;
+}
+else {$modpass = false;}
 if (isset($_COOKIE['tim'])) {$tim = true;}
 else {$tim = false;}
 ?>
@@ -33,7 +35,7 @@ else {$tim = false;}
       <h3>Modify User Permissions</h3>
       <?php if ($modpass) {echo '<input type="hidden" name="action" value="moduser">';}?>
       <p>
-        <?php if (!$modpass) {echo 'Password: <input type="text" name="password"><br><input type="hidden" name="modpass" value="true"><input type="submit" value="Continue"><!-- ';}?>
+        <?php if (!$modpass) {echo 'ID: <input type="text" name="password"><br><input type="hidden" name="modpass" value="true"><input type="submit" value="Continue"><!-- ';}?>
         Can add pages: <input type="checkbox" name="canadd" value="true" <?php if ($modpass) {if ($db->querySingle("SELECT canadd FROM passwords WHERE id = " . $passid) == "1") {echo "checked";}}?>><br>
         Can edit pages: <input type="checkbox" name="canedit" value="true" <?php if ($modpass) {if ($db->querySingle("SELECT canedit FROM passwords WHERE id = " . $passid) == "1") {echo "checked";}}?>><br>
         Can delete pages: <input type="checkbox" name="candelete" value="true" <?php if ($modpass) {if ($db->querySingle("SELECT candelete FROM passwords WHERE id = " . $passid) == "1") {echo "checked";}}?>><br>
