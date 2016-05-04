@@ -22,6 +22,7 @@ foreach ($result as $onepass) {
   }
   $i++;
 }
+if (end($result) == $onepass) {$final_i = $i; $passfound = true;}
 if ($passfound == false || $final_i == 0) die("You have entered an invalid password. Please go back and try again. Last ID checked: " . $i);
 $user = $db->querySingle('SELECT canadd, canedit, candelete, istim FROM passwords WHERE id='.$final_i, true);
 $perms = 0;
