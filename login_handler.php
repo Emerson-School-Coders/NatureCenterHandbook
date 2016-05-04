@@ -11,11 +11,11 @@ if ($_SERVER['QUERY_STRING'] == "logout") {
   if (isset($_COOKIE['tim'])) setcookie("tim", "", time() - 3600);
   header("Location: index.html");
 }
-$result = $db->query('SELECT password FROM passwords');
+$result = $db->querySingle('SELECT password FROM passwords', true);
 $passfound = false;
 $final_i = 0;
 $i = 0;
-foreach ($result->FetchArray() as $onepass) {
+foreach ($result as $onepass) {
   if ($_POST['password'] == $onepass) {
     $passfound = true;
     $final_i = $i;
