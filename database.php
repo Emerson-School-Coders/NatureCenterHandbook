@@ -2,6 +2,6 @@
 include "sql.inc";
 $i = 1;
 while ($query = $db->querySingle("SELECT * FROM passwords WHERE id=" . $i, true)) {
-  print_s($query);
+  print_r($query);
   $i++;
 }
