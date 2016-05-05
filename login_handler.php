@@ -20,7 +20,7 @@ $i = 0;
 foreach ($result as $onepass) {
   if ($_POST['password'] == $onepass) {
     $passfound = true;
-    $final_i = $i;
+    $final_i = $i+1;
     break;
   }
   $i++;
