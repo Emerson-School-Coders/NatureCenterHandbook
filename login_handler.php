@@ -6,9 +6,11 @@ if ($_SERVER['QUERY_STRING'] == "init") {
   $db->exec('INSERT INTO passwords (id, password, canadd, canedit, candelete, istim) VALUES (NULL, "thisistimw", 1, 1, 1, 1)');
 }
 if ($_SERVER['QUERY_STRING'] == "logout") {
+  while (isset($_COOKIE['userid'])) {
   setcookie("userid", "", 1);
   setcookie("userperms", "", 1);
   if (isset($_COOKIE['tim'])) setcookie("tim", "", time() - 3600);
+  }
   header("Location: index.html");
 }
 $result = $db->querySingle('SELECT password FROM passwords', true);
