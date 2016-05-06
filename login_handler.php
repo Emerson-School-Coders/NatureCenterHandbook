@@ -1,5 +1,6 @@
 <?php
 include("sql.inc");
+$path = '/'
 if ($_SERVER['QUERY_STRING'] == "init") {
   $db->exec('DROP TABLE passwords');
   $db->exec('CREATE TABLE passwords (id INTEGER PRIMARY KEY, password STRING, canadd BOOLEAN, canedit BOOLEAN, candelete BOOLEAN, istim BOOLEAN, entyear INT, entgrade INT)');
@@ -10,9 +11,9 @@ if ($_SERVER['QUERY_STRING'] == "logout") {
     trigger_error("Cant change cookies", E_USER_NOTICE);
   }
   while (isset($_COOKIE['userid'])) {
-  setcookie("userid", $_COOKIE['userid'], time() - 3600);
-  setcookie("userperms", $_COOKIE['userperms'], time() - 3600);
-  if (isset($_COOKIE['tim'])) setcookie("tim", $_COOKIE['tim'], time() - 3600);
+  setcookie("userid", $_COOKIE['userid'], time() - 3600, $path);
+  setcookie("userperms", $_COOKIE['userperms'], time() - 3600, $path);
+  if (isset($_COOKIE['tim'])) setcookie("tim", $_COOKIE['tim'], time() - 3600, $path);
   //$i = 2000;
   }
   header("Location: index.html");
@@ -40,9 +41,9 @@ $time = time() + 3600;
 if (headers_sent()) {
   trigger_error("Cant change cookies", E_USER_NOTICE);
 }
-if ($user['istim'] == 1) {setcookie("tim", "istim", $time);}
-setcookie("userperms", $perms, $time);
-setcookie("userid", $final_i, $time);
+if ($user['istim'] == 1) {setcookie("tim", "istim", $time, $path);}
+setcookie("userperms", $perms, $time, $path);
+setcookie("userid", $final_i, $time, $path);
 header("Location: index.html"); /* Redirect browser */
 exit();
 ?>
