@@ -1,6 +1,6 @@
 <?php
 include("sql.inc");
-$path = '/'
+$path = '/';
 if ($_SERVER['QUERY_STRING'] == "init") {
   $db->exec('DROP TABLE passwords');
   $db->exec('CREATE TABLE passwords (id INTEGER PRIMARY KEY, password STRING, canadd BOOLEAN, canedit BOOLEAN, candelete BOOLEAN, istim BOOLEAN, entyear INT, entgrade INT)');
