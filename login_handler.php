@@ -7,9 +7,13 @@ if ($_SERVER['QUERY_STRING'] == "init") {
 }
 if ($_SERVER['QUERY_STRING'] == "logout") {
   while (isset($_COOKIE['userid'])) {
-  setcookie("userid", "", time());
-  setcookie("userperms", "", time());
+  setcookie("userid", "", time() - 1);
+  setcookie("userperms", "", time() - 1);
   if (isset($_COOKIE['tim'])) setcookie("tim", "", time() - 3600);
+  $i = 2000;
+  while ($i > 0) {
+    $i--;
+  }
   }
   header("Location: index.html");
 }
