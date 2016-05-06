@@ -6,15 +6,12 @@ if ($_SERVER['QUERY_STRING'] == "init") {
   $db->exec('INSERT INTO passwords (id, password, canadd, canedit, candelete, istim) VALUES (NULL, "thisistimw", 1, 1, 1, 1)');
 }
 if ($_SERVER['QUERY_STRING'] == "logout") {
-  while (isset($_COOKIE['userid'])) {
+  //while (isset($_COOKIE['userid'])) {
   setcookie("userid", "", time() - 1);
   setcookie("userperms", "", time() - 1);
   if (isset($_COOKIE['tim'])) setcookie("tim", "", time() - 3600);
-  $i = 2000;
-  while ($i > 0) {
-    $i--;
-  }
-  }
+  //$i = 2000;
+  //}
   header("Location: index.html");
 }
 $result = $db->querySingle('SELECT password FROM passwords', true);
