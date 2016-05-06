@@ -7,8 +7,8 @@ if ($_SERVER['QUERY_STRING'] == "init") {
 }
 if ($_SERVER['QUERY_STRING'] == "logout") {
   //while (isset($_COOKIE['userid'])) {
-  setcookie("userid", "", time() - 1);
-  setcookie("userperms", "", time() - 1);
+  setcookie("userid", "", time() - 3600);
+  setcookie("userperms", "", time() - 3600);
   if (isset($_COOKIE['tim'])) setcookie("tim", "", time() - 3600);
   //$i = 2000;
   //}
