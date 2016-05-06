@@ -7,8 +7,8 @@ if ($_SERVER['QUERY_STRING'] == "init") {
 }
 if ($_SERVER['QUERY_STRING'] == "logout") {
   while (isset($_COOKIE['userid'])) {
-  setcookie("userid", "", 1);
-  setcookie("userperms", "", 1);
+  setcookie("userid", "", time());
+  setcookie("userperms", "", time());
   if (isset($_COOKIE['tim'])) setcookie("tim", "", time() - 3600);
   }
   header("Location: index.html");
