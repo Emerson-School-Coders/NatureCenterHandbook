@@ -6,6 +6,9 @@ if ($_SERVER['QUERY_STRING'] == "init") {
   $db->exec('INSERT INTO passwords (id, password, canadd, canedit, candelete, istim) VALUES (NULL, "thisistimw", 1, 1, 1, 1)');
 }
 if ($_SERVER['QUERY_STRING'] == "logout") {
+  if (headers_sent()) {
+    trigger_error("Cant change cookies", E_USER_NOTICE);
+  }
   while (isset($_COOKIE['userid'])) {
   setcookie("userid", $_COOKIE['userid'], time() - 3600);
   setcookie("userperms", $_COOKIE['userperms'], time() - 3600);
@@ -34,6 +37,9 @@ if ($user['canadd'] == 1) $perms = 1;
 if ($user['canedit'] == 1) $perms = $perms + 2;
 if ($user['candelete'] == 1) $perms = $perms + 4;
 $time = time() + 3600;
+if (headers_sent()) {
+  trigger_error("Cant change cookies", E_USER_NOTICE);
+}
 if ($user['istim'] == 1) {setcookie("tim", "istim", $time);}
 setcookie("userperms", $perms, $time);
 setcookie("userid", $final_i, $time);
