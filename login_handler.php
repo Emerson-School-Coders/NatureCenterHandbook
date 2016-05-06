@@ -7,9 +7,9 @@ if ($_SERVER['QUERY_STRING'] == "init") {
 }
 if ($_SERVER['QUERY_STRING'] == "logout") {
   //while (isset($_COOKIE['userid'])) {
-  setcookie("userid", "", time() - 3600);
-  setcookie("userperms", "", time() - 3600);
-  if (isset($_COOKIE['tim'])) setcookie("tim", "", time() - 3600);
+  setcookie("userid", $_COOKIE['userid'], time() - 3600);
+  setcookie("userperms", $_COOKIE['userperms'], time() - 3600);
+  if (isset($_COOKIE['tim'])) setcookie("tim", $_COOKIE['tim'], time() - 3600);
   //$i = 2000;
   //}
   header("Location: index.html");
