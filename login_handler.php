@@ -17,6 +17,7 @@ if ($_SERVER['QUERY_STRING'] == "logout") {
   //}
   //header("Location: index.html");
 }
+else {
 $result = $db->querySingle('SELECT password FROM passwords', true);
 $passfound = false;
 $final_i = 0;
@@ -45,6 +46,7 @@ setcookie("userperms", $perms, $time, $path);
 setcookie("userid", $final_i, $time, $path);
 header("Location: index.html"); /* Redirect browser */
 exit();
+}
 ?>
 <html>
   <head>
