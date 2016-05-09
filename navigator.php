@@ -16,5 +16,5 @@ h3.navbar, a.navbar {
 else echo '<a class="navbar" href="login_handler.php?logout">Logout</a> | Logged in as: ID ' . $_COOKIE['userid'] . ''; ?>
 <?php include_once "sql.inc"; if (isset($_COOKIE['tim'])) echo ' | <a href="control_panel.php" class="navbar">Control Panel</a>'; ?>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<form action="view.php" method="GET">Search: <input type="text" name="search"> <input type="submit" value="Search"></form></h3>
+<form action="view.php" method="GET">Search: <input type="search" name="search"> <input type="submit" value="Search"></form></h3>
 </div>
