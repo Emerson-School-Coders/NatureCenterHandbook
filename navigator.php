@@ -1,3 +1,5 @@
+<html>
+  <head>
 <style>
 div.navbar {
   background-color: green;
@@ -13,6 +15,9 @@ ul li {
   display: inline;
 }
 </style>
+<link rel="stylesheet" href="page.css" type="text/css">
+</head>
+<body>
 <div class="navbar">
   <ul>
     <h3 class="navbar" align="center">
@@ -25,3 +30,5 @@ ul li {
     </h3>
   </ul>
 </div>
+</body>
+</html>
