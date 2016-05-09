@@ -12,7 +12,7 @@ h3.navbar, a.navbar {
   text-decoration: none;
 }
 ul li {
-  display: inline;
+  display: inline-block;
 }
 </style>
 <link rel="stylesheet" href="page.css" type="text/css">
