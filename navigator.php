@@ -24,7 +24,7 @@ h3.navbar, a.navbar {
       <?php if (!isset($_COOKIE['userid'])) echo '<a class="navbar" href="login.php">Login</a>'; else echo '<a class="navbar" href="login_handler.php?logout">Logout</a> | Logged in as: ID ' . $_COOKIE['userid'] . ''; ?>
       <?php include_once "sql.inc"; if (isset($_COOKIE['tim'])) echo ' | <a href="control_panel.php" class="navbar">Control Panel</a>'; ?>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <form action="view.php" method="GET"><h3 class="navbar">Search: <input type="search" name="search"></h3><input type="submit" value="Search"></form></li>
+      <form action="view.php" method="GET">Search: <input type="search" name="search"><input type="submit" value="Search"></form></li>
     </h3>
   
 </div>
