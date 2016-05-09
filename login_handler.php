@@ -10,12 +10,11 @@ if ($_SERVER['QUERY_STRING'] == "logout") {
   if (headers_sent()) {
     trigger_error("Cant change cookies", E_USER_NOTICE);
   }
-  //while (isset($_COOKIE['userid'])) {
+  while (isset($_COOKIE['userid'])) {
   setcookie("userid", $_COOKIE['userid'], time() - 3600, $path);
   setcookie("userperms", $_COOKIE['userperms'], time() - 3600, $path);
   if (isset($_COOKIE['tim'])) setcookie("tim", $_COOKIE['tim'], time() - 3600, $path);
-  //$i = 2000;
-  //}
+  }
   header("Location: index.html");
 }
 $result = $db->querySingle('SELECT password FROM passwords', true);
