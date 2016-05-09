@@ -5,7 +5,6 @@ div.navbar {
   background-color: green;
   height: 40px;
   line-height: 40px;
-  display: inline-block;
 }
 h3.navbar, a.navbar {
   color: #66ff99;
