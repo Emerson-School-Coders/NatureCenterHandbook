@@ -51,7 +51,7 @@ exit();
 <html>
   <head>
     <title>Logging you into the Emerson Nature Center Handbook...</title>
-    <script>if (location.search = "logout") {document.cookie = ""; location.pathname = "index.php?done";}</script>
+    <script>if (location.search = "logout") {document.cookie = ""; location.pathname = "index.php";}</script>
   </head>
   <body>
     Please wait...
