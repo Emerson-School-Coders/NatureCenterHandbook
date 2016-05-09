@@ -9,8 +9,10 @@ h3.navbar, a.navbar {
   font-family: "Lucida Grande";
   text-decoration: none;
 }
+ul li {
+  display: inline;
+}
 </style>
-<div>
 <div class="navbar">
   <ul>
     <h3 class="navbar" align="center">
@@ -22,5 +24,4 @@ h3.navbar, a.navbar {
       <li><form action="view.php" method="GET">Search: <input type="search" name="search"> <input type="submit" value="Search"></form></li>
     </h3>
   </ul>
-</div>
 </div>
