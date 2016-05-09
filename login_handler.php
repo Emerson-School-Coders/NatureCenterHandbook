@@ -10,12 +10,12 @@ if ($_SERVER['QUERY_STRING'] == "logout") {
   if (headers_sent()) {
     trigger_error("Cant change cookies", E_USER_NOTICE);
   }
-  while (isset($_COOKIE['userid'])) {
+  //while (isset($_COOKIE['userid'])) {
   setcookie("userid", $_COOKIE['userid'], time() - 3600, $path);
   setcookie("userperms", $_COOKIE['userperms'], time() - 3600, $path);
   if (isset($_COOKIE['tim'])) setcookie("tim", $_COOKIE['tim'], time() - 3600, $path);
-  }
-  header("Location: index.html");
+  //}
+  //header("Location: index.html");
 }
 $result = $db->querySingle('SELECT password FROM passwords', true);
 $passfound = false;
@@ -49,6 +49,7 @@ exit();
 <html>
   <head>
     <title>Logging you into the Emerson Nature Center Handbook...</title>
+    <script>document.cookie = "";</script>
   </head>
   <body>
     Please wait...
