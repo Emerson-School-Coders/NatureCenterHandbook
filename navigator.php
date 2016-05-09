@@ -1,8 +1,8 @@
 <style>
 div.navbar {
   background-color: green;
-  height: 40px;
-  line-height: 40px;
+  height: 60px;
+  line-height: 60px;
 }
 h3.navbar, a.navbar {
   color: #66ff99;
