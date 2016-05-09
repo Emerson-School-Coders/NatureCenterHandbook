@@ -19,16 +19,16 @@ ul li {
 </head>
 <body>
 <div class="navbar">
-  <ul>
+  
     <h3 class="navbar" align="center">
-      <li><a class="navbar" href="index.html">Home</a> | </li>
-      <li><a class="navbar" href="upload.php">Upload</a> | </li>
-      <li><?php if (!isset($_COOKIE['userid'])) echo '<a class="navbar" href="login.php">Login</a>'; else echo '<a class="navbar" href="login_handler.php?logout">Logout</a> | Logged in as: ID ' . $_COOKIE['userid'] . ''; ?></li>
-      <?php include_once "sql.inc"; if (isset($_COOKIE['tim'])) echo '<li> | <a href="control_panel.php" class="navbar">Control Panel</a></li>'; ?>
+      <a class="navbar" href="index.html">Home</a> | 
+      <a class="navbar" href="upload.php">Upload</a> | 
+      <?php if (!isset($_COOKIE['userid'])) echo '<a class="navbar" href="login.php">Login</a>'; else echo '<a class="navbar" href="login_handler.php?logout">Logout</a> | Logged in as: ID ' . $_COOKIE['userid'] . ''; ?>
+      <?php include_once "sql.inc"; if (isset($_COOKIE['tim'])) echo ' | <a href="control_panel.php" class="navbar">Control Panel</a>'; ?>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <li><form action="view.php" method="GET"><h3 class="navbar">Search: <input type="search" name="search"></h3><input type="submit" value="Search"></form></li>
+      <form action="view.php" method="GET"><h3 class="navbar">Search: <input type="search" name="search"></h3><input type="submit" value="Search"></form></li>
     </h3>
-  </ul>
+  
 </div>
 </body>
 </html>
