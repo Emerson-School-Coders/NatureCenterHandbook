@@ -3,8 +3,6 @@ div.navbar {
   background-color: green;
   height: 40px;
   line-height: 40px;
-  overflow: hidden;
-  white-space: nowrap;
 }
 h3.navbar, a.navbar {
   color: #66ff99;
