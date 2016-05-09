@@ -10,6 +10,8 @@ h3.navbar, a.navbar {
   color: #66ff99;
   font-family: "Lucida Grande";
   text-decoration: none;
+}
+form {
   display: inline-block;
 }
 </style>
