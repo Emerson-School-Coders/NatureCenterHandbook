@@ -5,14 +5,12 @@ div.navbar {
   background-color: green;
   height: 40px;
   line-height: 40px;
+  display: inline-block;
 }
 h3.navbar, a.navbar {
   color: #66ff99;
   font-family: "Lucida Grande";
   text-decoration: none;
-}
-ul li {
-  display: inline-block;
 }
 </style>
 <link rel="stylesheet" href="page.css" type="text/css">
