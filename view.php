@@ -3,6 +3,7 @@
 if ($_SERVER['QUERY_STRING'] == "") $pmode = 0; // show search page
 if (isset($_GET['search'])) $pmode = 1; // show search results
 else $pmode = 2; // show entry
+echo $pmode;
 ?>
 <html>
   <head>
