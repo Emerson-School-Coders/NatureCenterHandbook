@@ -6,8 +6,16 @@ class MyDB extends SQLite3 {
 }
 $db = new MyDB();
 $i = 1;
+echo "database passwords:<br>";
 while ($query = $db->querySingle("SELECT * FROM passwords WHERE id=" . $i, true)) {
   print_r($query);
   echo "<br>";
   $i++;
+}
+echo "<br><br>database handbook:<br>";
+$j = 1;
+while ($queryf = $db->querySingle("SELECT * FROM handbook WHERE id=" . $j, true)) {
+  print_r($queryf);
+  echo "<br>";
+  $j++;
 }
