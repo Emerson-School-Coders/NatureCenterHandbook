@@ -26,7 +26,7 @@ form {
       <?php if (!isset($_COOKIE['userid'])) echo '<a class="navbar" href="login.php" target="_top">Login</a>'; else echo '<a class="navbar" href="login_handler.php?logout" target="_top">Logout</a>'; ?>
       <?php include_once "sql.inc"; if (isset($_COOKIE['tim'])) echo ' | <a href="control_panel.php" class="navbar" target="_top">Control Panel</a>'; ?>
       &nbsp;&nbsp;&nbsp;
-      Search: <form action="view.php" method="GET" target="_top"><input type="search" name="search"><input type="submit" value="Search"></form></li>
+      Search: <form action="view.php" method="GET" target="_top"><input type="search" name="search" placeholder="Search the Handbook..."><input type="submit" value="Search"></form></li>
     </h3>
 </div>
 </body>
