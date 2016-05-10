@@ -8,12 +8,12 @@ $db = new MyDB();
 if (isset($_GET['action']) || $_GET['action'] == "") {
   if ($_GET['action'] == "passwords") {
     $db->exec('DROP TABLE passwords');
-    $db->exec('CREATE TABLE passwords (id INTEGER PRIMARY KEY, password STRING, canadd BOOLEAN, canedit BOOLEAN, candelete BOOLEAN, istim BOOLEAN, entyear INT, entgrade INT)');
+    $db->exec('CREATE TABLE passwords (id INTEGER PRIMARY KEY, password STRING, canadd BOOLEAN, canedit BOOLEAN, candelete BOOLEAN, istim BOOLEAN, entyear INTEGER, entgrade INTEGER)');
     $db->exec('INSERT INTO passwords (id, password, canadd, canedit, candelete, istim) VALUES (NULL, "thisistimw", 1, 1, 1, 1)');
   }
   else if ($_GET['action'] == "handbook") {
     $db->exec("DROP TABLE handbook");
-    $db->exec("CREATE TABLE handbook (id INT PRIMARY KEY, name STRING, title STRING, author STRING, entry STRING, imageids STRING)");
+    $db->exec("CREATE TABLE handbook (id INTEGER PRIMARY KEY, name STRING, title STRING, author STRING, entry STRING, imageids STRING)");
     $db->exec('INSERT INTO handbook VALUES (NULL, "SampleEntry", "Sample Handbook Entry", "John Doe", "This is an example entry to test the Handbook out. This will be removed with the public release of the Handbook.", "1,2")');
     $db->exec('INSERT INTO handbook VALUES (NULL, "SampleEntry2", "Sample Handbook Entry #2", "John Doe", "This is another example entry to test the Handbooks multiple choice selection out. This will be removed with the public release of the Handbook.", "3,4")');
   }
