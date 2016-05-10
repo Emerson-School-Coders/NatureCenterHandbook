@@ -37,7 +37,7 @@ if ($_SERVER['QUERY_STRING'] == "init") {
       if ($pmode == 1) {
         $results = $db->querySingle("SELECT id FROM handbook WHERE title LIKE '%".$search."%' UNION SELECT id FROM handbook WHERE entry LIKE '%".$search."%'", true);
         foreach ($result as $results) {
-          echo '<li><a href="view.php?id='.$result.'">'.$db->querySingle("SELECT title FROM handbook WHERE id=".$result).'</a></li>'
+          echo '<li><a href="view.php?id='.$result.'">'.$db->querySingle("SELECT title FROM handbook WHERE id=".$result).'</a></li>';
         }
       }
       ?>
