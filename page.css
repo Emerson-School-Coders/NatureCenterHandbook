@@ -11,7 +11,7 @@ div.nav {
   background-color: green;
   margin: 0px;
 }
-p {
+p, ul li {
   color: #066418;
   font-family: "Lucida Grande";
   margin: 8px;
