@@ -6,7 +6,8 @@ else if (isset($_GET['search'])) $pmode = 1; // show search results
 else $pmode = 2; // show entry
 if ($_SERVER['QUERY_STRING'] == "init") {
   $db->exec("CREATE TABLE handbook (id INT PRIMARY KEY, name STRING, title STRING, author STRING, entry STRING, imageids STRING)");
-  $db->exec('INSERT INTO handbook VALUES (NULL, "Sample Entry", "Sample Handbook Entry", "John Doe", "This is an example entry to test the Handbook out. This will be removed with the public release of the Handbook.", "1,2")');
+  $db->exec('INSERT INTO handbook VALUES (NULL, "SampleEntry", "Sample Handbook Entry", "John Doe", "This is an example entry to test the Handbook out. This will be removed with the public release of the Handbook.", "1,2")');
+  $db->exec('INSERT INTO handbook VALUES (NULL, "SampleEntry2", "Sample Handbook Entry #2", "John Doe", "This is another example entry to test the Handbooks multiple choice selection out. This will be removed with the public release of the Handbook.", "3,4")');
 }
 ?>
 <html>
@@ -32,7 +33,14 @@ if ($_SERVER['QUERY_STRING'] == "init") {
     if ($pmode != 1) echo '<!--'; ?>
     <h1>Search Results</h1>
     <ul>
-      
+      <?php
+      if ($pmode == 1) {
+        $results = $db->querySingle("SELECT id FROM handbook WHERE title LIKE '%".$search."%' UNION SELECT id FROM handbook WHERE entry LIKE '%".$search."%'", true);
+        foreach ($result as $results) {
+          echo '<li><a href="view.php?id='.$result.'">'.$db->querySingle("SELECT title FROM handbook WHERE id=".$result).'</a></li>'
+        }
+      }
+      ?>
     </ul>
   </body>
 </html>
