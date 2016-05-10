@@ -26,7 +26,7 @@ if (isset($_GET['action']) || $_GET['action'] == "") {
       if ($_GET['action'] == "handbook") echo "Handbook initialized.";
     }
     ?>
-    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET"><input type="hidden" name="action" value="passwords"><input type="sunmit" value="Initialize Passwords"></form>
-    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET"><input type="hidden" name="action" value="handbook"><input type="sunmit" value="Initialize Handbook"></form>
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET"><input type="hidden" name="action" value="passwords"><input type="submit" value="Initialize Passwords"></form>
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET"><input type="hidden" name="action" value="handbook"><input type="submit" value="Initialize Handbook"></form>
   </body>
 </html>
