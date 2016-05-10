@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set("America/Detroit")
 include "sql.inc";
 //Get the function of the page
 if ($_SERVER['QUERY_STRING'] == "" || !isset($_SERVER['QUERY_STRING'])) $pmode = 0; // show search page
@@ -33,7 +34,7 @@ else $pmode = 2; // show entry
         if (!preg_match("/[A-Z  | a-z]+/", $_POST['search'])) {
           echo "YOU MAY NOT USE SQL INJECTION!!!!!! THIS INCIDENT WILL BE REPORTED!!!!!";
           $file = fopen("incidents.txt", "w");
-          fwrite($file, "Incident at " . date("m-d-y H:i:s", time()) . ": SQL Injection Attempt from IP " . $_SERVER['REMOTE_ADDR'] . ", string: " . $_GET['search']);
+          fwrite($file, "Incident at " . date("m-d-y H:i:s", time()) . " EST: SQL Injection Attempt from IP " . $_SERVER['REMOTE_ADDR'] . ", string: " . $_GET['search']);
           fclose($file);
         } else {
         $results = $db->querySingle("SELECT id FROM handbook WHERE title LIKE '%".$search."%'OR entry LIKE '%".$search."%'", true);
