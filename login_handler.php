@@ -1,11 +1,6 @@
 <?php
 include("sql.inc");
 $path = '/';
-if ($_SERVER['QUERY_STRING'] == "init") {
-  $db->exec('DROP TABLE passwords');
-  $db->exec('CREATE TABLE passwords (id INTEGER PRIMARY KEY, password STRING, canadd BOOLEAN, canedit BOOLEAN, candelete BOOLEAN, istim BOOLEAN, entyear INT, entgrade INT)');
-  $db->exec('INSERT INTO passwords (id, password, canadd, canedit, candelete, istim) VALUES (NULL, "thisistimw", 1, 1, 1, 1)');
-}
 if ($_SERVER['QUERY_STRING'] == "logout") {
   if (headers_sent()) {
     trigger_error("Cant change cookies", E_USER_NOTICE);
