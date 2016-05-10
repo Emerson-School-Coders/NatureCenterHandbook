@@ -25,7 +25,7 @@ echo $pmode;
     ?>
     <h1>Search the Nature Center Handbook</h1>
     <form action="view.php" method="GET">
-      <p>Search: </p><input type="search" name="search" placeholder="Search the Handbook..."><input type="submit" value="Search">
+      <p>Search: <input type="search" name="search" placeholder="Search the Handbook..."><input type="submit" value="Search"></p>
     </form>
     <?php if ($pmode != 0) {
       echo '-->';
