@@ -22,7 +22,7 @@ else $pmode = 2; // show entry
     <?php if ($pmode != 0) echo '<!--'; ?>
     <h1>Search the Nature Center Handbook</h1>
     <form action="view.php" method="GET">
-      <p>Search: <input type="search" name="search" placeholder="Search the Handbook..."><input type="submit" value="Search"></p>
+      <p>WARNING: You may only use uppercase or lowercase letters in the search, or you will be accused of hacking.<br>Search: <input type="search" name="search" placeholder="Search the Handbook..."><input type="submit" value="Search"></p>
     </form>
     <?php if ($pmode != 0) echo '-->';
     if ($pmode != 1) echo '<!--'; ?>
@@ -30,13 +30,17 @@ else $pmode = 2; // show entry
     <ul><p>
       <?php
       if ($pmode == 1) {
+        if (!preg_match("/[A-Z  | a-z]+/", $_POST['search'])) {
+          echo "YOU MAY NOT USE SQL INJECTION!!!!!! THIS INCIDENT WILL BE REPORTED!!!!!";
+          $file = fopen("incidents.txt", "w");
+          fwrite($file, "Incident at " . date() . ": SQL Injection Attempt from IP " . $_SERVER['REMOTE_ADDR'] . ", string: " . $_GET['search']);
+          fclose($file);
+        } else {
         $results = $db->querySingle("SELECT id FROM handbook WHERE title LIKE '%".$search."%'OR entry LIKE '%".$search."%'", true);
         $errors = array_filter($results);
-        if (empty($errors)) echo "No results.<!--";
-        foreach ($results as $result) {
-          echo '<li><a href="view.php?id='.$result.'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . strval($result)) . '</a></li>';
+        if (empty($errors)) echo "No results.";
+        else foreach ($results as $result) echo '<li><a href="view.php?id='.$result.'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . strval($result)) . '</a></li>';
         }
-        if (empty($errors)) echo "-->";
       }
       ?>
       </p>
