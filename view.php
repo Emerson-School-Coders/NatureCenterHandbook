@@ -6,6 +6,7 @@ else if (isset($_GET['search'])) $pmode = 1; // show search results
 else if ($_SERVER['QUERY_STRING'] == "init") $pmode = 3;
 else $pmode = 2; // show entry
 if ($pmode == 3) {
+  $db->exec("DROP TABLE handbook");
   $db->exec("CREATE TABLE handbook (id INT PRIMARY KEY, name STRING, title STRING, author STRING, entry STRING, imageids STRING)");
   $db->exec('INSERT INTO handbook VALUES (NULL, "SampleEntry", "Sample Handbook Entry", "John Doe", "This is an example entry to test the Handbook out. This will be removed with the public release of the Handbook.", "1,2")');
   $db->exec('INSERT INTO handbook VALUES (NULL, "SampleEntry2", "Sample Handbook Entry #2", "John Doe", "This is another example entry to test the Handbooks multiple choice selection out. This will be removed with the public release of the Handbook.", "3,4")');
