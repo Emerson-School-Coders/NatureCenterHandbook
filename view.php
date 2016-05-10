@@ -33,7 +33,7 @@ else $pmode = 2; // show entry
         if (!preg_match("/[A-Z  | a-z]+/", $_POST['search'])) {
           echo "YOU MAY NOT USE SQL INJECTION!!!!!! THIS INCIDENT WILL BE REPORTED!!!!!";
           $file = fopen("incidents.txt", "w");
-          fwrite($file, "Incident at " . date() . ": SQL Injection Attempt from IP " . $_SERVER['REMOTE_ADDR'] . ", string: " . $_GET['search']);
+          fwrite($file, "Incident at " . date("m-d-y H:i:s", time()) . ": SQL Injection Attempt from IP " . $_SERVER['REMOTE_ADDR'] . ", string: " . $_GET['search']);
           fclose($file);
         } else {
         $results = $db->querySingle("SELECT id FROM handbook WHERE title LIKE '%".$search."%'OR entry LIKE '%".$search."%'", true);
