@@ -26,7 +26,7 @@ if ($pmode == 3) {
   <body>
     <iframe src="navigator.php"></iframe>
     <?php if ($pmode == 3) echo "Initialized.";
-    <?php if ($pmode != 0) echo '<!--'; ?>
+    if ($pmode != 0) echo '<!--'; ?>
     <h1>Search the Nature Center Handbook</h1>
     <form action="view.php" method="GET">
       <p>Search: <input type="search" name="search" placeholder="Search the Handbook..."><input type="submit" value="Search"></p>
