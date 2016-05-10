@@ -27,7 +27,7 @@ else $pmode = 2; // show entry
     <?php if ($pmode != 0) echo '-->';
     if ($pmode != 1) echo '<!--'; ?>
     <h1>Search Results</h1>
-    <ul>
+    <ul><p>
       <?php
       if ($pmode == 1) {
         $results = $db->querySingle("SELECT id FROM handbook WHERE title LIKE '%".$search."%'OR entry LIKE '%".$search."%'", true);
@@ -37,6 +37,7 @@ else $pmode = 2; // show entry
         }
       }
       ?>
+      </p>
     </ul>
   </body>
 </html>
