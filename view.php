@@ -1,5 +1,5 @@
 <?php
-include "sql.inc"
+include "sql.inc";
 //Get the function of the page
 if ($_SERVER['QUERY_STRING'] == "" || !isset($_SERVER['QUERY_STRING'])) $pmode = 0; // show search page
 else if (isset($_GET['search'])) $pmode = 1; // show search results
