@@ -38,7 +38,7 @@ if ($pmode == 3) {
       <?php
       if ($pmode == 1) {
         $results = $db->querySingle("SELECT id FROM handbook WHERE title LIKE '%".$search."%' UNION SELECT id FROM handbook WHERE entry LIKE '%".$search."%'", true);
-        print_r($results)
+        print_r($results);
         foreach ($results as $result) {
           echo '<li><a href="view.php?id='.$result.'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . strval($result)) . '</a></li>';
         }
