@@ -1,5 +1,5 @@
 <?php
-date_default_timezone_set("America/Detroit")
+date_default_timezone_set("America/Detroit");
 include "sql.inc";
 //Get the function of the page
 if ($_SERVER['QUERY_STRING'] == "" || !isset($_SERVER['QUERY_STRING'])) $pmode = 0; // show search page
