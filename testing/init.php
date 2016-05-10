@@ -7,7 +7,9 @@ class MyDB extends SQLite3 {
 $db = new MyDB();
 if (isset($_GET['action']) || $_GET['action'] == "") {
   if ($_GET['action'] == "passwords") {
-    
+    $db->exec('DROP TABLE passwords');
+    $db->exec('CREATE TABLE passwords (id INTEGER PRIMARY KEY, password STRING, canadd BOOLEAN, canedit BOOLEAN, candelete BOOLEAN, istim BOOLEAN, entyear INT, entgrade INT)');
+    $db->exec('INSERT INTO passwords (id, password, canadd, canedit, candelete, istim) VALUES (NULL, "thisistimw", 1, 1, 1, 1)');
   }
   else if ($_GET['action'] == "handbook") {
     $db->exec("DROP TABLE handbook");
@@ -19,6 +21,11 @@ if (isset($_GET['action']) || $_GET['action'] == "") {
 ?>
 <html>
   <body>
+    <?php if (isset($_GET['action']) || $_GET['action'] == "") {
+      if ($_GET['action'] == "passwords") echo "Passwords initialized.";
+      if ($_GET['action'] == "handbook") echo "Handbook initialized.";
+    }
+    ?>
     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET"><input type="hidden" name="action" value="passwords"><input type="sunmit" value="Initialize Passwords"></form>
     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET"><input type="hidden" name="action" value="handbook"><input type="sunmit" value="Initialize Handbook"></form>
   </body>
