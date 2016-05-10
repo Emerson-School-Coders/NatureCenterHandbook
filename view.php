@@ -36,7 +36,7 @@ else $pmode = 2; // show entry
         foreach ($results as $result) {
           echo '<li><a href="view.php?id='.$result.'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . strval($result)) . '</a></li>';
         }
-        if (empty($errors)) echo "-->"
+        if (empty($errors)) echo "-->";
       }
       ?>
       </p>
