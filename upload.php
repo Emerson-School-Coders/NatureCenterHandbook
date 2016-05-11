@@ -16,8 +16,8 @@
 	<body>
 		<h1>Upload an entry to the Handbook!</h1>
 		<center>
-			<?php if (!isset($_COOKIE['userid'])) echo 'Sorry, uploading is only available to registered accounts. Please ask Tim for an account with uploading permissions.<!--';
-			else if (!$canadd = $db->querySingle("SELECT canadd FROM passwords WHERE id=".$_COOKIE['userid'])) echo "Sorry, you are not allowed to upload new entries. Please ask Tim for permission to add pages.<!--";?>
+			<?php if (!isset($_COOKIE['userid'])) echo '<p>Sorry, uploading is only available to registered accounts. Please ask Tim for an account with uploading permissions.</p><!--';
+			else if (!$canadd = $db->querySingle("SELECT canadd FROM passwords WHERE id=".$_COOKIE['userid'])) echo "<p>Sorry, you are not allowed to upload new entries. Please ask Tim for permission to add pages.</p><!--";?>
 			<form action="upload_page.php" method="POST">
 				<h2>Title: <input type="text" name="title" placeholder="Title" style="font-size: 18pt;" required></h1>
 				<h3 style="entry">Author: <?php if ($canadd) echo $db->querySingle("SELECT name FROM passwords WHERE id=".$_COOKIE['userid']); ?>
