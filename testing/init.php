@@ -8,8 +8,8 @@ $db = new MyDB();
 if (isset($_GET['action']) || $_GET['action'] == "") {
   if ($_GET['action'] == "passwords") {
     $db->exec('DROP TABLE passwords');
-    $db->exec('CREATE TABLE passwords (id INTEGER PRIMARY KEY, password STRING, canadd BOOLEAN, canedit BOOLEAN, candelete BOOLEAN, istim BOOLEAN, entyear INTEGER, entgrade INTEGER)');
-    $db->exec('INSERT INTO passwords (id, password, canadd, canedit, candelete, istim) VALUES (NULL, "thisistimw", 1, 1, 1, 1)');
+    $db->exec('CREATE TABLE passwords (id INTEGER PRIMARY KEY, password STRING, name STRING, canadd BOOLEAN, canedit BOOLEAN, candelete BOOLEAN, istim BOOLEAN, entyear INTEGER, entgrade INTEGER)');
+    $db->exec('INSERT INTO passwords (id, password, name, canadd, canedit, candelete, istim) VALUES (NULL, "thisistimw", "Tim Wilson", 1, 1, 1, 1)');
   }
   else if ($_GET['action'] == "handbook") {
     $db->exec("DROP TABLE handbook");
