@@ -3,7 +3,7 @@ include "sql.inc";
 if (isset($_GET["search"])) $results = true;
 else $results = false;
 if ($results) {
-  $user = $db->querySingle("SELECT id FROM passwords WHERE name=" . $_GET['search']);
+  $user = $db->querySingle('SELECT id FROM passwords WHERE name="' . $_GET['search'].'"');
   if ($user) {
     header("Location: profile.php?id=" . $user);
   }
@@ -23,9 +23,9 @@ if ($results) {
     <h1>Search Results</h1>
     <?php
     if ($results) {
-      $user = $db->querySingle("SELECT id FROM passwords WHERE name=" . $_GET['search']);
+      $user = $db->querySingle('SELECT id FROM passwords WHERE name="' . $_GET['search'].'"');
       if (!$user) {
-        $user = $db->query("SELECT id FROM passwords WHERE name LIKE " . $_GET['search']);
+        $user = $db->query('SELECT id FROM passwords WHERE name LIKE "' . $_GET['search'].'"');
         if (!$user) echo "<p>No results.</p>";
         else {
           echo "<ul>";
