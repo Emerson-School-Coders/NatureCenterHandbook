@@ -39,12 +39,12 @@ else $pmode = 2; // show entry
           fclose($file);
         } else {
           $search = $_GET['search'];
-          $query = 'SELECT id FROM handbook WHERE title LIKE "%'.strval($search).'%"OR entry LIKE "%'.strval($search).'%"';
+          $query = 'SELECT id FROM handbook WHERE title LIKE "%'.$search.'%"OR entry LIKE "%'.$search.'%"';
           $results = $db->query($query);
           if (!$result = $results->fetchArray(SQLITE3_NUM)) echo "No results.";
           else {
-            echo '<li><a href="view.php?id='.$result.'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . strval($result)) . '</a></li>'; 
-            while ($result = $results->fetchArray()) echo '<li><a href="view.php?id='.$result.'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . strval($result)) . '</a></li>';
+            echo '<li><a href="view.php?id='.$result.'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . $result) . '</a></li>'; 
+            while ($result = $results->fetchArray()) echo '<li><a href="view.php?id='.$result.'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . $result) . '</a></li>';
           }
         }
       }
