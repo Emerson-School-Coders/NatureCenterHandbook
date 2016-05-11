@@ -1,3 +1,4 @@
+<?php include "sql.php"; ?>
 <html>
 	<head>
 		<title>The Emerson Nature Center Official Handbook | Upload</title>
@@ -16,7 +17,7 @@
 		<h1>Upload an entry to the Handbook!</h1>
 		<center>
 			<form action="upload_page.php" method="POST">
-				<h1 style="entry">Title: <input type="text" name="title" placeholder="Title" style="font-size: 24pt;"></h1><br>
+				<h2>Title: <input type="text" name="title" placeholder="Title" style="font-size: 24pt;"></h1><br>
 				<h3 style="entry">Author: <?php echo $db->querySingle("SELECT name FROM passwords WHERE id=".$_COOKIE['userid']); ?><br>
 				<textarea id="styled" width="300" height="300" placeholder="text"></textarea>
 				<br>
