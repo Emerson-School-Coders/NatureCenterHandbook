@@ -17,10 +17,13 @@
 		<h1>Upload an entry to the Handbook!</h1>
 		<center>
 			<form action="upload_page.php" method="POST">
-				<h2>Title: <input type="text" name="title" placeholder="Title" style="font-size: 24pt;"></h1>
+				<h2>Title: <input type="text" name="title" placeholder="Title" style="font-size: 24pt;" required></h1>
 				<h3 style="entry">Author: <?php echo $db->querySingle("SELECT name FROM passwords WHERE id=".$_COOKIE['userid']); ?>
-				<textarea id="styled" width="300" height="300" placeholder="text"></textarea>
+				<textarea id="styled" width="300" height="300" placeholder="text" required></textarea>
 				<br>
+				<h3>Insert images here: </h3>
+				Image 1 (required): <input type="file" name="img1" required><br>
+				Image 2 (optional): <input type="file" name="img2" required><br>
 				<input type="submit" value="submit">
 			</form>
 			<br>
