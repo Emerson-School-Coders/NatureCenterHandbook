@@ -26,6 +26,7 @@ else {$tim = false;}
       <input type="hidden" name="destination" value="<?php echo $_SERVER['REQUEST_URL']; ?>"/>
       <p>
       New password: <input type="text" name="password"><br>
+      Profile name: <input type="text" name="name"<br>
       Can add pages: <input type="checkbox" name="canadd" value="1"><br>
       Can edit pages: <input type="checkbox" name="canedit" value="1"><br>
       Can delete pages: <input type="checkbox" name="candelete" value="1"><br>
@@ -68,7 +69,7 @@ else {$tim = false;}
     <h3>View all users</h3>
     <p>
     <table>
-      <tr><td width=50>ID</td><td width=150>Password</td><td>Can add</td><td>Can edit</td><td>Can delete</td></tr>
+      <tr><td width=50>ID</td><td>Name</td><td width=150>Password</td><td>Can add</td><td>Can edit</td><td>Can delete</td></tr>
     <?php
     $query = $db->query("SELECT * FROM passwords");
     while ($entry = $query->fetchArray(SQLITE3_ASSOC)) {
@@ -80,7 +81,7 @@ else {$tim = false;}
       else {$candelete = "";}
       if ($entry['istim'] == 1) $password = "Tim: &middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;";
       else $password = $entry['password'];
-      echo '<tr><td>' . $entry['id'] . '</td><td>' . $password . '</td><td><input type="checkbox" disabled' . $canadd . '></td><td><input type="checkbox" disabled' . $canedit . '></td><td><input type="checkbox" disabled' . $candelete . '></td></tr>';
+      echo '<tr><td>' . $entry['id'] . '</td><td>' . $entry['name'] . '</td><td>' . $password . '</td><td><input type="checkbox" disabled' . $canadd . '></td><td><input type="checkbox" disabled' . $canedit . '></td><td><input type="checkbox" disabled' . $candelete . '></td></tr>';
     }
     ?>
     </table>
