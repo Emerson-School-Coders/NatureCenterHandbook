@@ -39,10 +39,9 @@ form {
 img.entry {
   margin: auto;
   width: 200px;
+  height: 200px;
 }
 h3.entry {
   color: #dedede;
-  margin: 8px;
-  margin-left: 16px;
-  margin-right: 12px;
+  margin: auto;
 }
