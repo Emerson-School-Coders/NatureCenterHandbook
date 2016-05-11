@@ -13,7 +13,7 @@ div.nav {
 }
 p, ul li {
   color: #066418;
-  font-family: "Lucida Grande";
+  font-family: "Lucida Grande", "Lucida Sans Unicode";
   margin: 8px;
   margin-left: 16px;
   margin-right: 12px;
@@ -34,7 +34,7 @@ body {
 }
 form {
   color: #066418;
-  font-family: "Lucida Grande";
+  font-family: "Lucida Grande", "Lucida Sans Unicode";
 }
 img.entry {
   display: inline-block;
@@ -47,6 +47,6 @@ img.entry {
 }
 h3.entry {
   color: #888888;
-  font-family: "Lucida Grande";
+  font-family: "Lucida Grande", "Lucida Sans Unicode";
   text-align: center;
 }
