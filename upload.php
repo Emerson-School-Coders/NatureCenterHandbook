@@ -1,4 +1,4 @@
-<?php include "sql.php"; ?>
+<?php include "sql.inc"; ?>
 <html>
 	<head>
 		<title>The Emerson Nature Center Official Handbook | Upload</title>
