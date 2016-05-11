@@ -38,6 +38,7 @@ else $pmode = 2; // show entry
           fclose($file);
         } else {
         $results = $db->querySingle("SELECT id FROM handbook WHERE title LIKE '%".$search."%'OR entry LIKE '%".$search."%'", true);
+        print_r($results);
         $errors = array_filter($results);
         if (empty($errors)) echo "No results.";
         else foreach ($results as $result) echo '<li><a href="view.php?id='.$result.'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . strval($result)) . '</a></li>';
