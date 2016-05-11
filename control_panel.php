@@ -26,7 +26,7 @@ else {$tim = false;}
       <input type="hidden" name="destination" value="<?php echo $_SERVER['REQUEST_URL']; ?>"/>
       <p>
       New password: <input type="text" name="password"><br>
-      Profile name: <input type="text" name="name"<br>
+      Profile name: <input type="text" name="name"><br>
       Can add pages: <input type="checkbox" name="canadd" value="1"><br>
       Can edit pages: <input type="checkbox" name="canedit" value="1"><br>
       Can delete pages: <input type="checkbox" name="candelete" value="1"><br>
@@ -69,7 +69,7 @@ else {$tim = false;}
     <h3>View all users</h3>
     <p>
     <table>
-      <tr><td width=50>ID</td><td>Name</td><td width=150>Password</td><td>Can add</td><td>Can edit</td><td>Can delete</td></tr>
+      <tr><td width=50>ID</td><td width=125>Name</td><td width=150>Password</td><td>Can add</td><td>Can edit</td><td>Can delete</td></tr>
     <?php
     $query = $db->query("SELECT * FROM passwords");
     while ($entry = $query->fetchArray(SQLITE3_ASSOC)) {
