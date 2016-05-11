@@ -4,7 +4,7 @@ if ($_POST["action"] == "adduser") {
   if (!isset($_POST["canadd"])) {$_POST["canadd"] = "0";}
   if (!isset($_POST["canedit"])) {$_POST["canedit"] = "0";}
   if (!isset($_POST["candelete"])) {$_POST["candelete"] = "0";}
-  $db->exec("INSERT INTO passwords (id,password,canadd,canedit,candelete,istim) VALUES (NULL,\"" . $_POST["password"] . "\"," . $_POST["canadd"] . "," . $_POST["canedit"] . "," . $_POST["candelete"] . ",0)");
+  $db->exec("INSERT INTO passwords (id,password,name,canadd,canedit,candelete,istim) VALUES (NULL,\"" . $_POST["password"] . "\",\"" . $_POST['name'] . "\"," . $_POST["canadd"] . "," . $_POST["canedit"] . "," . $_POST["candelete"] . ",0)");
 }
 else if ($_POST["action"] == "deluser") {
   if ($db->querySingle("SELECT istim FROM passwords WHERE id=".$_POST['id']) == 1) die("You cannot delete Tim's account!"); 
