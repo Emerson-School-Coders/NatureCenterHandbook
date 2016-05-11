@@ -16,9 +16,12 @@
 	<body>
 		<h1>Upload an entry to the Handbook!</h1>
 		<center>
+			<?php $canadd = $db->querySingle("SELECT canadd FROM passwords WHERE id=".$_COOKIE['userid']);
+			if (!isset($_COOKIE['userid'])) echo 'Sorry, uploading is only available to registered accounts. Please ask Tim for an account with uploading permissions.<!--';
+			else if (!$canadd) echo "Sorry, you are not allowed to upload new entries. Please ask Tim for permission to add pages.<!--";?>
 			<form action="upload_page.php" method="POST">
-				<h2>Title: <input type="text" name="title" placeholder="Title" style="font-size: 24pt;" required></h1>
-				<h3 style="entry">Author: <?php echo $db->querySingle("SELECT name FROM passwords WHERE id=".$_COOKIE['userid']); ?>
+				<h2>Title: <input type="text" name="title" placeholder="Title" style="font-size: 18pt;" required></h1>
+				<h3 style="entry">Author: <?php if ($canadd) echo $db->querySingle("SELECT name FROM passwords WHERE id=".$_COOKIE['userid']); ?>
 				<textarea id="styled" width="300" height="300" placeholder="text" required></textarea>
 				<br>
 				<h3>Insert images here: </h3>
