@@ -20,12 +20,13 @@
 			else if (!$canadd = $db->querySingle("SELECT canadd FROM passwords WHERE id=".$_COOKIE['userid'])) echo "<p>Sorry, you are not allowed to upload new entries. Please ask Tim for permission to add pages.</p><!--";?>
 			<form action="upload_page.php" method="POST">
 				<h2>Title: <input type="text" name="title" placeholder="Title" style="font-size: 18pt;" required></h1>
+				<input type="hidden" name="author" value="<?php if ($canadd) echo $db->querySingle("SELECT name FROM passwords WHERE id=".$_COOKIE['userid']); ?>">
 				<h3 style="entry">Author: <?php if ($canadd) echo $db->querySingle("SELECT name FROM passwords WHERE id=".$_COOKIE['userid']); ?>
-				<textarea id="styled" width="300" height="300" placeholder="text" required></textarea>
+				<textarea id="styled" width="300" height="300" placeholder="text" name="entry" required></textarea>
 				<br>
 				<h3>Insert images here: </h3>
-				Image 1 (required): <input type="file" name="img1" accept=".png, image/png" required><br>
-				Image 2 (optional): <input type="file" name="img2" accept=".png, image/png"><br>
+				Image 1 (required): <input type="file" name="image1" accept=".png, image/png" required><br>
+				Image 2 (optional): <input type="file" name="image2" accept=".png, image/png"><br>
 				<input type="submit" value="submit">
 			</form>
 			<br>
