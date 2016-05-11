@@ -26,6 +26,7 @@ else $pmode = 2; // show entry
       <p>WARNING: You may only use uppercase or lowercase letters in the search, or you will be accused of hacking.<br>
       Search: <input type="search" name="search" placeholder="Search the Handbook..."><input type="submit" value="Search"></p>
     </form>
+    <p><a href="usersearch.php">Want to find another user? Click here for user search.</a></p>
     <?php if ($pmode != 0) echo '-->';
     if ($pmode != 1) echo '<!--'; ?>
     <h1>Search Results</h1>
