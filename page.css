@@ -37,10 +37,13 @@ form {
   font-family: "Lucida Grande";
 }
 img.entry {
-  display: block;
+  display: inline-block;
   margin: 0 auto;
   width: 200px;
   height: 200px;
+}
+#images {
+  text-align: center;
 }
 h3.entry {
   color: #888888;
