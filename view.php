@@ -37,7 +37,7 @@ else $pmode = 2; // show entry
           fwrite($file, "Incident at " . date("m-d-y H:i:s", time()) . " EST: SQL Injection Attempt from IP " . $_SERVER['REMOTE_ADDR'] . ", string: " . $_GET['search']);
           fclose($file);
         } else {
-        $results = $db->querySingle("SELECT id FROM handbook WHERE title LIKE '%".$search."%'OR entry LIKE '%".$search."%'", true);
+        $results = $db->querySingle('SELECT id FROM handbook WHERE title LIKE "%'.strval($search).'%"OR entry LIKE "%'.strval($search).'%"', true);
         print_r($results);
         $errors = array_filter($results);
         if (empty($errors)) echo "No results.";
