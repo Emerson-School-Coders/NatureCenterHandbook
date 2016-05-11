@@ -37,11 +37,13 @@ form {
   font-family: "Lucida Grande";
 }
 img.entry {
-  margin: auto;
+  display: block;
+  margin: 0 auto;
   width: 200px;
   height: 200px;
 }
 h3.entry {
-  color: #343434;
-  margin: auto;
+  color: #888888;
+  font-family: "Lucida Grande";
+  text-align: center;
 }
