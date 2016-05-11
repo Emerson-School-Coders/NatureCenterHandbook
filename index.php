@@ -12,7 +12,7 @@ document.write("<font color='red'>PHP is not installed!  That may cause some pro
 </script><!--check if php is on the server-->
 <h1>Welcome to the Emerson Nature Center's Official Handbook!</h1>
 <p>This is a handbook for students and by students to help eduacate people on the plants found in the Nature Center! There are already many different descriptions here, but if you would like to add your own descriptions, you can submit a request by clicking the "upload" button. Tim will review the entry, and it will be posted as soon as possible (if approved)! Please feel free to explore using the table of contents below. </p>
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg"; style="size:50%"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg"; style="size:40%"/>
 <!--
 <style>
 table.contents, th.contents, td.contents th.contents {
