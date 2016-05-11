@@ -36,6 +36,13 @@ form {
   color: #066418;
   font-family: "Lucida Grande";
 }
-img {
- padding-left: 550px; 
+img.entry {
+  margin: auto;
+  width: 200px;
+}
+h3.entry {
+  color: #dedede;
+  margin: 8px;
+  margin-left: 16px;
+  margin-right: 12px;
 }
