@@ -41,10 +41,11 @@ else $pmode = 2; // show entry
           $search = $_GET['search'];
           $query = 'SELECT id FROM handbook WHERE title LIKE "%'.$search.'%"OR entry LIKE "%'.$search.'%"';
           $results = $db->query($query);
-          if (!$result = $results->fetchArray(SQLITE3_NUM)) echo "No results.";
+          $result = $results->fetchArray(SQLITE3_NUM);
+          if (!$result) echo "No results.";
           else {
             echo '<li><a href="view.php?id='.$result.'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . $result) . '</a></li>'; 
-            while ($result = $results->fetchArray()) echo '<li><a href="view.php?id='.$result.'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . $result) . '</a></li>';
+            while ($result) {echo '<li><a href="view.php?id='.$result.'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . $result) . '</a></li>'; $result = $results->fetchArray(SQLITE3_NUM);}
           }
         }
       }
