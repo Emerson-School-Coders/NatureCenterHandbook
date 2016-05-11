@@ -7,7 +7,6 @@ if ($_SERVER['QUERY_STRING'] == "logout") {
   }
   //while (isset($_COOKIE['userid'])) {
   setcookie("userid", $_COOKIE['userid'], time() - 3600, $path);
-  setcookie("userperms", $_COOKIE['userperms'], time() - 3600, $path);
   if (isset($_COOKIE['tim'])) setcookie("tim", $_COOKIE['tim'], time() - 3600, $path);
   //}
   //header("Location: index.html");
@@ -37,7 +36,6 @@ if (headers_sent()) {
   trigger_error("Cant change cookies", E_USER_NOTICE);
 }
 if ($user['istim'] == 1) {setcookie("tim", "istim", $time, $path);}
-setcookie("userperms", $perms, $time, $path);
 setcookie("userid", $final_i, $time, $path);
 header("Location: index.html"); /* Redirect browser */
 exit();
