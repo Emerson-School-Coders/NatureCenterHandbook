@@ -8,12 +8,13 @@ $firstid = intval($last_id) + 1;
 $target_file = $target_dir . "id-" . $firstid . "." . pathinfo($_FILES["image1"]["name"], PATHINFO_EXTENSION);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-$check = getimagesize($_FILES["image1"]["tmp_name"]);
-if ($check !== false) {
-} else {
-  echo "The first file you uploaded is not a valid PNG image.";
-  $uploadOk = 0;
-}
+//$check = getimagesize($_FILES["image1"]["tmp_name"]);
+//if ($check !== false) {
+//  $uploadOk = 1;
+//} else {
+//  echo "The first file you uploaded is not a valid PNG image.";
+//  $uploadOk = 0;
+//}
 if ($_FILES["image1"]["size"] > 500000) {
   echo "Sorry, your first file is too large.";
   $uploadOk = 0;
@@ -67,7 +68,7 @@ if ($uploadOk == 0) {
 }
 } else $secondid = "\b";
 $db->exec('INSERT INTO handbook (id,title,author,entry,imageids) VALUES (NULL,"'.$_POST["title"].'","'.$_POST["author"].'","'.$_POST["entry"].'","'.$firstid.','.$secondid.'")');
-header("Location: view.php?id=".$db->querySingle("SELECT id FROM handbook WHERE title=".$_POST['title']));
+header("Location: view.php?id=".$db->querySingle("SELECT id FROM handbook WHERE title='".$_POST['title']."'"));
 ?>
 <html>
   <head>
