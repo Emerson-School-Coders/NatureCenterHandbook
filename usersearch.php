@@ -1,4 +1,5 @@
 <?php
+include "sql.inc";
 if (isset($_GET["search"])) $results = true;
 else $results = false;
 if ($results) {
