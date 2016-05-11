@@ -23,12 +23,13 @@ else $pmode = 2; // show entry
     <?php if ($pmode != 0) echo '<!--'; ?>
     <h1>Search the Nature Center Handbook</h1>
     <form action="view.php" method="GET">
-      <p>WARNING: You may only use uppercase or lowercase letters in the search, or you will be accused of hacking.<br>Search: <input type="search" name="search" placeholder="Search the Handbook..."><input type="submit" value="Search"></p>
+      <p>WARNING: You may only use uppercase or lowercase letters in the search, or you will be accused of hacking.<br>
+      Search: <input type="search" name="search" placeholder="Search the Handbook..."><input type="submit" value="Search"></p>
     </form>
     <?php if ($pmode != 0) echo '-->';
     if ($pmode != 1) echo '<!--'; ?>
     <h1>Search Results</h1>
-    <ul><p>
+    <ul>
       <?php
       if ($pmode == 1) {
         if (!preg_match("/[A-Z | a-z]+/", $_GET['search'])) {
@@ -38,17 +39,17 @@ else $pmode = 2; // show entry
           fclose($file);
         } else {
           $search = $_GET['search'];
-        $query = 'SELECT id FROM handbook WHERE title LIKE "%'.strval($search).'%"OR entry LIKE "%'.strval($search).'%"';
-        $results = $db->query($query);
-        if (!$result = $results->fetchArray(SQLITE3_NUM)) echo "No results.";
-        else {
-          echo '<li><a href="view.php?id='.$result.'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . strval($result)) . '</a></li>'; 
-          while ($result = $results->fetchArray()) echo '<li><a href="view.php?id='.$result.'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . strval($result)) . '</a></li>';
-        }
+          $query = 'SELECT id FROM handbook WHERE title LIKE "%'.strval($search).'%"OR entry LIKE "%'.strval($search).'%"';
+          $results = $db->query($query);
+          if (!$result = $results->fetchArray(SQLITE3_NUM)) echo "No results.";
+          else {
+            echo $result;
+            echo '<li><a href="view.php?id='.$result.'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . strval($result)) . '</a></li>'; 
+            while ($result = $results->fetchArray()) echo '<li><a href="view.php?id='.$result.'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . strval($result)) . '</a></li>';
+          }
         }
       }
       ?>
-      </p>
     </ul>
   </body>
 </html>
