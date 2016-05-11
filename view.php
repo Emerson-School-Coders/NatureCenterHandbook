@@ -58,7 +58,7 @@ else $pmode = 2; // show entry
       $picss = $db->querySingle("SELECT imageids FROM handbook WHERE id=".$_GET["id"]); 
       $pics = preg_split("/,/", $picss); 
       foreach ($pics as $picid) {
-        echo '<img class="entry" src="images/id-' . $picid . '.png" width="100" align="center">';
+        echo '<img class="entry" src="images/id-' . $picid . '.png" width="100">';
       }
       echo "<br>";
     } ?>
