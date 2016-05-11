@@ -50,5 +50,18 @@ else $pmode = 2; // show entry
       }
       ?>
     </ul>
+    <?php if ($pmode != 1) echo '-->';
+    if ($pmode != 2) echo '<!--'; ?>
+    <h1 class="entry"><?php if ($pmode == 2) echo $db->querySingle("SELECT title FROM handbook WHERE id=" . $_GET["id"], true) ?></h1>
+    <h3 class="entry">Written by <?php if ($pmode == 2) echo $db->querySingle("SELECT author FROM handbook WHERE id=" . $_GET["id"], true) ?></h3>
+    <?php if ($pmode == 2) {
+      $picss = $db->querySingle("SELECT imageids FROM handbook WHERE id=".$_GET["id"]); 
+      $pics = preg_split("/,/", $picss); 
+      foreach ($pics as $picid) {
+        echo '<img src="images/id-' . $picid . '.png" width="100" align="center">';
+      }
+      echo "<br>";
+    } ?>
+    <p class="entry"><?php if ($pmode == 2) echo $db->querySingle("SELECT entry FROM handbook WHERE id=" . $_GET["id"], true) ?></p>
   </body>
 </html>
