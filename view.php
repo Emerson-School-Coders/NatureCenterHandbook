@@ -39,8 +39,8 @@ else $pmode = 2; // show entry
         } else {
           $search = $_GET['search'];
         $query = 'SELECT id FROM handbook WHERE title LIKE "%'.strval($search).'%"OR entry LIKE "%'.strval($search).'%"';
-        $results = $db->query($query, true);
-        $errors = array_filter($results);
+        $results = $db->query($query);
+        $errors = array_filter($results->fetchArray(SQLITE3_NUM));
         if (empty($errors)) echo "No results.";
         else foreach ($results->fetchArray(SQLITE3_NUM) as $result) echo '<li><a href="view.php?id='.$result.'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . strval($result)) . '</a></li>';
         }
