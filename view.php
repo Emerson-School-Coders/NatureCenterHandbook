@@ -43,7 +43,7 @@ else $pmode = 2; // show entry
           $results = $db->query($query);
           if (!$result = $results->fetchArray(SQLITE3_NUM)) echo "No results.";
           else {
-            echo $result;
+            print_r $result;
             echo '<li><a href="view.php?id='.$result.'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . strval($result)) . '</a></li>'; 
             while ($result = $results->fetchArray()) echo '<li><a href="view.php?id='.$result.'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . strval($result)) . '</a></li>';
           }
