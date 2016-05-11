@@ -1,3 +1,4 @@
+<?php include "sql.inc"; ?>
 <html>
   <head>
     <title>The Emerson Nature Center Official Handbook - View Profile</title>
