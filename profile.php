@@ -16,7 +16,7 @@
         echo "<li>No entries.</li>";
       } else {
         while ($post) {
-          echo '<li><a href="view.php?id='.$db->querySingle('SELECT id FROM handbook WHERE title="'.$post.'"').'">'.$post.'</a></li>'
+          echo '<li><a href="view.php?id='.$db->querySingle('SELECT id FROM handbook WHERE title="'.$post.'"').'">'.$post.'</a></li>';
           $post = $posts->fetchArray();
         }
       }
