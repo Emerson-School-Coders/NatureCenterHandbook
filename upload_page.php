@@ -19,7 +19,7 @@ if ($_FILES["image1"]["size"] > 500000) {
   echo "Sorry, your first file is too large. Your size was " . $_FILES["image1"]["size"] . " bytes.";
   $uploadOk = 0;
 }
-if (exif_imagetype($_FILE['image2']['name']) != IMAGETYPE_PNG){
+if (exif_imagetype($_FILE['image2']['tmp_name']) != IMAGETYPE_PNG){
   echo 'You can only upload PNG images. (first file) Your type was "' . $_FILES['image1']['type'] . '".';
   $uploadOk = 0;
 }
@@ -48,7 +48,7 @@ if ($_FILES["image2"]["size"] > 500000) {
   echo "Sorry, your second file is too large. Your size was " . $_FILES["image2"]["size"] . " bytes.";
   $uploadOk = 0;
 }
-if (exif_imagetype($_FILE['image2']['name']) != IMAGETYPE_PNG){
+if (exif_imagetype($_FILE['image2']['tmp_name']) != IMAGETYPE_PNG){
   echo 'You can only upload PNG images. (second file) Your type was ' . $_FILES['image2']['type'];
   $uploadOk = 0;
 }
