@@ -8,6 +8,7 @@ $firstid = intval($last_id) + 1;
 $target_file = $target_dir . "id-" . $firstid . ".png";
 $uploadOk = 1;
 $typeAllowed = array("image/png");
+print_r($_FILE['image1']);
 //$check = getimagesize($_FILES["image1"]["tmp_name"]);
 //if ($check !== false) {
 //  $uploadOk = 1;
