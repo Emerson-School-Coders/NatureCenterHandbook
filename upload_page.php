@@ -5,10 +5,9 @@ $images = scandir($target_dir);
 $last_id = ltrim(end($images), "id-");
 $last_id = rtrim($last_id, ".png");
 $firstid = intval($last_id) + 1;
-$target_file = $target_dir . "id-" . $firstid . "." . pathinfo($_FILES["image1"]["name"], PATHINFO_EXTENSION);
+$target_file = $target_dir . "id-" . $firstid . ".png";
 $uploadOk = 1;
-$imageFileType = pathinfo($_FILES["image1"]["name"], PATHINFO_EXTENSION);
-echo $target_file . $imageFileType;
+$typeAllowed = array("image/png");
 //$check = getimagesize($_FILES["image1"]["tmp_name"]);
 //if ($check !== false) {
 //  $uploadOk = 1;
@@ -20,7 +19,7 @@ if ($_FILES["image1"]["size"] > 500000) {
   echo "Sorry, your first file is too large. Your size was " . $_FILES["image1"]["size"] . " bytes.";
   $uploadOk = 0;
 }
-if ($imageFileType != "png"){
+if (!in_array($_FILES['image1']['type'], $typeAllowed)){
   echo 'You can only upload PNG images. (first file) Your type was ' . $imageFileType;
   $uploadOk = 0;
 }
@@ -36,13 +35,9 @@ if ($uploadOk == 0) {
 }
 if (isset($_FILES['image2'])) {
   $target_dir = "images/";
-$images = scandir($target_dir);
-$last_id = ltrim(end($images), "id-");
-$last_id = rtrim($last_id, ".png");
 $secondid = $firstid + 1;
-$target_file = $target_dir . "id-" . $secondid . "." . pathinfo($_FILES["image2"]["name"], PATHINFO_EXTENSION);
+$target_file = $target_dir . "id-" . $secondid . ".png";
 $uploadOk = 1;
-$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 //$check = getimagesize($_FILES["image2"]["tmp_name"]);
 //if ($check !== false) {
 //} else {
@@ -53,7 +48,7 @@ if ($_FILES["image2"]["size"] > 500000) {
   echo "Sorry, your second file is too large. Your size was " . $_FILES["image1"]["size"] . " bytes.";
   $uploadOk = 0;
 }
-if ($imageFileType != "png"){
+if (!in_array($_FILES['image1']['type'], $typeAllowed)){
   echo 'You can only upload PNG images. (second file) Your type was ' . $imageFileType;
   $uploadOk = 0;
 }
