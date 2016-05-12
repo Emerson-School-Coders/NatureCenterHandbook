@@ -69,6 +69,8 @@ if (isset($secondid)) $secondid = ",".$secondid;
 else $secondid = "";
 if ($uploadOk == 1) $db->exec('INSERT INTO handbook (id,title,author,entry,imageids) VALUES (NULL,"'.$_POST["title"].'","'.$_POST["author"].'","'.$_POST["entry"].'","'.$firstid.','.$secondid.'")');
 else echo "Your entry was not added.";
+header("");
+flush();
 if (!headers_sent()) header("Location: view.php?id=".$db->querySingle("SELECT id FROM handbook WHERE title='".$_POST['title']."'"));
 else echo 'Please press the back button on your browser.';
 ?>
