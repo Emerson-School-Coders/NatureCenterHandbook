@@ -8,6 +8,7 @@ $firstid = intval($last_id) + 1;
 $target_file = $target_dir . "id-" . $firstid . "." . pathinfo($_FILES["image1"]["name"], PATHINFO_EXTENSION);
 $uploadOk = 1;
 $imageFileType = pathinfo($_FILES["image1"]["name"], PATHINFO_EXTENSION);
+echo $target_file . $imageFileType
 //$check = getimagesize($_FILES["image1"]["tmp_name"]);
 //if ($check !== false) {
 //  $uploadOk = 1;
