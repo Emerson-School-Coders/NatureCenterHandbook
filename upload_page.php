@@ -7,7 +7,7 @@ $last_id = rtrim($last_id, ".png");
 $firstid = intval($last_id) + 1;
 $target_file = $target_dir . "id-" . $firstid . "." . pathinfo($_FILES["image1"]["name"], PATHINFO_EXTENSION);
 $uploadOk = 1;
-$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+$imageFileType = pathinfo($_FILES["image1"]["name"], PATHINFO_EXTENSION);
 //$check = getimagesize($_FILES["image1"]["tmp_name"]);
 //if ($check !== false) {
 //  $uploadOk = 1;
