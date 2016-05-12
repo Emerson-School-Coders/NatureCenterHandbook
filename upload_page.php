@@ -45,11 +45,11 @@ $uploadOk = 1;
 //  $uploadOk = 0;
 //}
 if ($_FILES["image2"]["size"] > 500000) {
-  echo "Sorry, your second file is too large. Your size was " . $_FILES["image1"]["size"] . " bytes.";
+  echo "Sorry, your second file is too large. Your size was " . $_FILES["image2"]["size"] . " bytes.";
   $uploadOk = 0;
 }
 if (!in_array($_FILES['image1']['type'], $typeAllowed)){
-  echo 'You can only upload PNG images. (second file) Your type was ' . $imageFileType;
+  echo 'You can only upload PNG images. (second file) Your type was ' . $_FILES['image2']['type'];
   $uploadOk = 0;
 }
 if ($uploadOk == 0) {
