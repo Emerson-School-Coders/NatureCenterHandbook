@@ -10,18 +10,18 @@ $uploadOk = 1;
 $typeAllowed = array("image/png");
 echo 'Array:<br>';
 var_dump($_FILES);
-//$check = getimagesize($_FILES["image1"]["tmp_name"]);
-//if ($check !== false) {
-//  $uploadOk = 1;
-//} else {
-//  echo "The first file you uploaded is not a valid PNG image.";
-//  $uploadOk = 0;
-//}
+$check = getimagesize($_FILES["image1"]["tmp_name"]);
+if ($check !== false) {
+  $uploadOk = 1;
+} else {
+ echo "The first file you uploaded is not a valid PNG image.";
+  $uploadOk = 0;
+}
 if ($_FILES["image1"]["size"] > 500000) {
   echo "Sorry, your first file is too large. Your size was " . $_FILES["image1"]["size"] . " bytes.";
   $uploadOk = 0;
 }
-if (exif_imagetype($_FILES['image1']['tmp_name']) != IMAGETYPE_PNG){
+if (pathinfo($_FILES['image1']['name'], PATHINFO_EXTENSION) != "png") {
   echo 'You can only upload PNG images. (first file) Your type was "' . $_FILES['image1']['type'] . '".';
   $uploadOk = 0;
 }
@@ -35,22 +35,23 @@ if ($uploadOk == 0) {
      echo "Sorry, there was an error uploading your first file.";
   }
 }
-if (isset($_FILES['image2'])) {
+if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) {
   $target_dir = "images/";
 $secondid = $firstid + 1;
 $target_file = $target_dir . "id-" . $secondid . ".png";
 $uploadOk = 1;
-//$check = getimagesize($_FILES["image2"]["tmp_name"]);
-//if ($check !== false) {
-//} else {
-//  echo "The second file you uploaded is not a valid PNG image.";
-//  $uploadOk = 0;
-//}
+$check = getimagesize($_FILES["image2"]["tmp_name"]);
+if ($check !== false) {
+  $uploadOk = 1;
+} else {
+  echo "The second file you uploaded is not a valid PNG image.";
+  $uploadOk = 0;
+}
 if ($_FILES["image2"]["size"] > 500000) {
   echo "Sorry, your second file is too large. Your size was " . $_FILES["image2"]["size"] . " bytes.";
   $uploadOk = 0;
 }
-if (exif_imagetype($_FILED['image2']['tmp_name']) != IMAGETYPE_PNG){
+if (pathinfo($_FILES['image1']['name'], PATHINFO_EXTENSION) != "png"){
   echo 'You can only upload PNG images. (second file) Your type was ' . $_FILES['image2']['type'];
   $uploadOk = 0;
 }
