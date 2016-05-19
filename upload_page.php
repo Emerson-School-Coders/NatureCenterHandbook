@@ -33,6 +33,7 @@ if ($uploadOk == 0) {
     $uploadOk = 1;
   } else {
      echo "Sorry, there was an error uploading your first file.<br>";
+     $uploadOk = 0;
   }
 }
 $uploadOks = 1;
@@ -63,6 +64,7 @@ if ($uploadOks == 0) {
     $uploadOks = 1;
   } else {
      echo "Sorry, there was an error uploading your second file.<br>";
+     $uploadOk = 0;
   }
 }
 }
