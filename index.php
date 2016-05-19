@@ -17,6 +17,7 @@ document.write("<font color='red'>PHP is not installed!  That may cause some pro
   <tr>
     <td><img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg" height="300"/></td>
     <td><img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Grass_covered_house_in_Iceland_1972.jpg" height="200"/></td>
+    <td><img src="https://static.pexels.com/photos/909/flowers-garden-colorful-colourful.jpg" height="300"</td>
   </tr>
 </table>
 </center>
