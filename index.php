@@ -1,4 +1,9 @@
 <html>
+<style>
+  img {
+    allign: center;
+  }
+</style>
 <head>
 <title>The Emerson Nature Center Official Handbook - Home</title>
 <link rel="stylesheet" href="page.css" type="text/css">
