@@ -1,5 +1,7 @@
 <?php
 include "sql.inc";
+ini_set('display_errors',1);
+error_reporting(E_ALL);
 $target_dir = "images/";
 $images = scandir($target_dir);
 $last_id = ltrim(end($images), "id-");
