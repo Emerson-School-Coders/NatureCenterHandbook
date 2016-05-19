@@ -22,5 +22,6 @@
       }
       ?>
     </ul>
+<?php include 'cp.php'; ?>
   </body>
 </html>

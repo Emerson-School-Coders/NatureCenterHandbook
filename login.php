@@ -11,5 +11,6 @@
     <p>Password: <input type="password" name="password"></p>
     <script>if (location.href != "http://emerson-school-coders.github.io/NatureCenterHandbook/login.html") document.write('<input type="submit" value="Login" style="margin-left: 12px">'); else document.write("<p>GitHub does not support log in pages.</p>");</script>
   </form>
+<?php include 'cp.php'; ?>
 </body>
 </html>

@@ -60,5 +60,6 @@ Description
 </tbody>
 </table>
 -->
+<?php include 'cp.php'; ?>
 </body>
 </html>

@@ -90,5 +90,6 @@ else {$tim = false;}
     <?php if (!$tim) {
       echo "-->";
     } ?>
+<?php include 'cp.php'; ?>
   </body>
 </html>

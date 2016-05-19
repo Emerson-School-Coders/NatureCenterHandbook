@@ -31,5 +31,6 @@
 			</form>
 			<br>
 		</center>
+<?php include 'cp.php'; ?>
 	</body>
 </html>

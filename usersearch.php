@@ -38,5 +38,6 @@ if ($results) {
       }
     }
     ?>
+<?php include 'cp.php'; ?>
   </body>
 </html>
