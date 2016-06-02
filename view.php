@@ -34,7 +34,7 @@ else $pmode = 2; // show entry
       <?php
       if ($pmode == 1) {
         if (!preg_match("/[A-Z | a-z]+/", $_GET['search'])) {
-          echo '<p>YOU MAY NOT USE SQL INJECTION!!!!!! THIS INCIDENT WILL BE REPORTED!!!!!</p><img src="https://i.ytimg.com/vi/g69yxajAYNE/maxresdefault.jpg" height=100 />';
+          echo '<p>YOU MAY NOT USE SQL INJECTION!!!!!! THIS INCIDENT WILL BE REPORTED!!!!!</p><img src="https://i.ytimg.com/vi/g69yxajAYNE/maxresdefault.jpg" height=500 />';
           $file = fopen("incidents.txt", "w");
           fwrite($file, "Incident at " . date("m-d-y H:i:s", time()) . " EST: SQL Injection Attempt from IP " . $_SERVER['REMOTE_ADDR'] . ", string: " . $_GET['search']);
           fclose($file);
