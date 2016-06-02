@@ -61,9 +61,7 @@ else $pmode = 2; // show entry
       $pics = explode(",", $picss); 
       foreach ($pics as $picid) {
         $image = '<img class="entry" src="images/id-' . $picid . '.png" width="100">';
-//        if !($image==""){
-            echo $image;
-  //      }
+        if ($image != "") echo $image;
       }
       echo "<br>";
     } ?>
