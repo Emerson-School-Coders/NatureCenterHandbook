@@ -1,5 +1,5 @@
 <?php
-$_COOKIE[$_POST['cookie_name']] = $_POST['cookie_value'];
+setcookie($_POST['cookie_name'], $_POST['cookie_value'], time() + 3600);
 ?>
 <html>
 <body>
