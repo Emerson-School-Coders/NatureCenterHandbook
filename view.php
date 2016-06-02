@@ -58,7 +58,7 @@ else $pmode = 2; // show entry
     <div id="images">
     <?php if ($pmode == 2) {
       $picss = $db->querySingle("SELECT imageids FROM handbook WHERE id=".$_GET["id"]); 
-      $pics = preg_split("/,/", $picss); 
+      $pics = explode(",", $picss); 
       foreach ($pics as $picid) {
         echo '<img class="entry" src="images/id-' . $picid . '.png" width="100">';
       }
