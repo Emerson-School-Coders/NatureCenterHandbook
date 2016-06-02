@@ -15,13 +15,13 @@ document.write("<font color='red'>PHP is not installed!  That may cause some pro
 <ol>
 <li>
 <br>
-<img src="Upload.php" />
+<img src="Upload.png" />
 <br />
 Click Upload
 </li>
 <li>
 <br>
-<img src="UploadPage.php" />
+<img src="UploadPage.png" />
 <br />
 This is the page you go to.  If you get a page saying:
 <br><img src="NotSignedIn.png" /><br>
