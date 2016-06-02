@@ -41,7 +41,6 @@ if ($uploadOk == 0) {
   }
 }
 $uploadOks = 1;
-$secondid = -1;
 if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) {
   $target_dir = "images/";
 $secondid = $firstid + 1;
