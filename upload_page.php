@@ -1,4 +1,8 @@
 <?php
+$echof = "";
+function echof($text) {
+  $echof .= $text;
+}
 include "sql.inc";
 ini_set('display_errors',1);
 error_reporting(E_ALL);
