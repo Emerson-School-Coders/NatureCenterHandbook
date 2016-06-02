@@ -13,7 +13,7 @@ if ($_SERVER['QUERY_STRING'] == "logout") {
 }
 else {
 $final_i = $db->querySingle('SELECT id FROM passwords WHERE password='.$_POST['password']);
-if ($final_i == NULL) die("You have entered an invalid password. Please go back and try again. Last ID checked: " . $i);
+if ($final_i == NULL) die("You have entered an invalid password. Please go back and try again.");
 $user = $db->querySingle('SELECT canadd, canedit, candelete, istim FROM passwords WHERE id='.$final_i, true);
 $perms = 0;
 if ($user['canadd'] == 1) $perms = 1;
