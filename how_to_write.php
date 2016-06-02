@@ -17,16 +17,17 @@ document.write("<font color='red'>PHP is not installed!  That may cause some pro
 <br>
 <img src="Upload.png" />
 <br />
-Click Upload
+<p>Click Upload</p>
 </li>
 <li>
 <br>
 <img src="UploadPage.png" />
 <br />
-This is the page you go to.  If you get a page saying:
+<p>This is the page you go to.  If you get a page saying:
 <br><img src="NotSignedIn.png" /><br>
-you will need to sign in.
+you will need to sign in.</p>
 </li>
+<p>
 <li>
 Tim's Expectations:
 <ol>
@@ -48,6 +49,7 @@ Other
 </ol>
 </li>
 </ol>
+</p>
 <?php include 'cp.php'; ?>
 </body>
 </html>

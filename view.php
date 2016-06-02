@@ -34,7 +34,7 @@ else $pmode = 2; // show entry
       <?php
       if ($pmode == 1) {
         if (!preg_match("/[A-Z | a-z]+/", $_GET['search'])) {
-          echo "YOU MAY NOT USE SQL INJECTION!!!!!! THIS INCIDENT WILL BE REPORTED!!!!!";
+          echo '<p>YOU MAY NOT USE SQL INJECTION!!!!!! THIS INCIDENT WILL BE REPORTED!!!!!</p><img src="https://i.ytimg.com/vi/g69yxajAYNE/maxresdefault.jpg" height=500 />';
           $file = fopen("incidents.txt", "w");
           fwrite($file, "Incident at " . date("m-d-y H:i:s", time()) . " EST: SQL Injection Attempt from IP " . $_SERVER['REMOTE_ADDR'] . ", string: " . $_GET['search']);
           fclose($file);
@@ -58,7 +58,7 @@ else $pmode = 2; // show entry
     <div id="images">
     <?php if ($pmode == 2) {
       $picss = $db->querySingle("SELECT imageids FROM handbook WHERE id=".$_GET["id"]); 
-      $pics = preg_split("/,/", $picss); 
+      $pics = explode(",", $picss); 
       foreach ($pics as $picid) {
         $image = '<img class="entry" src="images/id-' . $picid . '.png" width="100">';
         if !($image=="<img class=\"entry\" src=\"images/id-.png\" width=\"100\">"){
@@ -70,5 +70,6 @@ else $pmode = 2; // show entry
     </div>
     <p class="entry"><?php if ($pmode == 2) echo $db->querySingle("SELECT entry FROM handbook WHERE id=" . $_GET["id"]) ?></p>
     <?php include 'cp.php'; ?>
+    <a href="https://www.google.com/search?q=nature&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjOjtbLzInNAhUJT1IKHRR4AVwQ_AUIBygB&biw=1242&bih=585"<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/2000px-Smiley.svg.png" height=10/></a>
   </body>
 </html>
