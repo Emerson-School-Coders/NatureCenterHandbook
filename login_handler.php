@@ -14,17 +14,14 @@ if ($_SERVER['QUERY_STRING'] == "logout") {
 else {
 $final_i = $db->querySingle('SELECT id FROM passwords WHERE password='.$_POST['password']);
 if ($final_i == NULL) die('<p style="color: #066418; font-family: \'Trebuchet MS\'; margin: 8px; margin-left: 16px; margin-right: 12px;">You have entered an invalid password. Please go back and try again.</p>ID: '.$final_i);
-$user = $db->querySingle('SELECT canadd, canedit, candelete, istim FROM passwords WHERE id='.$final_i, true);
-$perms = 0;
-if ($user['canadd'] == 1) $perms = 1;
-if ($user['canedit'] == 1) $perms = $perms + 2;
-if ($user['candelete'] == 1) $perms = $perms + 4;
+$user = $db->querySingle('SELECT istim FROM passwords WHERE id='.$final_i);
 $time = time() + 3600;
 if (headers_sent()) {
   trigger_error("Cant change cookies", E_USER_NOTICE);
 }
-if ($user['istim'] == 1) {setcookie("tim", "istim", $time, $path);}
+if ($user == 1) {setcookie("tim", "istim", $time, $path);}
 setcookie("userid", $final_i, $time, $path);
+if (headers_sent()) die("Redirect failed, but it's OK. Just click <a href='index.php'>here</a> to go back to the home page.")
 header("Location: index.html"); /* Redirect browser */
 exit();
 }
