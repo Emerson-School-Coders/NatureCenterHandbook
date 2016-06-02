@@ -17,24 +17,29 @@ if ($check !== false) {
   $uploadOk = 1;
 } else {
  echo "The first file you uploaded is not a valid PNG image.<br>";
+ <img src="http://www.iconarchive.com/download/i88574/icons8/ios7/Messaging-Sad.ico"/>
   $uploadOk = 0;
 }
 if ($_FILES["image1"]["size"] > 500000) {
   echo "Sorry, your first file is too large. Your size was " . $_FILES["image1"]["size"] . " bytes.<br>";
+  <img src="http://www.iconarchive.com/download/i88574/icons8/ios7/Messaging-Sad.ico"/>
   $uploadOk = 0;
 }
 if (pathinfo($_FILES['image1']['name'], PATHINFO_EXTENSION) != "png") {
   echo 'You can only upload PNG images. (first file) Your type was "' . $_FILES['image1']['type'] . '".<br>';
+  <img src="http://www.iconarchive.com/download/i88574/icons8/ios7/Messaging-Sad.ico"/>
   $uploadOk = 0;
 }
 if ($uploadOk == 0) {
   echo "Sorry, your first file was not uploaded.<br>";
+  <img src="http://www.iconarchive.com/download/i88574/icons8/ios7/Messaging-Sad.ico"/>
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["image1"]["tmp_name"], $target_file)) {
     $uploadOk = 1;
   } else {
      echo "Sorry, there was an error uploading your first file.<br>";
+     <img src="http://www.iconarchive.com/download/i88574/icons8/ios7/Messaging-Sad.ico"/>
      $uploadOk = 0;
   }
 }
