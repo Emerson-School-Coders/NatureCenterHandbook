@@ -60,8 +60,7 @@ else $pmode = 2; // show entry
       $picss = $db->querySingle("SELECT imageids FROM handbook WHERE id=".$_GET["id"]); 
       $pics = explode(",", $picss); 
       foreach ($pics as $picid) {
-        $image = '<img class="entry" src="images/id-' . $picid . '.png" width="100">';
-        if ($image != "") echo $image;
+        if ($picid != "-1") echo '<img class="entry" src="images/id-' . $picid . '.png" width="100">';
       }
       echo "<br>";
     } ?>
