@@ -10,7 +10,7 @@ if ($_SERVER['QUERY_STRING'] == "logout") {
 }
 else {
 $final_i = $db->querySingle('SELECT id FROM passwords WHERE password='.$_POST['password']);
-if ($final_i == NULL) die("Search returned no results.");
+if ($final_i == NULL) die("Search returned no results with password ".$_POST['password']);
 if ($final_i == FALSE) die('<p style="color: #066418; font-family: \'Trebuchet MS\'; margin: 8px; margin-left: 16px; margin-right: 12px;">You have entered an invalid password. Please go back and try again.</p>ID: '.$final_i);
 $user = $db->querySingle('SELECT istim FROM passwords WHERE id='.$final_i);
 $time = time() + 3600;
