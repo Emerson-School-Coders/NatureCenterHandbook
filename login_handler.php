@@ -12,20 +12,8 @@ if ($_SERVER['QUERY_STRING'] == "logout") {
   //header("Location: index.html");
 }
 else {
-$result = $db->querySingle('SELECT password FROM passwords', true);
-$passfound = false;
-$final_i = 0;
-$i = 0;
-foreach ($result as $onepass) {
-  if ($_POST['password'] == $onepass) {
-    $passfound = true;
-    $final_i = $i+1;
-    break;
-  }
-  $i++;
-}
-if (end($result) == $onepass && $passfound == false) {$final_i = $i + 1; $passfound = true;}
-if ($passfound == false || $final_i == 0) die("You have entered an invalid password. Please go back and try again. Last ID checked: " . $i);
+$final_i = $db->querySingle('SELECT id FROM passwords WHERE password='.$_POST['password']);
+if ($final_i == NULL) die("You have entered an invalid password. Please go back and try again. Last ID checked: " . $i);
 $user = $db->querySingle('SELECT canadd, canedit, candelete, istim FROM passwords WHERE id='.$final_i, true);
 $perms = 0;
 if ($user['canadd'] == 1) $perms = 1;
