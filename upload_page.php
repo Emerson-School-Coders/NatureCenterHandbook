@@ -75,10 +75,7 @@ if ($uploadOks == 0) {
 }
 if (isset($secondid)) $secondid = ",".$secondid;
 else $secondid = "";
-$insert_query = 'INSERT INTO handbook (id,title,author,entry,imageids) VALUES (NULL,"'.$_POST["title"].'","'.$_POST["author"].'","'.$_POST["entry"].'","'.$firstid;
-if ($secondid != -1) $insert_query .= ",".$secondid;
-$insert_query .= '")';
-if ($uploadOk == 1 && $uploadOks == 1 && $echof == ":") $insert_result = $db->exec($insert_query);
+if ($uploadOk == 1 && $uploadOks == 1 && $echof == ":") $insert_result = $db->exec('INSERT INTO handbook (id,title,author,entry,imageids) VALUES (NULL,"'.$_POST["title"].'","'.$_POST["author"].'","'.$_POST["entry"].'","'.$firstid.",".$secondid.'")');
 else {echo $echof . "Your entry was not added.<br>Upload 1: ".$uploadOk."Upload 2: ".$uploadOks."Echo: ".$echof; header(""); flush();}
 if (!$insert_result) {die("An error occurred inserting the entry."); unlink($target_file); if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) unlink($target_files);}
 if (!headers_sent()) header("Location: view.php?id=".$db->querySingle("SELECT id FROM handbook WHERE title='".$_POST['title']."'"));
