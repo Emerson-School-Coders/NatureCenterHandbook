@@ -66,7 +66,7 @@ else $pmode = 2; // show entry
     } ?>
     </div>
     <p class="entry"><?php if ($pmode == 2) echo $db->querySingle("SELECT entry FROM handbook WHERE id=" . $_GET["id"]) ?></p>
-    <p><a href="edit.php?id=<?php echo $_GET['id']; ?>">Edit this page</a></p>
+    <p align="center"><a href="edit.php?id=<?php echo $_GET['id']; ?>">Edit this page</a></p>
     <?php include 'cp.php'; ?>
   </body>
 </html>
