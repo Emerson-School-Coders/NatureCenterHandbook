@@ -21,7 +21,7 @@ if (headers_sent()) {
 }
 if ($user == 1) {setcookie("tim", "istim", $time, $path);}
 setcookie("userid", $final_i, $time, $path);
-if (headers_sent()) die("Redirect failed, but it's OK. Just click <a href='index.php'>here</a> to go back to the home page.")
+if (headers_sent()) die("Redirect failed, but it's OK. Just click <a href='index.php'>here</a> to go back to the home page.");
 header("Location: index.html"); /* Redirect browser */
 exit();
 }
