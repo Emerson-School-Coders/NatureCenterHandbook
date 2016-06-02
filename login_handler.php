@@ -5,11 +5,8 @@ if ($_SERVER['QUERY_STRING'] == "logout") {
   if (headers_sent()) {
     trigger_error("Cant change cookies", E_USER_NOTICE);
   }
-  //while (isset($_COOKIE['userid'])) {
   setcookie("userid", $_COOKIE['userid'], time() - 3600, $path);
   if (isset($_COOKIE['tim'])) setcookie("tim", $_COOKIE['tim'], time() - 3600, $path);
-  //}
-  //header("Location: index.html");
 }
 else {
 $final_i = $db->querySingle('SELECT id FROM passwords WHERE password='.$_POST['password']);
