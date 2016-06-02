@@ -21,6 +21,7 @@ document.write("<font color='red'>PHP is not installed!  That may cause some pro
   </tr>
 </table>
 </center>
+<a href="https://www.google.com/search?q=nature&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjOjtbLzInNAhUJT1IKHRR4AVwQ_AUIBygB&biw=1242&bih=585"<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/2000px-Smiley.svg.png" height=10/></a>
 <?php include 'cp.php'; ?>
 </body>
 </html>
