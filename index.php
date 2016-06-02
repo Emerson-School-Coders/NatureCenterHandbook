@@ -17,11 +17,10 @@ document.write("<font color='red'>PHP is not installed!  That may cause some pro
   <tr>
     <td><img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg" height="300"/></td>
     <td><img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Grass_covered_house_in_Iceland_1972.jpg" height="200"/></td>
-    <td><img src="https://static.pexels.com/photos/909/flowers-garden-colorful-colourful.jpg" height="300"</td>
+    <td><a href="<a href="https://www.google.com/search?q=nature&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjOjtbLzInNAhUJT1IKHRR4AVwQ_AUIBygB&biw=1242&bih=585"><img src="https://static.pexels.com/photos/909/flowers-garden-colorful-colourful.jpg" height="300"</td></a>
   </tr>
 </table>
 </center>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/2000px-Smiley.svg.png" height=10/>
 <?php include 'cp.php'; ?>
 </body>
 </html>
