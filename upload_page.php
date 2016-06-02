@@ -44,7 +44,7 @@ $uploadOks = 1;
 if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) {
   $target_dir = "images/";
 $secondid = $firstid + 1;
-$target_file = $target_dir . "id-" . $secondid . ".png";
+$target_files = $target_dir . "id-" . $secondid . ".png";
 $check = getimagesize($_FILES["image2"]["tmp_name"]);
 if ($check !== false) {
   $uploadOks = 1;
@@ -64,7 +64,7 @@ if ($uploadOks == 0) {
   echof( "Sorry, your second file was not uploaded.<br>");
 // if everything is ok, try to upload file
 } else {
-  if (move_uploaded_file($_FILES["image2"]["tmp_name"], $target_file)) {
+  if (move_uploaded_file($_FILES["image2"]["tmp_name"], $target_filse)) {
     $uploadOks = 1;
   } else {
      echof( "Sorry, there was an error uploading your second file.<br>");
@@ -74,8 +74,9 @@ if ($uploadOks == 0) {
 }
 if (isset($secondid)) $secondid = ",".$secondid;
 else $secondid = "";
-if ($uploadOk == 1 && $uploadOks == 1 && $echof == ":") $db->exec('INSERT INTO handbook (id,title,author,entry,imageids) VALUES (NULL,"'.$_POST["title"].'","'.$_POST["author"].'","'.$_POST["entry"].'","'.$firstid.','.$secondid.'")');
+if ($uploadOk == 1 && $uploadOks == 1 && $echof == ":") $insert_result = $db->exec('INSERT INTO handbook (id,title,author,entry,imageids) VALUES (NULL,"'.$_POST["title"].'","'.$_POST["author"].'","'.$_POST["entry"].'","'.$firstid.','.$secondid.'")');
 else {echo $echof . "Your entry was not added.<br>Upload 1: ".$uploadOk."Upload 2: ".$uploadOks."Echo: ".$echof; header(""); flush();}
+if (!$insert_result) {die("An error occurred inserting the entry."); unlink($target_file); if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) unlink($target_files)}
 if (!headers_sent()) header("Location: view.php?id=".$db->querySingle("SELECT id FROM handbook WHERE title='".$_POST['title']."'"));
 else echo 'Please press the back button on your browser.';
 ?>
