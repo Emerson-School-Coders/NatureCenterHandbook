@@ -17,7 +17,6 @@ if ($check !== false) {
   $uploadOk = 1;
 } else {
  echo "The first file you uploaded is not a valid PNG image.<br>";
- <img src="http://www.iconarchive.com/download/i88574/icons8/ios7/Messaging-Sad.ico"/>
   $uploadOk = 0;
 }
 if ($_FILES["image1"]["size"] > 500000) {
