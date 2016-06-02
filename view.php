@@ -60,7 +60,10 @@ else $pmode = 2; // show entry
       $picss = $db->querySingle("SELECT imageids FROM handbook WHERE id=".$_GET["id"]); 
       $pics = preg_split("/,/", $picss); 
       foreach ($pics as $picid) {
-        echo '<img class="entry" src="images/id-' . $picid . '.png" width="100">';
+        $image = '<img class="entry" src="images/id-' . $picid . '.png" width="100">';
+        if !($image=="<img class=\"entry\" src=\"images/id-.png\" width=\"100\">"){
+            echo $image;
+        }
       }
       echo "<br>";
     } ?>
