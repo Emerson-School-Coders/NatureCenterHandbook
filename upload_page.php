@@ -14,8 +14,6 @@ $firstid = intval($last_id) + 1;
 $target_file = $target_dir . "id-" . $firstid . ".png";
 $uploadOk = 1;
 $typeAllowed = array("image/png");
-echo 'Array:<br>';
-var_dump($_FILES);
 $check = getimagesize($_FILES["image1"]["tmp_name"]);
 if ($check !== false) {
   $uploadOk = 1;
