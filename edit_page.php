@@ -21,6 +21,7 @@ if (isset($_GET['delete']) && $db->querySingle("SELECT candelete FROM passwords 
   exit();
 }
 if ($db->querySingle("SELECT canedit FROM passwords WHERE id=".$_COOKIE['userid']) == "1") {
+  $uploadOk = 1;
 if (isset($_FILES['image1']['name']) && !empty($_FILES['image1']['name'])) {
 $target_dir = "images/";
 $images = scandir($target_dir);
@@ -28,7 +29,6 @@ $last_id = ltrim(end($images), "id-");
 $last_id = rtrim($last_id, ".png");
 $firstid = intval($last_id) + 1;
 $target_file = $target_dir . "id-" . $firstid . ".png";
-$uploadOk = 1;
 $typeAllowed = array("image/png");
 $check = getimagesize($_FILES["image1"]["tmp_name"]);
 if ($check !== false) {
