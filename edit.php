@@ -18,7 +18,7 @@ $page = $db->querySingle("SELECT title, author, entry, imageids FROM handbook WH
       <h2>Title: <input type="text" name="title" value="<?php echo $page['title']; ?>" placeholder="Title" style="font-size: 18pt;" required></h2>
       <h3>Author: <?php echo $page['author']; ?>, edited by <?php echo $db->querySingle("SELECT name FROM passwords WHERE id=".$_COOKIE['userid']); ?><br>
       <textarea id="styled" width=300 height=300 placeholder="Enter your entry here." name="entry" required><?php echo $page['entry']; ?></textarea>
-      Change images here:
+      <br>Change images here:
       </h3>
       Image 1: <img src="<?php echo 'images/id-'.substr($page['imageids'], 0, 1).'.png'; ?>" height=100> Change: <input type="file" name="image1" accept=".png, image/png">
       <?php if (explode(",", $page["imageids"])[1] != "-1" && explode(",", $page["imageids"])[1] != "")
