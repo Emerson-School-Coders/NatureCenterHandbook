@@ -29,7 +29,7 @@ $hidden = false;
       <br><input type="submit" value="Submit">
     </form>
     <?php if (!$db->querySingle("SELECT candelete FROM passwords WHERE id=".$_COOKIE['userid'])) {$hidden = true; echo "<!--";} ?>
-    <form action="edit_page.php" method="GET" onSubmit="return alert('Are you sure you want to delete this?');">
+    <form action="edit_page.php" method="GET" onSubmit="return confirm('Are you sure you want to delete this?');">
       <h3>Delete this page</h3>
       <p style="color: red;">WARNING: The only way to recover this entry is to ask Tim to restore it. It is otherwise unrecoverable.</p>
       <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
