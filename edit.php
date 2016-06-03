@@ -20,9 +20,9 @@ $page = $db->querySingle("SELECT title, author, entry, imageids FROM handbook WH
       <textarea id="styled" width=300 height=300 placeholder="Enter your entry here." name="entry" required><?php echo $page['entry']; ?></textarea>
       Change images here:
       </h3>
-      Image 1: <img src="<?php echo 'images/id-'.substr($page['imageids'], 0, 1).'.png'; ?>"> Change: <input type="file" name="image1" accept=".png, image/png">
+      Image 1: <img src="<?php echo 'images/id-'.substr($page['imageids'], 0, 1).'.png'; ?>" height=100> Change: <input type="file" name="image1" accept=".png, image/png">
       <?php if (array_slice(explode(",", $page["imageids"]), 1, 1) != "-1" || array_slice(explode(",", $page["imageids"]), 1, 1) != "")
-              echo 'Image 2: <img src="images/id-'.substr($page['imageids'], 0, 1).'.png"> Change: <input type="file" name="image2" accept=".png, image/png">'; ?>
+              echo 'Image 2: <img src="images/id-'.substr($page['imageids'], 0, 1).'.png" height=100> Change: <input type="file" name="image2" accept=".png, image/png">'; ?>
       <input type="submit" value="Submit">
     </form>
     </center>
