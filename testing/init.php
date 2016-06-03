@@ -28,10 +28,11 @@ if (isset($_GET['action']) || $_GET['action'] == "") {
     <?php if (isset($_GET['action']) || $_GET['action'] == "") {
       if ($_GET['action'] == "passwords") echo "Passwords initialized.";
       if ($_GET['action'] == "handbook") echo "Handbook initialized.";
+      if ($_GET['action'] == "deleted") echo "Deletions initialized.";
     }
     ?>
     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET"><input type="hidden" name="action" value="passwords"><input type="submit" value="Initialize Passwords"></form>
     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET"><input type="hidden" name="action" value="handbook"><input type="submit" value="Initialize Handbook"></form>
-    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET"><input type="hidden" name="action" value="deleted"><input type="submit" value="Initialize Deleted Entries"></form>
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET"><input type="hidden" name="action" value="deleted"><input type="submit" value="Initialize Deletions"></form>
   </body>
 </html>
