@@ -19,3 +19,11 @@ while ($queryf = $db->querySingle("SELECT * FROM handbook WHERE id=" . $j, true)
   echo "<br>";
   $j++;
 }
+echo "<br><br>database deleted:<br>";
+$h = 1;
+$db->query("SELECT * FROM deleted");
+while ($queryg = $db->fetchArray(SQLITE3_NUM)) {
+  print_r($queryg);
+  echo "<br>";
+  $h++;
+}
