@@ -87,6 +87,18 @@ else {$tim = false;}
     </table>
     </p>
     </div>
+    <div id="viewdeletions">
+      <h3>View deleted entries</h3>
+      <table>
+        <tr><td>Title</td><td>Author</td><td>Removed by</td><td>Removed on</td><td>Restore</td></tr>
+        <?php
+        $deletions = $db->query("SELECT * FROM deleted");
+        while ($delete = $deletions->fetchArray(SQLITE3_ASSOC)) {
+          echo '<tr><td>'.$delete['title'].'</td><td>'.$delete['author'].'</td><td>'.$db->querySingle("SELECT name FROM passwords WHERE id=".$delete['removedby']).'</td><td>'.date('Y-m-d', $delete['removedate'])
+        }
+        ?>
+      </table>
+    </div>
     <?php if (!$tim) {
       echo "-->";
     } ?>
