@@ -50,3 +50,9 @@ h3.entry {
   font-family: "Lucida Sans Unicode", "Lucida Grande";
   text-align: center;
 }
+textarea#styled {
+				width: 600px;
+				height: 120px;
+				border: 3px solid #cccccc;
+				padding: 5px;
+			}
