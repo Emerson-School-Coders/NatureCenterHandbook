@@ -14,8 +14,7 @@ $page = $db->querySingle("SELECT title, author, entry, imageids FROM handbook WH
     <?php if (!isset($_COOKIE['userid'])) echo "<p>You have to log in to the Handbook to edit pages.</p><!--";
     else if (!$db->querySingle("SELECT canedit FROM passwords WHERE id=".$_COOKIE['userid'])) echo "<p>Sorry, you are not allowed to edit this page. Please ask Tim for permission.</p><!--"; ?>
     <center>
-    <form action="upload_page.php" method="POST">
-      <input type="hidden" name="edit" value="1">
+    <form action="edit_page.php" method="POST">
       <h2>Title: <input type="text" name="title" value="<?php echo $page['title']; ?>" placeholder="Title" style="font-size: 18pt;" required></h2>
       <h3>Author: <?php echo $page['author']; ?>, edited by <?php echo $db->querySingle("SELECT name FROM passwords WHERE id=".$_COOKIE['userid']); ?><br>
       <textarea id="styled" width=300 height=300 placeholder="Enter your entry here." name="entry" required><?php echo $page['entry']; ?></textarea>
