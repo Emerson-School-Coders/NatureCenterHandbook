@@ -78,7 +78,7 @@ else {echo $echof . "Your entry was not added.<br>Upload 1: ".$uploadOk."Upload 
 if (!$insert_result) {die("An error occurred inserting the entry."); unlink($target_file); if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) unlink($target_files);}
 if (!headers_sent()) header("Location: view.php?id=".$db->querySingle("SELECT id FROM handbook WHERE title='".$_POST['title']."'"));
 else echo 'Please press the back button on your browser.';
-}
+} else die("You cannot upload a page!");
 ?>
 <html>
   <head>
