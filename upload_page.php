@@ -6,7 +6,7 @@ function echof($text) {
 include "sql.inc";
 ini_set('display_errors',1);
 error_reporting(E_ALL);
-if (isset($_COOKIE['userid']) && $db->querySingle("SELECT canadd FROM passwords WHERE id=".$_COOKIE['userid']) == "1")) {
+if (isset($_COOKIE['userid']) && $db->querySingle("SELECT canadd FROM passwords WHERE id=".$_COOKIE['userid']) == "1") {
 $target_dir = "images/";
 $images = scandir($target_dir);
 $last_id = ltrim(end($images), "id-");
