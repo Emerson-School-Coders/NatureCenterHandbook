@@ -6,9 +6,10 @@ function echof($text) {
 include "sql.inc";
 ini_set('display_errors',1);
 error_reporting(E_ALL);
+if (isset($_COOKIE['userid'])) {
 if (isset($_GET['delete'])) {
   $page = $db->querySingle("SELECT * FROM handbook WHERE id=".$_GET['id'], true);
-  $db->exec('INSERT INTO deleted VALUES ('.$page['id'].',"'.$page['title'].'","'.$page['author'].'","'.$page['entry'].'")');
+  $db->exec('INSERT INTO deleted VALUES ('.$page['id'].',"'.$page['title'].'","'.$page['author'].'","'.$page['entry'].'",'.$_COOKIE["userid"].','.time().')');
   $db->exec('DELETE FROM handbook WHERE id='.$_GET['id']);
   foreach (explode(",", $page['imageids']) as $id) {
     if ($id != "-1" && $id != "") {
@@ -89,6 +90,7 @@ else {echo $echof . "Your entry was not added.<br>Upload 1: ".$uploadOk."Upload 
 if (!$insert_result) {die("An error occurred inserting the entry."); unlink($target_file); if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) unlink($target_files);}
 if (!headers_sent()) header("Location: view.php?id=".$db->querySingle("SELECT id FROM handbook WHERE title='".$_POST['title']."'"));
 else echo 'Please press the back button on your browser.';
+}
 ?>
 <html>
   <head>
