@@ -94,7 +94,7 @@ else {$tim = false;}
         <?php
         $deletions = $db->query("SELECT * FROM deleted");
         while ($delete = $deletions->fetchArray(SQLITE3_ASSOC)) {
-          echo '<tr><td>'.$delete['title'].'</td><td>'.$delete['author'].'</td><td>'.$db->querySingle("SELECT name FROM passwords WHERE id=".$delete['removedby']).'</td><td>'.date('Y-m-d', $delete['removedate'])
+          echo '<tr><td>'.$delete['title'].'</td><td>'.$delete['author'].'</td><td>'.$db->querySingle("SELECT name FROM passwords WHERE id=".$delete['removedby']).'</td><td>'.date('Y-m-d', $delete['removaldate']).'</td><td><form action="restore.php" method="POST"><input type="hidden" name="id" value="'.$page['id'].'"><input type="submit" value="Restore"></td></tr>';
         }
         ?>
       </table>
