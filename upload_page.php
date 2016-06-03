@@ -6,6 +6,7 @@ function echof($text) {
 include "sql.inc";
 ini_set('display_errors',1);
 error_reporting(E_ALL);
+if (isset($_COOKIE['userid']) && $db->querySingle("SELECT canadd FROM passwords WHERE id=".$_COOKIE['userid']) == "1")) {
 $target_dir = "images/";
 $images = scandir($target_dir);
 $last_id = ltrim(end($images), "id-");
@@ -77,6 +78,7 @@ else {echo $echof . "Your entry was not added.<br>Upload 1: ".$uploadOk."Upload 
 if (!$insert_result) {die("An error occurred inserting the entry."); unlink($target_file); if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) unlink($target_files);}
 if (!headers_sent()) header("Location: view.php?id=".$db->querySingle("SELECT id FROM handbook WHERE title='".$_POST['title']."'"));
 else echo 'Please press the back button on your browser.';
+}
 ?>
 <html>
   <head>
