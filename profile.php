@@ -5,8 +5,7 @@
     <link rel="stylesheet" href="page.css" type="text/css">
   </head>
   <body>
-    <iframe src="navigator.php"></iframe>
-    <h1><?php $name =  $db->querySingle("SELECT name FROM passwords WHERE id=".$_GET['id']); echo $name; ?></h1>
+    <iframe src="navigator.php?header=<?php $name =  $db->querySingle("SELECT name FROM passwords WHERE id=".$_GET['id']); echo htmlspecialchars($name); ?>"></iframe>
     <h3>Entries in the Handbook</h3>
     <ul>
       <?php
