@@ -66,6 +66,7 @@ window.onclick = function(event) {
     padding: 6px 8px;
     text-decoration: none;
     display: inline-block;
+    color: green;
 }
 .dropdown-content a:visited {
     padding: 6px 8px;
