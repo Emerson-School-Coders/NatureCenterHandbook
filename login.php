@@ -4,8 +4,7 @@
   <link rel="stylesheet" href="page.css" type="text/css">
 </head>
 <body>
-  <iframe src="navigator.php"></iframe>
-  <h1>Login to the Handbook</h1>
+  <iframe src="navigator.php?header=Login%20to%20the%20Handbook"></iframe>
   <p align="center">Login to be able to add to and edit the Nature Center Handbook.</p>
   <form action="login_handler.php" method="POST">
     <p>Password: <input type="password" name="password"></p>
