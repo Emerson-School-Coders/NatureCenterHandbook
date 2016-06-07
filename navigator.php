@@ -33,6 +33,7 @@ window.onclick = function(event) {
     font-family: "Lucida Grande";
     text-decoration: none;
     margin-bottom: 4px;
+    font-size: 18px;
 }
 
 /* Dropdown button on hover & focus */
