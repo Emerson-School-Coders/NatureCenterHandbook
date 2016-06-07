@@ -27,6 +27,9 @@ iframe {
   display: block;
   overflow: hidden;
 }
+iframe::-webkit-scrollbar {  
+    display: none;
+}
 body {
   margin: 0px;
   padding: 0px;
