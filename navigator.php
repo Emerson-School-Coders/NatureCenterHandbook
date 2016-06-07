@@ -13,7 +13,7 @@
       &nbsp;&nbsp;&nbsp;
       Search: <form action="view.php" method="GET" target="_top" class="navbar"><input type="search" name="search" placeholder="Search the Handbook..."><input type="submit" value="Search"></form></li>
     </h3>
-    <h1><?php echo $_GET['header']; ?></h1>
+    <h1 class="navbar"><?php echo $_GET['header']; ?></h1>
 </div>
 </body>
 </html>
