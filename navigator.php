@@ -85,9 +85,30 @@ window.onclick = function(event) {
 <body>
 <div class="navbar">
     <h3 class="navbar" align="center">
-      <a class="navbar" href="index.php" target="_top">Home</a> | 
-      <div class="dropdown"><button class="dropbtn" onClick="hoverbar('view-drop-menu')">Handbook</button><div id="view-drop-menu" class="dropdown-content" style="color: green;"><a href="view.php" target="_top">View Page</a> | <a href="upload.php" target="_top">Upload</a> | <a href="printpdf.php" target="_top">Download PDF</a></div></div> | 
-      <div class="dropdown"><button class="dropbtn" onClick="hoverbar('profile-drop-menu')">Profiles</button><div id="profile-drop-menu" class="dropdown-content" style="color: green;"><?php if (!isset($_COOKIE['userid'])) echo '<a href="login.php" target="_top">Login</a>'; else echo '<a href="login_handler.php?logout" target="_top">Logout</a>'; ?> | <a href="usersearch.php" target="_top">Search for user</a><?php include_once "sql.inc"; if (isset($_COOKIE['tim'])) echo ' | <a href="control_panel.php" target="_top">Control Panel</a>'; ?></div></div>
+      <div class="dropdown">
+        <button class="dropbtn" onClick="hoverbar('info-drop-menu')">Info</button>
+        <div id="info-drop-menu" class="dropdown-content" style="color: green;">
+          <a href="index.php" target="_top">Home</a> | 
+          <a href="about.php" target="_top">About</a> | 
+          <a href="how_to_write.php" target="_top">How to Write</a>
+        </div>
+      </div> | 
+      <div class="dropdown">
+        <button class="dropbtn" onClick="hoverbar('view-drop-menu')">Handbook</button>
+        <div id="view-drop-menu" class="dropdown-content" style="color: green;">
+          <a href="view.php" target="_top">View Page</a> | 
+          <a href="upload.php" target="_top">Upload</a> | 
+          <a href="printpdf.php" target="_top">Download PDF</a>
+        </div>
+      </div> | 
+      <div class="dropdown">
+        <button class="dropbtn" onClick="hoverbar('profile-drop-menu')">Profiles</button>
+        <div id="profile-drop-menu" class="dropdown-content" style="color: green;">
+          <?php if (!isset($_COOKIE['userid'])) echo '<a href="login.php" target="_top">Login</a>'; else echo '<a href="login_handler.php?logout" target="_top">Logout</a>'; ?> | 
+          <a href="usersearch.php" target="_top">Search for user</a>
+          <?php include_once "sql.inc"; if (isset($_COOKIE['tim'])) echo ' | <a href="control_panel.php" target="_top">Control Panel</a>'; ?>
+        </div>
+      </div>
       &nbsp;&nbsp;&nbsp;
       Search: <form action="view.php" method="GET" target="_top" class="navbar"><input type="search" name="search" placeholder="Search the Handbook..."><input type="submit" value="Search"></form></li>
     </h3>
