@@ -50,6 +50,7 @@ window.onclick = function(event) {
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
+    margin: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
@@ -73,7 +74,7 @@ window.onclick = function(event) {
     <h3 class="navbar" align="center">
       <a class="navbar" href="index.php" target="_top">Home</a> | 
       <a class="navbar" href="view.php" target="_top">View</a> | 
-      <div class="dropdown"><button class="dropbtn" onClick="hoverbar('profile-drop-menu')">Profiles</button><div id="profile-drop-menu" class="dropdown-content"><ul><li><a href="login.php">Login</a> | </li><li><a href="usersearch.php">Search for user</a></li></ul></div></div> |
+      <div class="dropdown"><button class="dropbtn" onClick="hoverbar('profile-drop-menu')">Profiles</button><div id="profile-drop-menu" class="dropdown-content"><a href="login.php">Login</a> | <a href="usersearch.php">Search for user</a></div></div> |
       <?php if (!isset($_COOKIE['userid'])) echo '<a class="navbar" href="login.php" target="_top">Login</a>'; else echo '<a class="navbar" href="login_handler.php?logout" target="_top">Logout</a>'; ?>
       <?php include_once "sql.inc"; if (isset($_COOKIE['tim'])) echo ' | <a href="control_panel.php" class="navbar" target="_top">Control Panel</a>'; ?>
       &nbsp;&nbsp;&nbsp;
