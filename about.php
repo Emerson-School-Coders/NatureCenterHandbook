@@ -13,12 +13,12 @@ document.write("<font color='red'>PHP is not installed!  That may cause some pro
 <p>This project was started by Jack, Thor, and Elliot as a handbook for the Nature Center.  If you want to join, please ask Tim.</p>
 <p><b>Licensing: </b>all text is under the CC BY-SA license.  You are free to copy and distribute the content of this text.</p>
 <p>This project uses the fpdf library to create PDF files. The license is below:<br>
-Permission is hereby granted, free of charge, to any person obtaining a copy<br>
+<code>Permission is hereby granted, free of charge, to any person obtaining a copy<br>
 of this software to use, copy, modify, distribute, sublicense, and/or sell<br>
 copies of the software, and to permit persons to whom the software is furnished<br>
 to do so.<br>
 <br>
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.</p>
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.</code></p>
 <?php include 'cp.php'; ?>
 </body>
 </html>
