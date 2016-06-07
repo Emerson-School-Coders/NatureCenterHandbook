@@ -19,9 +19,8 @@ else $pmode = 2; // show entry
     <link rel="stylesheet" href="page.css" type="text/css">
   </head>
   <body>
-    <iframe src="navigator.php"></iframe>
     <?php if ($pmode != 0) echo '<!--'; ?>
-    <h1>Search the Nature Center Handbook</h1>
+    <iframe src="navigator.php?header=Search%20the%20Handbook"></iframe>
     <form action="view.php" method="GET">
       <p>WARNING: You may only use uppercase or lowercase letters in the search, or you will be accused of hacking.<br>
       Search: <input type="search" name="search" placeholder="Search the Handbook..."><input type="submit" value="Search"></p>
@@ -29,7 +28,7 @@ else $pmode = 2; // show entry
     <p><a href="usersearch.php">Want to find another user? Click here for user search.</a></p>
     <?php if ($pmode != 0) echo '-->';
     if ($pmode != 1) echo '<!--'; ?>
-    <h1>Search Results</h1>
+    <iframe src="navigator.php?header=Search%20Results"></iframe>
     <ul>
       <?php
       if ($pmode == 1) {
@@ -53,6 +52,7 @@ else $pmode = 2; // show entry
     </ul>
     <?php if ($pmode != 1) echo '-->';
     if ($pmode != 2) echo '<!--'; ?>
+    <iframe src="navigator.php?header=Entry"></iframe>
     <h1 class="entry"><?php if ($pmode == 2) echo $db->querySingle("SELECT title FROM handbook WHERE id=" . $_GET["id"]) ?></h1>
     <h3 class="entry">Written by <?php if ($pmode == 2) echo $db->querySingle("SELECT author FROM handbook WHERE id=" . $_GET["id"]) ?></h3>
     <div id="images">
