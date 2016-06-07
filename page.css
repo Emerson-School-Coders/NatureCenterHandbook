@@ -65,6 +65,7 @@ h3.navbar, a.navbar {
   color: #66ff99;
   font-family: "Lucida Grande";
   text-decoration: none;
+  margin-bottom: 4px;
 }
 form.navbar {
   display: inline-block;
