@@ -29,6 +29,10 @@ window.onclick = function(event) {
     padding: 8px;
     border: none;
     cursor: pointer;
+    color: #66ff99;
+    font-family: "Lucida Grande";
+    text-decoration: none;
+    margin-bottom: 4px;
 }
 
 /* Dropdown button on hover & focus */
@@ -46,7 +50,7 @@ window.onclick = function(event) {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #eeeeee;
     min-width: 160px;
     margin: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
