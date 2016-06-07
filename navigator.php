@@ -67,6 +67,12 @@ window.onclick = function(event) {
     text-decoration: none;
     display: inline-block;
 }
+.dropdown-content a:visited {
+    padding: 6px 8px;
+    text-decoration: none;
+    display: inline-block;
+    color: green;
+}
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #f1f1f1}
