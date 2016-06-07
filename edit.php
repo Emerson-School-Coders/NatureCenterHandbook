@@ -10,8 +10,8 @@ $hidden = false;
     <link rel="stylesheet" href="page.css" type="text/css">
   </head>
   <body>
-    <iframe src="navigator.php"></iframe>
-    <h1>Edit Page</h1>
+    <iframe src="navigator.php?header=Edit%20Page"></iframe>
+    <!--<h1>Edit Page</h1>-->
     <?php if (!isset($_COOKIE['userid'])) {$hidden = true; echo "<p>You have to log in to the Handbook to edit pages.</p><!--";}
     else if (!$db->querySingle("SELECT canedit FROM passwords WHERE id=".$_COOKIE['userid'])) {$hidden = true; echo "<p>Sorry, you are not allowed to edit this page. Please ask Tim for permission.</p><!--";} ?>
     <center>
