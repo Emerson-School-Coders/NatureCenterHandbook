@@ -46,7 +46,7 @@ window.onclick = function(event) {
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    display: inline-block;
+    display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
@@ -58,7 +58,7 @@ window.onclick = function(event) {
     color: black;
     padding: 6px 8px;
     text-decoration: none;
-    display: inline-block;
+    display: inline;
 }
 
 /* Change color of dropdown links on hover */
