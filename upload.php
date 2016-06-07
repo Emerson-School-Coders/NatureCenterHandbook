@@ -3,10 +3,9 @@
 	<head>
 		<title>The Emerson Nature Center Official Handbook | Upload</title>
 		<link rel="stylesheet" href="page.css" type="text/css">
-		<iframe src="navigator.php"></iframe>
+		<iframe src="navigator.php?header=Upload%20an%20Handbook%21"></iframe>
 	</head>
 	<body>
-		<h1>Upload an entry to the Handbook!</h1>
 		<center>
 			<?php if (!isset($_COOKIE['userid'])) echo '<p>Sorry, uploading is only available to registered accounts. Please ask Tim for an account with uploading permissions.</p><img src="http://www.iconarchive.com/download/i88574/icons8/ios7/Messaging-Sad.ico"/><!--';
 			
