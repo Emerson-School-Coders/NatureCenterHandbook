@@ -24,7 +24,7 @@ $hidden = false;
       <br>Change images here:
       </h3>
       Image 1: <img src="<?php echo 'images/id-'.substr($page['imageids'], 0, 1).'.png'; ?>" height=100> Change: <input type="file" name="image1" accept=".png, image/png">
-      <?php if (explode(",", $page["imageids"])[1] != "-1" && explode(",", $page["imageids"])[1] != "")
+      <?php if (explode(",", $page["imageids"])/*[1]*/ != "-1" && explode(",", $page["imageids"])/*[1]*/ != "")
               echo '<br>Image 2: <img src="images/id-'.substr($page['imageids'], 2, 1).'.png" height=100> Change: <input type="file" name="image2" accept=".png, image/png">'; ?>
       <br><input type="submit" value="Submit">
     </form>

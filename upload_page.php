@@ -1,7 +1,8 @@
 <?php
 $echof = ":";
 function echof($text) {
-  $echof .= $text;
+  global $echof;
+  $echof = $echof . $text;
 }
 include "sql.inc";
 ini_set('display_errors',1);

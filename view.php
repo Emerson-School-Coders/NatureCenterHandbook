@@ -24,6 +24,15 @@ else $pmode = 2; // show entry
     <form action="view.php" method="GET">
       <p>WARNING: You may only use uppercase or lowercase letters in the search, or you will be accused of hacking.<br>
       Search: <input type="search" name="search" placeholder="Search the Handbook..."><input type="submit" value="Search"></p>
+    <ul>
+    <?php
+$search = " ";
+$query = 'SELECT id FROM handbook WHERE title LIKE "%'.$search.'%"OR entry LIKE "%'.$search.'%"';
+$results = $db->query($query);
+$result = $results->fetchArray(SQLITE3_NUM);
+while ($result) {echo '<li><a href="view.php?id='.$result[0].'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . $result[0]) . '</a></li>'; $result = $results->fetchArray(SQLITE3_NUM);}
+    ?>
+    </ul>
     </form>
     <p><a href="usersearch.php">Want to find another user? Click here for user search.</a></p>
     <?php if ($pmode != 0) echo '-->';
@@ -57,7 +66,7 @@ else $pmode = 2; // show entry
     <h3 class="entry">Written by <?php if ($pmode == 2) echo $db->querySingle("SELECT author FROM handbook WHERE id=" . $_GET["id"]) ?></h3>
     <div id="images">
     <?php if ($pmode == 2) {
-      $picss = $db->querySingle("SELECT imageids FROM handbook WHERE id=".$_GET["id"]); 
+      $picss = $db->querySingle("SELECT imageids FROM handbook WHERE id=".$_GET["id"]);
       $pics = explode(",", $picss); 
       foreach ($pics as $picid) {
       if ($picid != "-1" && $picid != "") echo '<img class="entry" src="images/id-' . $picid . '.png" width="100">';
