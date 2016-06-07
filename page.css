@@ -51,8 +51,21 @@ h3.entry {
   text-align: center;
 }
 textarea#styled {
-				width: 600px;
-				height: 120px;
-				border: 3px solid #cccccc;
-				padding: 5px;
-			}
+	width: 600px;
+	height: 120px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+}
+div.navbar {
+  background-color: green;
+  height: 40px;
+  line-height: 40px;
+}
+h3.navbar, a.navbar {
+  color: #66ff99;
+  font-family: "Lucida Grande";
+  text-decoration: none;
+}
+form.navbar {
+  display: inline-block;
+}
