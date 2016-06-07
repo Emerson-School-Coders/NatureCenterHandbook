@@ -25,9 +25,9 @@ window.onclick = function(event) {
 <style>
   /* Dropdown Button */
 .dropbtn {
-    background-color: #4CAF50;
+    background-color: green;
     color: white;
-    padding: 16px;
+    padding: 8px;
     font-size: 16px;
     border: none;
     cursor: pointer;
