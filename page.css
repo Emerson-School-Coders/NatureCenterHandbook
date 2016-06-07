@@ -70,3 +70,6 @@ h3.navbar, a.navbar {
 form.navbar {
   display: inline-block;
 }
+h1.navbar {
+	margin-top: 2px;
+}
