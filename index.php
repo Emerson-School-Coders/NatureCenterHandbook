@@ -2,7 +2,7 @@
 <head>
 <title>The Emerson Nature Center Official Handbook - Home</title>
 <link rel="stylesheet" href="page.css" type="text/css">
-<iframe src="navigator.php?header=Welcome%20to%20the%20Emerson%20Nature%20Center%27s%20Handbook%21"></iframe>
+<iframe src="navigator.php?header=Welcome%20to%20the%20Nature%20Center%27s%20Handbook%21"></iframe>
 </head>
 <body>
 <script>
