@@ -15,9 +15,8 @@ if ($results) {
     <link rel="stylesheet" href="page.css" type="text/css">
   </head>
   <body>
-    <iframe src="navigator.php"></iframe>
+    <iframe src="navigator.php?header=Search%20for%20User"></iframe>
     <?php if ($results) echo "<!--"; ?>
-    <h1>Search for User</h1>
     <form action="usersearch.php" method="GET">Search for User: <input type="search" name="search" placeholder="Search for User"><input type="submit" value="Search"></form>
     <?php if ($results) echo "-->"; else echo "<!--"; ?>
     <h1>Search Results</h1>
