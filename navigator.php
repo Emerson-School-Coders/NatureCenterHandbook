@@ -75,7 +75,7 @@ window.onclick = function(event) {
 </style>
 </head>
 <body>
-<div class="navbar">
+<div class="navbar" style="overflow:hidden">
     <h3 class="navbar" align="center">
       <a class="navbar" href="index.php" target="_top">Home</a> | 
       <a class="navbar" href="view.php" target="_top">View</a> | 
