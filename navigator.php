@@ -34,7 +34,7 @@ window.onclick = function(event) {
     text-decoration: none;
     margin-bottom: 4px;
     font-size: 18px;
-    text-decoration: bold;
+    font-weight: bold;
 }
 
 /* Dropdown button on hover & focus */
