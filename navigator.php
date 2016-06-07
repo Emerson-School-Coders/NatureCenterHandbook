@@ -96,7 +96,7 @@ window.onclick = function(event) {
       <div class="dropdown">
         <button class="dropbtn" onClick="hoverbar('view-drop-menu')">Handbook</button>
         <div id="view-drop-menu" class="dropdown-content" style="color: green;">
-          <a href="view.php" target="_top">View Page</a> | 
+          <a href="view.php" target="_top">View Handbook</a> | 
           <a href="upload.php" target="_top">Upload</a> | 
           <a href="printpdf.php" target="_top">Download PDF</a>
         </div>
