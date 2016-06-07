@@ -15,8 +15,7 @@ else {$tim = false;}
     <link rel="stylesheet" href="page.css" type="text/css">
   </head>
   <body>
-    <iframe src="navigator.php"></iframe>
-    <h1>User Control Panel - Tim only!</h1>
+    <iframe src="navigator.php?header=User%20Control%20Panel%20-%20Tim%20only%21"></iframe>
     <?php if (!$tim) {
       echo "<p>You are not Tim! Go away! You may not control the users!</p><!--";
     } ?>
