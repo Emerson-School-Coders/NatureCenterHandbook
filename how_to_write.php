@@ -2,7 +2,7 @@
 <head>
 <title>The Emerson Nature Center Official Handbook - Home</title>
 <link rel="stylesheet" href="page.css" type="text/css">
-<iframe src="navigator.php"></iframe>
+<iframe src="navigator.php?header=How%20to%20Write%20an%20Entry"></iframe>
 </head>
 <body>
 <script>
@@ -10,7 +10,6 @@ if(!("<?='hello';?>"=="hello")){
 document.write("<font color='red'>PHP is not installed!  That may cause some problems when viewing this site.  Please contact the system administrator of this site.</font>");
 }
 </script><!--check if php is on the server-->
-<h1>How to Write an Entry</h1>
 <p>This is how you can submit an entry to the Nature Center Handbook.</p>
 <ol>
 <li>
