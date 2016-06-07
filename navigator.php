@@ -52,6 +52,7 @@ window.onclick = function(event) {
     min-width: 160px;
     margin: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    width: 100%;
 }
 
 /* Links inside the dropdown */
@@ -59,7 +60,7 @@ window.onclick = function(event) {
     color: black;
     padding: 6px 8px;
     text-decoration: none;
-    /*display: inline-block;*/
+    display: inline-block;
 }
 
 /* Change color of dropdown links on hover */
