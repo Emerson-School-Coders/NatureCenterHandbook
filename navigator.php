@@ -26,9 +26,7 @@ window.onclick = function(event) {
   /* Dropdown Button */
 .dropbtn {
     background-color: green;
-    color: white;
     padding: 8px;
-    font-size: 16px;
     border: none;
     cursor: pointer;
 }
@@ -58,7 +56,6 @@ window.onclick = function(event) {
 
 /* Links inside the dropdown */
 .dropdown-content a {
-    color: black;
     padding: 6px 8px;
     text-decoration: none;
     display: inline-block;
