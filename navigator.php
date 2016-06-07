@@ -46,7 +46,7 @@ window.onclick = function(event) {
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    display: none;
+    display: inline-block;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
