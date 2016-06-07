@@ -59,7 +59,7 @@ window.onclick = function(event) {
     color: black;
     padding: 6px 8px;
     text-decoration: none;
-    display: inline-block;
+    /*display: inline-block;*/
 }
 
 /* Change color of dropdown links on hover */
