@@ -12,3 +12,8 @@ $pdfout->Write(200, 400, $entry["entry"]);
 }
 $pdfout->Output("D");
 ?>
+<html>
+  <body>
+    <p>Creating PDF...</p>
+  </body>
+</html>
