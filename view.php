@@ -61,8 +61,7 @@ while ($result) {echo '<li><a href="view.php?id='.$result[0].'">' . $db->querySi
     </ul>
     <?php if ($pmode != 1) echo '-->';
     if ($pmode != 2) echo '<!--'; ?>
-    <iframe src="navigator.php?header=Entry"></iframe>
-    <h1 class="entry"><?php if ($pmode == 2) echo $db->querySingle("SELECT title FROM handbook WHERE id=" . $_GET["id"]) ?></h1>
+    <iframe src="navigator.php?header=<?php if ($pmode == 2) echo $db->querySingle("SELECT title FROM handbook WHERE id=" . $_GET["id"]) ?>"></iframe>
     <h3 class="entry">Written by <?php if ($pmode == 2) echo $db->querySingle("SELECT author FROM handbook WHERE id=" . $_GET["id"]) ?></h3>
     <div id="images">
     <?php if ($pmode == 2) {
