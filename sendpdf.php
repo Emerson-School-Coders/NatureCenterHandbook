@@ -10,5 +10,5 @@ $pdfout->Text(100, 100, $entry["title"]);
 $pdfout->Text(150, 250, $entry["author"]);
 $pdfout->Write(200, 400, $entry["entry"]);
 }
-$pdfout->Output("I");
+$pdfout->Output("D");
 ?>
