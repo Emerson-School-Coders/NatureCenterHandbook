@@ -6,8 +6,8 @@ $handbook = $db->query("SELECT title, author, entry, imageids FROM handbook");
 while ($entry = $handbook->FetchArray()) {
 $pdfout->AddPage("P", "Letter");
 $pdfout->SetFont("Arial", "", 14);
-$pdfout->Text(($pdfout->GetPageHeight() - $pdfout->GetStringWidth($entry["title"])) / 4, 50, $entry["title"]);
-$pdfout->Text(($pdfout->GetPageHeight() - $pdfout->GetStringWidth($entry["author"])) / 4, 100, $entry["author"]);
+$pdfout->Text(($pdfout->GetPageHeight() - $pdfout->GetStringWidth($entry["title"])) / 3, 50, $entry["title"]);
+$pdfout->Text(($pdfout->GetPageHeight() - $pdfout->GetStringWidth($entry["author"])) / 3, 100, $entry["author"]);
 $pdfout->SetXY(10, 125);
 $pdfout->Write(12, $entry["entry"]);
 }
