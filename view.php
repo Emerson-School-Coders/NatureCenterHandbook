@@ -30,7 +30,7 @@ $search = " ";
 $query = 'SELECT id FROM handbook WHERE title LIKE "%'.$search.'%"OR entry LIKE "%'.$search.'%"';
 $results = $db->query($query);
 $result = $results->fetchArray(SQLITE3_NUM);
-while ($result) {echo '<li>YOU MAY NOT USE SQL INJECTION!!!!!! THIS INCIDENT WILL BE REPORTED!!!!!<a href="view.php?id='.$result[0].'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . $result[0]) . '</a></li>'; $result = $results->fetchArray(SQLITE3_NUM);}
+while ($result) {echo '<li><a href="view.php?id='.$result[0].'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . $result[0]) . '</a></li>'; $result = $results->fetchArray(SQLITE3_NUM);}
     ?>
     </ul>
     </form>
