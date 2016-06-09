@@ -9,11 +9,11 @@ $pdfout->SetTitle("Nature Center Handbook PDF");
 while ($entry = $handbook->FetchArray()) {
 $pdfout->AddPage("P", "Letter");
 $pdfout->SetFont("Helvetica", "B", 24);
-$pdfout->Text(($pdfout->GetPageWidth() - $pdfout->GetStringWidth($entry["title"])) / 2, 25, $entry["title"]);
+$pdfout->Text(($pdfout->GetPageWidth() - $pdfout->GetStringWidth($entry["title"])) / 2, 35, $entry["title"]);
 $pdfout->SetFont("Helvetica", "I", 16);
-$pdfout->Text(($pdfout->GetPageWidth() - $pdfout->GetStringWidth($entry["author"])) / 2, 50, $entry["author"]);
+$pdfout->Text(($pdfout->GetPageWidth() - $pdfout->GetStringWidth($entry["author"])) / 2, 60, $entry["author"]);
 $pdfout->SetFont("Helvetica", "", 12);
-$pdfout->SetXY(10, 85);
+$pdfout->SetXY(10, 95);
 $pdfout->Write(6, $entry["entry"]);
 }
 $pdfout->Output("I", "handbook.pdf");
