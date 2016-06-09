@@ -16,9 +16,9 @@ $pdfout->SetFont("Helvetica", "I", 16);
 $pdfout->SetTextColor(136, 136, 136);
 $pdfout->Text(($pdfout->GetPageWidth() - $pdfout->GetStringWidth($entry["author"])) / 2, 60, $entry["author"]);
 $pics = explode(",", $entry["imageids"]); 
-$i = 25;
+$i = 20;
 foreach ($pics as $picid) {
-  if ($picid != "-1" && $picid != "") $pdfout->Image("images/id-".$picid.".png", $i += 50, 80, 40, 40);
+  if ($picid != "-1" && $picid != "") $pdfout->Image("images/id-".$picid.".png", $i += 40, 80, 40, 40);
 }
 $pdfout->SetFont("Helvetica", "", 12);
 $pdfout->SetTextColor(0, 0, 0);
