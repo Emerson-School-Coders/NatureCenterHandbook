@@ -89,7 +89,7 @@ if ($uploadOks == 0) {
 }
 } else $imageidt = explode(",", $imageids)[1];
 $newimageids = $imageid . "," . $imageidt;
-echof($imageid . $imageidt)
+echof($imageid . $imageidt);
 if ($uploadOk == 1 && $uploadOks == 1 && $echof == ":") $insert_result = $db->exec('UPDATE handbook SET title="'.$_POST["title"].'",author="'.$_POST["author"].'",entry="'.$_POST["entry"].'", lasteditor='.$_COOKIE['userid'].', imageids="' . $newimageids . '" WHERE id='.$_POST['id']);
 else {echo $echof . "<br>Your entry was not added."; header(""); flush();}
 if (!$insert_result) {unlink($target_file); if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) unlink($target_files); die("An error occurred inserting the entry.");}
