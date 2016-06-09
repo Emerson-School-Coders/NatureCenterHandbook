@@ -1,5 +1,5 @@
 <?php
-global $echofi = ":";
+$echofi = ":";
 function echof($text) {
   $echofi .= $text;
 }
