@@ -13,7 +13,7 @@ $pdfout->SetFont("Helvetica", "B", 24);
 $pdfout->SetTextColor(8, 95, 25);
 $pdfout->Text(($pdfout->GetPageWidth() - $pdfout->GetStringWidth($entry["title"])) / 2, 35, $entry["title"]);
 $pdfout->SetFont("Helvetica", "I", 16);
-$pdfout->SetTextColor(66, 255, 99);
+$pdfout->SetTextColor(88, 88, 88);
 $pdfout->Text(($pdfout->GetPageWidth() - $pdfout->GetStringWidth($entry["author"])) / 2, 60, $entry["author"]);
 $pdfout->SetFont("Helvetica", "", 12);
 $pdfout->SetTextColor(0, 0, 0);
