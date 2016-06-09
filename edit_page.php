@@ -49,6 +49,7 @@ if ($uploadOk == 0) {
   echof( "Sorry, your first file was not uploaded.<br>");
 // if everything is ok, try to upload file
 } else {
+  unlink($target_file);
   if (move_uploaded_file($_FILES["image1"]["tmp_name"], $target_file)) {
     $uploadOk = 1;
   } else {
@@ -81,6 +82,7 @@ if ($uploadOks == 0) {
   echof( "Sorry, your second file was not uploaded.<br>");
 // if everything is ok, try to upload file
 } else {
+  unlink($target_files);
   if (move_uploaded_file($_FILES["image2"]["tmp_name"], $target_files)) {
     $uploadOks = 1;
   } else {
