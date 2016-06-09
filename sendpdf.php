@@ -18,7 +18,7 @@ $pdfout->Text(($pdfout->GetPageWidth() - $pdfout->GetStringWidth($entry["author"
 $pics = explode(",", $entry["imageids"]); 
 $i = 0;
 foreach ($pics as $picid) {
-  if ($picid != "-1" && $picid != "") $pdfout->Image("images/id-".$picid.".png", $i += 30, 80, 200, 200);
+  if ($picid != "-1" && $picid != "") $pdfout->Image("images/id-".$picid.".png", $i += 30, 80, 30, 30);
 }
 $pdfout->SetFont("Helvetica", "", 12);
 $pdfout->SetTextColor(0, 0, 0);
