@@ -14,7 +14,7 @@ $pdfout->SetFont("Helvetica", "I", 16);
 $pdfout->Text(($pdfout->GetPageHeight() - $pdfout->GetStringWidth($entry["author"])) / 2.7, 50, $entry["author"]);
 $pdfout->SetFont("Helvetica", "", 12);
 $pdfout->SetXY(10, 85);
-$pdfout->Write(5, $entry["entry"]);
+$pdfout->Write(6, $entry["entry"]);
 }
 $pdfout->Output("I", "handbook.pdf");
 ?>
