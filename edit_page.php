@@ -22,7 +22,7 @@ if (isset($_GET['delete']) && $db->querySingle("SELECT candelete FROM passwords 
 }
 if ($db->querySingle("SELECT canedit FROM passwords WHERE id=".$_COOKIE['userid']) == "1") {
   $uploadOk = 1;
-  $imageids = $db->querySingle("SELECT imageids FROM handbook WHERE id=".$_GET['id']);
+  $imageids = $db->querySingle("SELECT imageids FROM handbook WHERE id=".$_POST['id']);
 if (isset($_FILES['image1']['name']) && !empty($_FILES['image1']['name'])) {
   $imageid = explode(".", explode(",", $imageids)[0])[0] . "." . pathinfo($_FILES['image1']['name'], PATHINFO_EXTENSION);
 $target_file = "images/id-" . $imageid;
