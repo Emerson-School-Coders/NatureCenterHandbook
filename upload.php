@@ -17,8 +17,8 @@
 				<textarea id="styled" width="300" height="300" placeholder="text" name="entry" required></textarea>
 				<br>
 				<h3>Insert images here: </h3>
-				Image 1 (required): <input type="file" name="image1" accept=".png, image/png" required><br>
-				Image 2 (optional): <input type="file" name="image2" accept=".png, image/png"><br>
+				Image 1 (required): <input type="file" name="image1" accept=".png, image/png, .jpg, image/jpg, .gif, image/gif" required><br>
+				Image 2 (optional): <input type="file" name="image2" accept=".png, image/png, .jpg, image/jpg, .gif, image/gif"><br>
 				<input type="submit" value="submit">
 			</form>
 			<br>
