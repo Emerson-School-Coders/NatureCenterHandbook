@@ -23,7 +23,7 @@ if ($check !== false) {
  echof( "The first file you uploaded is not a valid image.<br>");
   $uploadOk = 0;
 }
-if ($_FILES["image1"]["size"] > 500000) {
+if ($_FILES["image1"]["size"] > 5242880) {
   echof( "Sorry, your first file is too large. Your size was " . $_FILES["image1"]["size"] . " bytes.<br>");
   $uploadOk = 0;
 }
@@ -54,7 +54,7 @@ if ($check !== false) {
   echof( "The second file you uploaded is not a valid image.<br>");
   $uploadOks = 0;
 }
-if ($_FILES["image2"]["size"] > 500000) {
+if ($_FILES["image2"]["size"] > 5242880) {
   echof( "Sorry, your second file is too large. Your size was " . $_FILES["image2"]["size"] . " bytes.<br>");
   $uploadOks = 0;
 }
