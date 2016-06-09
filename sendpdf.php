@@ -6,8 +6,8 @@ ini_set('display_errors', 1);
 $pdfout = new FPDF();
 $handbook = $db->query("SELECT title, author, entry, imageids FROM handbook");
 $pdfout->SetTitle("Nature Center Handbook PDF");
-$pdfout->SetFillColor(238, 238, 238);
 while ($entry = $handbook->FetchArray()) {
+$pdfout->SetFillColor(238, 238, 238);
 $pdfout->AddPage("P", "Letter");
 $pdfout->SetFont("Helvetica", "B", 24);
 $pdfout->Text(($pdfout->GetPageWidth() - $pdfout->GetStringWidth($entry["title"])) / 2, 35, $entry["title"]);
