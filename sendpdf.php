@@ -16,7 +16,7 @@ $pdfout->SetFont("Helvetica", "", 12);
 $pdfout->SetXY(10, 85);
 $pdfout->Write(12, $entry["entry"]);
 }
-$pdfout->Output("I");
+$pdfout->Output("I", "handbook.pdf");
 ?>
 <html>
   <body>
