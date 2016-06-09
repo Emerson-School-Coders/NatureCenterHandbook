@@ -8,11 +8,11 @@ $handbook = $db->query("SELECT title, author, entry, imageids FROM handbook");
 $pdfout->SetTitle("Nature Center Handbook PDF");
 while ($entry = $handbook->FetchArray()) {
 $pdfout->AddPage("P", "Letter");
-$pdfout->SetFont("Helvectica", "B", 24);
+$pdfout->SetFont("Helvetica", "B", 24);
 $pdfout->Text(($pdfout->GetPageHeight() - $pdfout->GetStringWidth($entry["title"])) / 2.7, 25, $entry["title"]);
-$pdfout->SetFont("Helvectica", "I", 16);
+$pdfout->SetFont("Helvetica", "I", 16);
 $pdfout->Text(($pdfout->GetPageHeight() - $pdfout->GetStringWidth($entry["author"])) / 2.7, 50, $entry["author"]);
-$pdfout->SetFont("Helvectica", "", 12);
+$pdfout->SetFont("Helvetica", "", 12);
 $pdfout->SetXY(10, 85);
 $pdfout->Write(12, $entry["entry"]);
 }
