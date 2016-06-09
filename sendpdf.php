@@ -13,7 +13,7 @@ $pdfout->Text(($pdfout->GetPageHeight() - $pdfout->GetStringWidth($entry["author
 $pdfout->SetXY(10, 85);
 $pdfout->Write(12, $entry["entry"]);
 }
-$pdfout->Output("D");
+$pdfout->Output("I");
 ?>
 <html>
   <body>
