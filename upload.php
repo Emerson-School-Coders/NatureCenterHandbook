@@ -3,7 +3,7 @@
 	<head>
 		<title>The Emerson Nature Center Official Handbook | Upload</title>
 		<link rel="stylesheet" href="page.css" type="text/css">
-		<iframe src="navigator.php?header=Upload%20an%20Handbook%21"></iframe>
+		<iframe src="navigator.php?header=Upload%20an%20Entry%21"></iframe>
 	</head>
 	<body>
 		<center>
