@@ -10,10 +10,10 @@ while ($entry = $handbook->FetchArray()) {
 $pdfout->SetFillColor(238, 238, 238);
 $pdfout->AddPage("P", "Letter");
 $pdfout->SetFont("Helvetica", "B", 24);
-$pdfout->SetTextColor(8, 95, 25);
+$pdfout->SetTextColor(8, 149, 37);
 $pdfout->Text(($pdfout->GetPageWidth() - $pdfout->GetStringWidth($entry["title"])) / 2, 35, $entry["title"]);
 $pdfout->SetFont("Helvetica", "I", 16);
-$pdfout->SetTextColor(88, 88, 88);
+$pdfout->SetTextColor(136, 136, 136);
 $pdfout->Text(($pdfout->GetPageWidth() - $pdfout->GetStringWidth($entry["author"])) / 2, 60, $entry["author"]);
 $pdfout->SetFont("Helvetica", "", 12);
 $pdfout->SetTextColor(0, 0, 0);
