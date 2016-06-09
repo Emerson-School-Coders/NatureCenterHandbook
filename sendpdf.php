@@ -3,6 +3,7 @@ include "sql.inc";
 include "fpdf181/fpdf.php";
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+show_source("fpdf181/fpdf.php");
 $pdfout = new FPDF();
 $handbook = $db->query("SELECT title, author, entry, imageids FROM handbook");
 while ($entry = $handbook->FetchArray()) {
@@ -14,7 +15,6 @@ $pdfout->SetXY(10, 85);
 $pdfout->Write(12, $entry["entry"]);
 }
 $pdfout->Output("D");
-show_source("fpdf181/fpdf.php");
 ?>
 <html>
   <body>
