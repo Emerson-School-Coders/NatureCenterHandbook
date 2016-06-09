@@ -68,7 +68,7 @@ while ($result) {echo '<li><a href="view.php?id='.$result[0].'">' . $db->querySi
       $picss = $db->querySingle("SELECT imageids FROM handbook WHERE id=".$_GET["id"]);
       $pics = explode(",", $picss); 
       foreach ($pics as $picid) {
-      if ($picid != "-1" && $picid != "") echo '<img class="entry" src="images/id-' . $picid . '.png" width="100">';
+      if ($picid != "-1" && $picid != "") echo '<img class="entry" src="images/id-' . $picid . '" width="100">';
       }
       echo "<br>";
     } ?>
