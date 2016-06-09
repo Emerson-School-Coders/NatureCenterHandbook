@@ -24,7 +24,8 @@ if ($db->querySingle("SELECT canedit FROM passwords WHERE id=".$_COOKIE['userid'
   $uploadOk = 1;
   $imageids = $db->querySingle("SELECT imageids FROM handbook WHERE id=".$_GET['id']);
 if (isset($_FILES['image1']['name']) && !empty($_FILES['image1']['name'])) {
-$target_file = "images/id-" . explode(".", explode(",", $imageids)[0])[0] . "." . pathinfo($_FILES['image1']['name'], PATHINFO_EXTENSION);
+  $imageid = explode(".", explode(",", $imageids)[0])[0] . "." . pathinfo($_FILES['image1']['name'], PATHINFO_EXTENSION);
+$target_file = "images/id-" . $imageid;
 $typeAllowed = array("image/png");
 $check = getimagesize($_FILES["image1"]["tmp_name"]);
 if ($check !== false) {
@@ -53,12 +54,12 @@ if ($uploadOk == 0) {
      $uploadOk = 0;
   }
 }
-}
+} else $imageid = explode(",", $imageids)[0];
 $uploadOks = 1;
 if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) {
   $target_dir = "images/";
-$secondid = $firstid + 1;
-$target_files = "images/id-" . explode(".", explode(",", $imageids)[1])[0] . "." . pathinfo($_FILES['image2']['name'], PATHINFO_EXTENSION);
+  $imageidt = explode(".", explode(",", $imageids)[1])[0] . "." . pathinfo($_FILES['image2']['name'], PATHINFO_EXTENSION);
+$target_files = "images/id-" . $imageids;
 $check = getimagesize($_FILES["image2"]["tmp_name"]);
 if ($check !== false) {
   $uploadOks = 1;
@@ -86,10 +87,11 @@ if ($uploadOks == 0) {
      $uploadOk = 0;
   }
 }
-} else $secondid = -1;
-if ($uploadOk == 1 && $uploadOks == 1 && $echof == ":") $insert_result = $db->exec('UPDATE handbook SET title="'.$_POST["title"].'",author="'.$_POST["author"].'",entry="'.$_POST["entry"].'", lasteditor='.$_COOKIE['userid'].' WHERE id='.$_POST['id']);
-else {echo $echof . "Your entry was not added.<br>Upload 1: ".$uploadOk."Upload 2: ".$uploadOks."Echo: ".$echof; header(""); flush();}
-if (!$insert_result) {die("An error occurred inserting the entry."); unlink($target_file); if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) unlink($target_files);}
+} else $imageidt = explode(",", $imageids)[1];
+$newimageids = $imageid . "," . $imageidt;
+if ($uploadOk == 1 && $uploadOks == 1 && $echof == ":") $insert_result = $db->exec('UPDATE handbook SET title="'.$_POST["title"].'",author="'.$_POST["author"].'",entry="'.$_POST["entry"].'", lasteditor='.$_COOKIE['userid'].', imageids="' . $newimageids . '" WHERE id='.$_POST['id']);
+else {echo $echof . "<br>Your entry was not added."; header(""); flush();}
+if (!$insert_result) {unlink($target_file); if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) unlink($target_files); die("An error occurred inserting the entry.");}
 if (!headers_sent()) header("Location: view.php?id=".$db->querySingle("SELECT id FROM handbook WHERE title='".$_POST['title']."'"));
 else echo 'Please press the back button on your browser.';
 }
