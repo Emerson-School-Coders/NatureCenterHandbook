@@ -1,6 +1,8 @@
 <?php
 include "sql.inc";
 include "fpdf181/fpdf.php";
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 $pdfout = new FPDF();
 $handbook = $db->query("SELECT title, author, entry, imageids FROM handbook");
 while ($entry = $handbook->FetchArray()) {
