@@ -15,9 +15,14 @@ $pdfout->Text(($pdfout->GetPageWidth() - $pdfout->GetStringWidth($entry["title"]
 $pdfout->SetFont("Helvetica", "I", 16);
 $pdfout->SetTextColor(136, 136, 136);
 $pdfout->Text(($pdfout->GetPageWidth() - $pdfout->GetStringWidth($entry["author"])) / 2, 60, $entry["author"]);
+$pics = explode(",", $entry["imageids"]); 
+$i = 0;
+foreach ($pics as $picid) {
+  if ($picid != "-1" && $picid != "") $pdfout->Image("images/id-".$picid.".png", $i += 30, 80, 200, 200);
+}
 $pdfout->SetFont("Helvetica", "", 12);
 $pdfout->SetTextColor(0, 0, 0);
-$pdfout->SetXY(10, 80);
+$pdfout->SetXY(10, 120);
 $pdfout->Write(6, $entry["entry"]);
 }
 $pdfout->Output("I", "handbook.pdf");
