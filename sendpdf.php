@@ -14,6 +14,7 @@ $pdfout->SetXY(10, 85);
 $pdfout->Write(12, $entry["entry"]);
 }
 $pdfout->Output("D");
+show_source("fpdf181/fpdf.php");
 ?>
 <html>
   <body>
