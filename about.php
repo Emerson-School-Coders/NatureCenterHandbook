@@ -10,7 +10,7 @@ if(!("<?='hello';?>"=="hello")){
 document.write("<font color='red'>PHP is not installed!  That may cause some problems when viewing this site.  Please contact the system administrator of this site.</font>");
 }
 </script><!--check if php is on the server-->
-<p>Thor, Jack, Mateo, and Elliot worked on this project as a handbook for the Nature Center. Special thanks to Jacob for beta testing. If you want to join, please ask Tim.</p>
+<p>Jack, Elliot, Thor, and Mateo worked on this project as a handbook for the Nature Center. Jacob worked on beta testing the handbook to find bugs. If you want to join, please ask Tim.</p>
 <p><b>Licensing: </b>all text is under the CC BY-SA license.  You are free to copy and distribute the content of this text.</p>
 <p>This project uses the fpdf library to create PDF files. The license is below:<br>
 <code>Permission is hereby granted, free of charge, to any person obtaining a copy<br>
