@@ -15,6 +15,7 @@ else $pmode = 2; // show entry
       else if (pmode == 1) document.write("Search Results");
       else document.write("<?php if ($pmode == 2) echo $db->querySingle("SELECT name FROM handbook WHERE id=" . $_GET['id']); ?>");
       document.write("</title>");
+      console.log(pmode)
     </script>
     <link rel="stylesheet" href="page.css" type="text/css">
   </head>
