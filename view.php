@@ -41,6 +41,7 @@ while ($result) {echo '<li><a href="view.php?id='.$result[0].'">' . $db->querySi
     <ul>
       <?php
       if ($pmode == 1) {
+        error_log("Trying...");
         if (!preg_match("/[A-Z | a-z]+/", $_GET['search'])) {
           error_log("Busted!");
           echo '<p>YOU MAY NOT USE SQL INJECTION!!!!!! THIS INCIDENT WILL BE REPORTED!!!!!</p><img src="https://i.ytimg.com/vi/g69yxajAYNE/maxresdefault.jpg" height=500 />';
