@@ -13,7 +13,7 @@ else $pmode = 2; // show entry
       document.write("<title>The Emerson Nature Center Official Handbook | ");
       if (pmode == 0) document.write("Search the Handbook");
       else if (pmode == 1) document.write("Search Results");
-      else document.write("<?php if ($pmode == 2) echo $db->querySingle("SELECT name FROM handbook WHERE id=" . $_GET['id']); ?>");
+      else document.write("<?php if ($pmode == 2) echo $db->querySingle("SELECT name FROM handbook WHERE id=" . SQLite3::escapeString($_GET['id'])); ?>");
       document.write("</title>");
       console.log(pmode)
     </script>
@@ -28,10 +28,10 @@ else $pmode = 2; // show entry
     <ul>
     <?php
 $search = " ";
-$query = 'SELECT id FROM handbook WHERE title LIKE "%'.$search.'%"OR entry LIKE "%'.$search.'%"';
+$query = 'SELECT id FROM handbook WHERE title LIKE "%'.SQLite3::escapeString($search).'%"OR entry LIKE "%'.SQLite3::escapeString($search).'%"';
 $results = $db->query($query);
 $result = $results->fetchArray(SQLITE3_NUM);
-while ($result) {echo '<li><a href="view.php?id='.$result[0].'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . $result[0]) . '</a></li>'; $result = $results->fetchArray(SQLITE3_NUM);}
+while ($result) {echo '<li><a href="view.php?id='.$result[0].'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . SQLite3::escapeString($result[0])) . '</a></li>'; $result = $results->fetchArray(SQLITE3_NUM);}
     ?>
     </ul>
     </form>
@@ -43,7 +43,7 @@ while ($result) {echo '<li><a href="view.php?id='.$result[0].'">' . $db->querySi
       <?php
       if ($pmode == 1) {
         error_log("Trying...");
-        if (!preg_match("/[A-Z | a-z]+/", $_GET['search'])) {
+        if (!preg_match("/[A-Z | a-z | 1-9 | , | .]+/", $_GET['search'])) {
           error_log("Busted!");
           echo '<p>YOU MAY NOT USE SQL INJECTION!!!!!! THIS INCIDENT WILL BE REPORTED!!!!!</p><img src="https://i.ytimg.com/vi/g69yxajAYNE/maxresdefault.jpg" height=500 />';
           $file = fopen("incidents.txt", "w");
@@ -51,13 +51,13 @@ while ($result) {echo '<li><a href="view.php?id='.$result[0].'">' . $db->querySi
           fclose($file);
         } else {
           $search = $_GET['search'];
-          $query = 'SELECT id FROM handbook WHERE title LIKE "%'.$search.'%"OR entry LIKE "%'.$search.'%"';
+          $query = 'SELECT id FROM handbook WHERE title LIKE "%'.SQLite3::escapeString($search).'%"OR entry LIKE "%'.SQLite3::escapeString($search).'%"';
           error_log($query);
           $results = $db->query($query);
           $result = $results->fetchArray(SQLITE3_NUM);
           if (!$result) echo "No results.";
           else {
-            while ($result) {echo '<li><a href="view.php?id='.$result[0].'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . $result[0]) . '</a></li>'; $result = $results->fetchArray(SQLITE3_NUM);}
+            while ($result) {echo '<li><a href="view.php?id='.$result[0].'">' . $db->querySingle("SELECT title FROM handbook WHERE id=" . SQLite3::escapeString($result[0])) . '</a></li>'; $result = $results->fetchArray(SQLITE3_NUM);}
           }
         }
       }
@@ -65,11 +65,11 @@ while ($result) {echo '<li><a href="view.php?id='.$result[0].'">' . $db->querySi
     </ul>
     <?php if ($pmode != 1) echo '-->';
     if ($pmode != 2) echo '<!--'; ?>
-    <iframe src="navigator.php?header=<?php if ($pmode == 2) echo $db->querySingle("SELECT title FROM handbook WHERE id=" . $_GET["id"]) ?>"></iframe>
-    <h3 class="entry">Written by <?php if ($pmode == 2) echo $db->querySingle("SELECT author FROM handbook WHERE id=" . $_GET["id"]) ?></h3>
+    <iframe src="navigator.php?header=<?php if ($pmode == 2) echo $db->querySingle("SELECT title FROM handbook WHERE id=" . SQLite3::escapeString($_GET["id"])) ?>"></iframe>
+    <h3 class="entry">Written by <?php if ($pmode == 2) echo $db->querySingle("SELECT author FROM handbook WHERE id=" . SQLite3::escapeString($_GET["id"])) ?></h3>
     <div id="images">
     <?php if ($pmode == 2) {
-      $picss = $db->querySingle("SELECT imageids FROM handbook WHERE id=".$_GET["id"]);
+      $picss = $db->querySingle("SELECT imageids FROM handbook WHERE id=".SQLite3::escapeString($_GET["id"]));
       $pics = explode(",", $picss); 
       foreach ($pics as $picid) {
       if ($picid != "-1" && $picid != "") echo '<img class="entry" src="images/id-' . $picid . '" width="100">';
@@ -77,7 +77,7 @@ while ($result) {echo '<li><a href="view.php?id='.$result[0].'">' . $db->querySi
       echo "<br>";
     } ?>
     </div>
-    <p class="entry"><?php if ($pmode == 2) echo $db->querySingle("SELECT entry FROM handbook WHERE id=" . $_GET["id"]) ?></p>
+    <p class="entry"><?php if ($pmode == 2) echo $db->querySingle("SELECT entry FROM handbook WHERE id=" . SQLite3::escapeString($_GET["id"])) ?></p>
     <p style="text-align: center; font-size: 8pt;"><a href="edit.php?id=<?php echo $_GET['id']; ?>">Edit this page</a></p>
     <?php include 'cp.php'; ?>
   </body>
