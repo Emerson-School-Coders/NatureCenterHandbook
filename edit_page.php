@@ -1,5 +1,5 @@
 <?php
-global $echofi = ":";;;;;;;;;
+$echofi = ":";
 function echof($text) {
   $echofi .= $text;
 }
@@ -7,10 +7,10 @@ include "sql.inc";
 ini_set('display_errors',1);
 error_reporting(E_ALL);
 if (isset($_COOKIE['userid'])) {
-if (isset($_GET['delete']) && $db->querySingle("SELECT candelete FROM passwords WHERE id=".$_COOKIE['userid']) == "1") {
-  $page = $db->querySingle("SELECT * FROM handbook WHERE id=".$_GET['id'], true);
-  $db->exec('INSERT INTO deleted VALUES ('.$page['id'].',"'.$page['title'].'","'.$page['author'].'","'.$page['entry'].'",'.$_COOKIE["userid"].','.time().')');
-  $db->exec('DELETE FROM handbook WHERE id='.$_GET['id']);
+if (isset($_GET['delete']) && $db->querySingle("SELECT candelete FROM passwords WHERE id=".SQLite3::escapeString($_COOKIE['userid'])) == "1") {
+  $page = $db->querySingle("SELECT * FROM handbook WHERE id=".SQLite3::escapeString($_GET['id']), true);
+  $db->exec('INSERT INTO deleted VALUES ('.SQLite3::escapeString($page['id']).',"'.SQLite3::escapeString($page['title']).'","'.SQLite3::escapeString($page['author']).'","'.SQLite3::escapeString($page['entry']).'",'.SQLite3::escapeString($_COOKIE["userid"]).','.time().')');
+  $db->exec('DELETE FROM handbook WHERE id='.SQLite3::escapeString($_GET['id']));
   foreach (explode(",", $page['imageids']) as $id) {
     if ($id != "-1" && $id != "") {
       unlink("images/id-".$id.".png");
@@ -20,9 +20,9 @@ if (isset($_GET['delete']) && $db->querySingle("SELECT candelete FROM passwords 
   flush();
   exit();
 }
-if ($db->querySingle("SELECT canedit FROM passwords WHERE id=".$_COOKIE['userid']) == "1") {
+if ($db->querySingle("SELECT canedit FROM passwords WHERE id=".SQLite3::escapeString($_COOKIE['userid'])) == "1") {
   $uploadOk = 1;
-  $imageids = $db->querySingle("SELECT imageids FROM handbook WHERE id=".$_POST['id']);
+  $imageids = $db->querySingle("SELECT imageids FROM handbook WHERE id=".SQLite3::escapeString($_POST['id']));
 if (isset($_FILES['image1']['name']) && !empty($_FILES['image1']['name'])) {
   $imageid = explode(".", explode(",", $imageids)[0])[0] . "." . pathinfo($_FILES['image1']['name'], PATHINFO_EXTENSION);
 $target_file = "images/id-" . $imageid;
@@ -90,10 +90,10 @@ if ($uploadOks == 0) {
 } else $imageidt = explode(",", $imageids)[1];
 $newimageids = $imageid . "," . $imageidt;
 echof($imageid . $imageidt);
-if ($uploadOk == 1 && $uploadOks == 1 && $echofi == ":") $insert_result = $db->exec('UPDATE handbook SET title="'.$_POST["title"].'",author="'.$_POST["author"].'",entry="'.$_POST["entry"].'", lasteditor='.$_COOKIE['userid'].', imageids="' . $newimageids . '" WHERE id='.$_POST['id']);
+if ($uploadOk == 1 && $uploadOks == 1 && $echofi == ":") $insert_result = $db->exec('UPDATE handbook SET title="'.SQLite3::escapeString($_POST["title"]).'",author="'.SQLite3::escapeString($_POST["author"]).'",entry="'.SQLite3::escapeString($_POST["entry"]).'", lasteditor='.SQLite3::escapeString($_COOKIE['userid']).', imageids="' . SQLite3::escapeString($newimageids) . '" WHERE id='.SQLite3::escapeString($_POST['id']));
 else {echo $echofi . "<br>Your entry was not added."; header(""); flush();}
 if (!$insert_result) {unlink($target_file); if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) unlink($target_files); die("An error occurred inserting the entry.");}
-if (!headers_sent()) header("Location: view.php?id=".$db->querySingle("SELECT id FROM handbook WHERE title='".$_POST['title']."'"));
+if (!headers_sent()) header("Location: view.php?id=".$db->querySingle("SELECT id FROM handbook WHERE title='".SQLite3::escapeString($_POST['title'])."'"));
 else echo 'Please press the back button on your browser.';
 }
 }
