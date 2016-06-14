@@ -40,9 +40,9 @@ else {$tim = false;}
         <input type="hidden" name="action" value="moduser">
         ID: <?php echo $passid; ?><br>
         <input type="hidden" name="id" value="<?php echo $passid; ?>">
-        Can add pages: <input type="checkbox" name="canadd" value="1" <?php if ($modpass) {if ($db->querySingle("SELECT canadd FROM passwords WHERE id = " . $passid) == "1") {echo "checked";}}?>><br>
-        Can edit pages: <input type="checkbox" name="canedit" value="1" <?php if ($modpass) {if ($db->querySingle("SELECT canedit FROM passwords WHERE id = " . $passid) == "1") {echo "checked";}}?>><br>
-        Can delete pages: <input type="checkbox" name="candelete" value="1" <?php if ($modpass) {if ($db->querySingle("SELECT candelete FROM passwords WHERE id = " . $passid) == "1") {echo "checked";}}?>><br>
+        Can add pages: <input type="checkbox" name="canadd" value="1" <?php if ($modpass) {if ($db->querySingle("SELECT canadd FROM passwords WHERE id=" . SQLite3::escapeString($passid)) == "1") {echo "checked";}}?>><br>
+        Can edit pages: <input type="checkbox" name="canedit" value="1" <?php if ($modpass) {if ($db->querySingle("SELECT canedit FROM passwords WHERE id=" . SQLite3::escapeString($passid)) == "1") {echo "checked";}}?>><br>
+        Can delete pages: <input type="checkbox" name="candelete" value="1" <?php if ($modpass) {if ($db->querySingle("SELECT candelete FROM passwords WHERE id=" . SQLite3::escapeString($passid)) == "1") {echo "checked";}}?>><br>
         <input type="submit" value="Edit User">
         <?php if (!$modpass && $tim) {echo "-->";} ?>
       </p>
