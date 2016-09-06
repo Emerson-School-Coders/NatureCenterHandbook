@@ -13,6 +13,7 @@ $images = scandir($target_dir);
 $last_id = ltrim(end($images), "id-");
 $last_id = rtrim($last_id, ".png");
 $firstid = intval($last_id) + 1;
+$first_id = tostring($firstid) . pathinfo($_FILES['image1']['name'], PATHINFO_EXTENSION);
 $target_file = $target_dir . "id-" . $firstid . "." . pathinfo($_FILES['image1']['name'], PATHINFO_EXTENSION);
 $uploadOk = 1;
 $typeAllowed = array("image/png");
@@ -47,6 +48,7 @@ if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) {
   $target_dir = "images/";
 $secondid = $firstid + 1;
 $target_files = $target_dir . "id-" . $secondid . "." . pathinfo($_FILES['image2']['name'], PATHINFO_EXTENSION);
+$second_id = tostring($secondid) . pathinfo($_FILES['image2']['name'], PATHINFO_EXTENSION);
 $check = getimagesize($_FILES["image2"]["tmp_name"]);
 if ($check !== false) {
   $uploadOks = 1;
@@ -74,7 +76,7 @@ if ($uploadOks == 0) {
   }
 }
 } else $secondid = -1;
-if ($uploadOk == 1 && $uploadOks == 1 && $echof == ":") $insert_result = $db->exec('INSERT INTO handbook (id,title,author,entry,imageids) VALUES (NULL,"'.$_POST["title"].'","'.$_POST["author"].'","'.addslashes($_POST["entry"]).'","'.$firstid.",".$secondid.'")');
+if ($uploadOk == 1 && $uploadOks == 1 && $echof == ":") $insert_result = $db->exec('INSERT INTO handbook (id,title,author,entry,imageids) VALUES (NULL,"'.$_POST["title"].'","'.$_POST["author"].'","'.addslashes($_POST["entry"]).'","'.$first_id.",".$second_id.'")');
 else {echo $echof . "Your entry was not added.<br>Upload 1: ".$uploadOk."Upload 2: ".$uploadOks."Echo: ".$echof; header(""); flush();}
 if (!$insert_result) {die("An error occurred inserting the entry."); unlink($target_file); if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) unlink($target_files);}
 if (!headers_sent()) header("Location: view.php?id=".$db->querySingle("SELECT id FROM handbook WHERE title='".$_POST['title']."'"));
