@@ -21,7 +21,7 @@ while ($queryf = $db->querySingle("SELECT * FROM handbook WHERE id=" . $j, true)
 }
 echo "<br><br>database deleted:<br>";
 $k = 1;
-while ($queryg = $db->querySingle("SELECT * FROM handbook WHERE id=" . $k, true)) {
+while ($queryg = $db->querySingle("SELECT * FROM deleted WHERE id=" . $k, true)) {
   print_r($queryg);
   echo "<br>";
   $k++;
