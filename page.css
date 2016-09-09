@@ -84,5 +84,6 @@ h3 {
 table {
 	color: black;
 	font-family: "Lucida Sans Unicode", "Lucida Grande";
-  margin-left: 12px;
+  margin-left: 16px;
+  line-height: 100%;
 }
