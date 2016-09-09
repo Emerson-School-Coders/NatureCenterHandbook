@@ -89,11 +89,11 @@ else {$tim = false;}
     <div id="viewdeletions">
       <h3>View deleted entries</h3>
       <table>
-        <tr><td width=250px>Title</td><td width=150px>Author</td><td width=150px>Removed by</td><td width=200px>Removed on</td><td width=75px>Restore</td></tr>
+        <tr><td width=250px>Title</td><td width=150px>Author</td><td width=150px>Removed by</td><td width=200px>Removed on</td><td width=75px>Restore</td><td width=75px>Remove</td></tr>
         <?php
         $deletions = $db->query("SELECT * FROM deleted");
         while ($delete = $deletions->fetchArray(SQLITE3_ASSOC)) {
-          echo '<tr><td>'.$delete['title'].'</td><td>'.$delete['author'].'</td><td>'.$db->querySingle("SELECT name FROM passwords WHERE id=".$delete['removedby']).'</td><td>'.date('Y-m-d', $delete['removaldate']).'</td><td><form action="restore.php" method="POST"><input type="hidden" name="id" value="'.$page['id'].'"><input type="submit" value="Restore"></td></tr>';
+          echo '<tr><td>'.$delete['title'].'</td><td>'.$delete['author'].'</td><td>'.$db->querySingle("SELECT name FROM passwords WHERE id=".$delete['removedby']).'</td><td>'.date('Y-m-d', $delete['removaldate']).'</td><td><form action="restore.php" method="POST"><input type="hidden" name="id" value="'.$page['id'].'"><input type="submit" value="Restore"></td><td><form action="delete.php" method="POST"><input type="hidden" name="id" value="'.$page['id'].'"><input type="submit" value="Remove" style="color: red"></td></tr>';
         }
         ?>
       </table>
