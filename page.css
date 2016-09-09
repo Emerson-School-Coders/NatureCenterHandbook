@@ -79,5 +79,10 @@ h1.navbar {
 h3 {
   color: #006418;
   font-family: "Lucida Sans Unicode", "Lucida Grande";
-  margin-left: 16px;
+  margin-left: 12px;
+}
+table {
+	color: black;
+	font-family: "Lucida Sans Unicode", "Lucida Grande";
+  margin-left: 12px;
 }
