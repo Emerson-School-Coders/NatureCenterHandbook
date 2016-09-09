@@ -8,6 +8,7 @@ $modpass = true;
 else {$modpass = false;}
 if (isset($_COOKIE['tim'])) {$tim = true;}
 else {$tim = false;}
+if (!$tim) header("HTTP/1.1 403 Forbidden");
 ?>
 <html>
   <head>
@@ -16,9 +17,6 @@ else {$tim = false;}
   </head>
   <body>
     <iframe src="navigator.php?header=User%20Control%20Panel%20-%20Tim%20only%21"></iframe>
-    <?php if (!$tim) {
-      echo "<p>You are not Tim! Go away! You may not control the users!</p><!--";
-    } ?>
     <form action="useraction.php" method="POST">
       <h3>Add New User</h3>
       <input type="hidden" name="action" value="adduser">
@@ -98,9 +96,6 @@ else {$tim = false;}
         ?>
       </table>
     </div>
-    <?php if (!$tim) {
-      echo "-->";
-    } ?>
 <?php include 'cp.php'; ?>
   </body>
 </html>
