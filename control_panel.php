@@ -89,7 +89,7 @@ else {$tim = false;}
     <div id="viewdeletions">
       <h3>View deleted entries</h3>
       <table>
-        <tr><td>Title</td><td>Author</td><td>Removed by</td><td>Removed on</td><td>Restore</td></tr>
+        <tr><td width=250px>Title</td><td width=150px>Author</td><td width=150px>Removed by</td><td width=200px>Removed on</td><td width=75px>Restore</td></tr>
         <?php
         $deletions = $db->query("SELECT * FROM deleted");
         while ($delete = $deletions->fetchArray(SQLITE3_ASSOC)) {
