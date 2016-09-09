@@ -15,7 +15,7 @@ else {header("HTTP/1.1 403 Forbidden", true, 403);}
     <link rel="stylesheet" href="page.css" type="text/css">
   </head>
   <body>
-    <?php if ($tim) print("Is tim"); ?>
+    <?php if ($tim) print("Is tim"); else print("Is not tim"); ?>
     <iframe src="navigator.php?header=User%20Control%20Panel%20-%20Tim%20only%21"></iframe>
     <form action="useraction.php" method="POST">
       <h3>Add New User</h3>
