@@ -1,0 +1,6 @@
+ErrorDocument 403 /403.html
+ErrorDocument 404 /404.html
+
+Options -Indexes
+IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+Options All -Indexes
