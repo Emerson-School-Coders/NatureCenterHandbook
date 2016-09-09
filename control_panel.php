@@ -7,7 +7,7 @@ $modpass = true;
 }
 else {$modpass = false;}
 if (isset($_COOKIE['tim'])) {$tim = true;}
-else {header($_SERVER["SERVER_PROTOCOL"] . " 403 Forbidden", true, 403);}
+else {header($_SERVER["SERVER_PROTOCOL"] . " 403 Forbidden", true, 403); header("Location: 403.html");}
 ?>
 <html>
   <head>
