@@ -6,7 +6,7 @@ $passid = $_POST["password"];
 $modpass = true;
 }
 else {$modpass = false;}
-if (isset($_COOKIE['tim'])) {$tim = true;}
+if (isset($_COOKIE['tim'])) {$tim = true; print("Is tim");}
 else {header("HTTP/1.1 403 Forbidden");}
 ?>
 <html>
