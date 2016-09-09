@@ -48,7 +48,7 @@ img.entry {
 #images {
   text-align: center;
 }
-h3.entry {
+h3.entry, h3 {
   color: #888888;
   font-family: "Lucida Sans Unicode", "Lucida Grande";
   text-align: center;
