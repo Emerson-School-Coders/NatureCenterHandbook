@@ -48,7 +48,7 @@ img.entry {
 #images {
   text-align: center;
 }
-h3.entry, h3 {
+h3.entry {
   color: #888888;
   font-family: "Lucida Sans Unicode", "Lucida Grande";
   text-align: center;
@@ -75,4 +75,9 @@ form.navbar {
 }
 h1.navbar {
 	margin-top: 2px;
+}
+h3 {
+  color: #888888;
+  font-family: "Lucida Sans Unicode", "Lucida Grande";
+  text-align: center;
 }
