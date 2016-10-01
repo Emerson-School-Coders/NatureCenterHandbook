@@ -90,7 +90,7 @@ else {header($_SERVER["SERVER_PROTOCOL"] . " 403 Forbidden", true, 403); header(
         <?php
         $deletions = $db->query("SELECT * FROM deleted");
         while ($delete = $deletions->fetchArray(SQLITE3_ASSOC)) {
-          echo '<tr><td>'.$delete['title'].'</td><td>'.$delete['author'].'</td><td>'.$db->querySingle("SELECT name FROM passwords WHERE id=" . $delete['removedby']) . '</td><td>' . date('Y-m-d', $delete['removaldate']) . '</td><td><form action="restore.php" method="GET"><input type="hidden" name="id" value="' . $delete['id'] . '"><input type="submit" value="Restore"></td><td><form action="delete.php" method="GET"><input type="hidden" name="id" value="'.$delete['id'].'"><button type="button" value="Remove" style="color: red" onclick="var delete_page = confirm(\'Are you sure you want to delete this forever? It cannot be recovered!\');if(delete_page==true){window.location="delete.php?id=' . $delete['id'] . '"}">Delete</button></td></tr>';
+          echo '<tr><td>'.$delete['title'].'</td><td>'.$delete['author'].'</td><td>'.$db->querySingle("SELECT name FROM passwords WHERE id=" . $delete['removedby']) . '</td><td>' . date('Y-m-d', $delete['removaldate']) . '</td><td><form action="restore.php" method="GET"><input type="hidden" name="id" value="' . $delete['id'] . '"><input type="submit" value="Restore"></td><td><form action="delete.php" method="GET"><input type="hidden" name="id" value="'.$delete['id'].'"><button type="button" value="Remove" style="color: red" onclick="var delete_page = confirm(\'Are you sure you want to delete this forever? It cannot be recovered!\');if(delete_page==true){window.location=\'delete.php?id=' . $delete['id'] . '\'}">Delete</button></td></tr>';
         }
         ?>
       </table>
