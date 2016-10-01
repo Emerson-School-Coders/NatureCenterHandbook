@@ -1,6 +1,7 @@
 <?php
 $echofi = ":";
 function echof($text) {
+  global $echofi;
   $echofi .= $text;
 }
 include "sql.inc";
