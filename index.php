@@ -2,6 +2,7 @@
 <html>
     <?php
         include 'sql.inc';
+        date_default_timezone_set("EST");
     ?>
     <head>
         <title>The Emerson Nature Center Official Handbook - Home</title>
