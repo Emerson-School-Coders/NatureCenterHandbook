@@ -14,7 +14,7 @@ if (isset($_GET['delete']) && $db->querySingle("SELECT candelete FROM passwords 
   $db->exec('DELETE FROM handbook WHERE id='.SQLite3::escapeString($_GET['id']));
   foreach (explode(",", $page['imageids']) as $id) {
     if ($id != "-1" && $id != "") {
-      unlink("images/id-".$id.".png");
+      unlink("images/id-".$id);
     }
   }
   header("Location: index.php");
