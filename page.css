@@ -87,3 +87,6 @@ table {
   margin-left: 16px;
   line-height: 100%;
 }
+p.entry{
+	white-space: pre-wrap;
+}
