@@ -5,4 +5,5 @@ class MyDB extends SQLite3 {
   }
 }
 $db = new MyDB();
+date_default_timezone_set("EST");
 ?>
