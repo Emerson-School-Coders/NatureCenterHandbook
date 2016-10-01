@@ -90,7 +90,7 @@ if ($uploadOks == 0) {
 }
 } else $imageidt = explode(",", $imageids)[1];
 $newimageids = $imageid . "," . $imageidt;
-echof($imageid . $imageidt);
+//echof($imageid . $imageidt);
 if ($uploadOk == 1 && $uploadOks == 1 && $echofi == ":") $insert_result = $db->exec('UPDATE handbook SET title="'.SQLite3::escapeString($_POST["title"]).'",author="'.SQLite3::escapeString($_POST["author"]).'",entry="'.SQLite3::escapeString($_POST["entry"]).'", lasteditor='.SQLite3::escapeString($_COOKIE['userid']).', imageids="' . SQLite3::escapeString($newimageids) . '" WHERE id='.SQLite3::escapeString($_POST['id']));
 else {echo $echofi . "<br>Your entry was not added."; header(""); flush();}
 if (!$insert_result) {unlink($target_file); if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) unlink($target_files); die("An error occurred inserting the entry.");}
