@@ -45,6 +45,7 @@ if ($uploadOk == 0) {
 }
 $uploadOks = 1;
 if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) {
+  echo "Image 2 found";
   $target_dir = "images/";
 $secondid = $firstid + 1;
 $target_files = $target_dir . "id-" . $secondid . "." . pathinfo($_FILES['image2']['name'], PATHINFO_EXTENSION);
