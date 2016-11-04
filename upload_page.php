@@ -13,7 +13,7 @@ $images = scandir($target_dir);
 $last_id = ltrim(end($images), "id-");
 $last_id = rtrim($last_id, ".png");
 $firstid = intval($last_id) + 1;
-$first_id = tostring($firstid) . pathinfo($_FILES['image1']['name'], PATHINFO_EXTENSION);
+$first_id = (string)$firstid . pathinfo($_FILES['image1']['name'], PATHINFO_EXTENSION);
 $target_file = $target_dir . "id-" . $firstid . "." . pathinfo($_FILES['image1']['name'], PATHINFO_EXTENSION);
 $uploadOk = 1;
 $typeAllowed = array("image/png");
@@ -48,7 +48,7 @@ if (isset($_FILES['image2']['name']) && !empty($_FILES['image2']['name'])) {
   $target_dir = "images/";
 $secondid = $firstid + 1;
 $target_files = $target_dir . "id-" . $secondid . "." . pathinfo($_FILES['image2']['name'], PATHINFO_EXTENSION);
-$second_id = tostring($secondid) . pathinfo($_FILES['image2']['name'], PATHINFO_EXTENSION);
+$second_id = (string)$secondid . pathinfo($_FILES['image2']['name'], PATHINFO_EXTENSION);
 $check = getimagesize($_FILES["image2"]["tmp_name"]);
 if ($check !== false) {
   $uploadOks = 1;
